@@ -154,22 +154,38 @@
   var carouselCount = 0;
 
   function currentSlideIndex(){
-    var w = modalCarouselTrack.clientWidth;
-    return w ? Math.round(modalCarouselTrack.scrollLeft / w) : 0;
+    var slides = modalCarouselTrack ? modalCarouselTrack.children : [];
+    if (!slides || !slides.length) return 0;
+    var scrollLeft = modalCarouselTrack.scrollLeft;
+    var closestIndex = 0;
+    var minDiff = Infinity;
+    for (var i = 0; i < slides.length; i++) {
+      var diff = Math.abs(slides[i].offsetLeft - scrollLeft);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = i;
+      }
+    }
+    return closestIndex;
   }
   function goToSlide(index, smooth){
-    if (!carouselCount) return;
+    if (!carouselCount || !modalCarouselTrack || !modalCarouselTrack.children.length) return;
     var i = ((index % carouselCount) + carouselCount) % carouselCount;
-    modalCarouselTrack.scrollTo({ 
-      left: i * modalCarouselTrack.clientWidth, 
-      behavior: smooth === false ? 'auto' : 'smooth' 
-    });
+    var targetSlide = modalCarouselTrack.children[i];
+    if (targetSlide) {
+      modalCarouselTrack.scrollTo({ 
+        left: targetSlide.offsetLeft, 
+        behavior: smooth === false ? 'auto' : 'smooth' 
+      });
+    }
   }
   function updateActiveDot(){
     var i = currentSlideIndex();
-    Array.prototype.forEach.call(modalCarouselDots.children, function(dot, idx){
-      dot.classList.toggle('is-active', idx === i);
-    });
+    if (modalCarouselDots) {
+      Array.prototype.forEach.call(modalCarouselDots.children, function(dot, idx){
+        dot.classList.toggle('is-active', idx === i);
+      });
+    }
   }
 
   if (modalCarouselPrev && modalCarouselNext) {
