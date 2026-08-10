@@ -5,6 +5,11 @@ var I18N_EN = {
   'bio': 'Chilean energy engineer and data scientist. Studies how <strong>climate change</strong> stresses the electrical grid — and believes the <strong>ambition</strong> to solve it starts in the rural southern Chile where he grew up.',
   'wallpaper': 'natural affinity for data natural affinity for data climate change climate change energy resilience natural affinity for data',
   'langLabel': 'English',
+  'filterAll': 'All',
+  'filterClimate': 'Climate & Energy',
+  'filterData': 'Data & AI',
+  'filterAwards': 'Awards & Papers',
+  'filterCommunity': 'Community & Nature',
 
   'eeeic.tag': 'Conference paper · EEEIC 2026', 'eeeic.title': 'IEEE EEEIC 2026, Lisbon',
   'calabria.tag': 'Jan–Mar 2026 · Italy', 'calabria.title': 'Research stay, University of Calabria',
