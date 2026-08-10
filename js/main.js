@@ -7,9 +7,9 @@
   var themeToggle = document.getElementById('themeToggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', function(){
-      var isLight = document.documentElement.classList.toggle('theme-light');
+      var isDark = document.documentElement.classList.toggle('theme-dark');
       try {
-        localStorage.setItem('jpl-theme', isLight ? 'light' : 'dark');
+        localStorage.setItem('jpl-theme', isDark ? 'dark' : 'light');
       } catch(e){}
     });
   }

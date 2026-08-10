@@ -32,7 +32,44 @@
 :root {
   --unit: 8px;
   
-  /* Dark Botanical Palette (Default) */
+  /* Light Botanical Palette (Default) */
+  --bg: #F4F0E4;
+  --bg-subtle: #EAE4D4;
+  --surface: rgba(255, 254, 250, 0.88);
+  --surface-hover: #FAF4E4;
+  --surface-solid: #FFFEFA;
+  --border: #CBD0C4;
+  --border-hover: #2E6B3E;
+  
+  --text: #142217;
+  --text-dim: rgba(20, 34, 23, 0.76);
+  --text-muted: rgba(20, 34, 23, 0.5);
+  
+  --accent: #2E6B3E;
+  --accent-gold: #B88E14;
+  --accent-sky: #2B6CB0;
+  --accent-glow: rgba(46, 107, 62, 0.18);
+  
+  --display-font: 'Fraunces', Georgia, serif;
+  --body-font: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono-font: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  --max-width: 1240px;
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  --shadow-card: 0 8px 24px -6px rgba(20, 34, 23, 0.08), 0 0 0 1px var(--border);
+  --shadow-hover: 0 16px 36px -8px rgba(20, 34, 23, 0.16), 0 0 20px -2px var(--accent-glow), 0 0 0 1px var(--border-hover);
+}
+
+/* Dark Botanical Mode */
+html.theme-dark {
   --bg: #0A110D;
   --bg-subtle: #101B14;
   --surface: rgba(18, 30, 23, 0.72);
@@ -50,45 +87,8 @@
   --accent-sky: #4A90E2;
   --accent-glow: rgba(62, 142, 85, 0.25);
   
-  --display-font: 'Fraunces', Georgia, serif;
-  --body-font: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --mono-font: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  
-  --radius-sm: 6px;
-  --radius: 12px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-  
-  --max-width: 1240px;
-  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  
   --shadow-card: 0 12px 32px -10px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border);
   --shadow-hover: 0 20px 48px -14px rgba(0, 0, 0, 0.7), 0 0 28px -4px var(--accent-glow), 0 0 0 1px var(--border-hover);
-}
-
-/* Light Botanical Override */
-html.theme-light {
-  --bg: #F4F0E4;
-  --bg-subtle: #EAE4D4;
-  --surface: rgba(255, 254, 250, 0.85);
-  --surface-hover: #FAF4E4;
-  --surface-solid: #FFFEFA;
-  --border: #CBD0C4;
-  --border-hover: #3E8E55;
-  
-  --text: #142217;
-  --text-dim: rgba(20, 34, 23, 0.75);
-  --text-muted: rgba(20, 34, 23, 0.48);
-  
-  --accent: #2E6B3E;
-  --accent-gold: #B88E14;
-  --accent-sky: #2B6CB0;
-  --accent-glow: rgba(46, 107, 62, 0.18);
-  
-  --shadow-card: 0 8px 24px -6px rgba(20, 34, 23, 0.08), 0 0 0 1px var(--border);
-  --shadow-hover: 0 16px 36px -8px rgba(20, 34, 23, 0.16), 0 0 20px -2px var(--accent-glow), 0 0 0 1px var(--border-hover);
 }
 
 /* ===== Reset & Base ===== */
