@@ -1,9 +1,16 @@
 (function(){
   'use strict';
 
-  var HTML_KEYS = { bio: true };
+  var HTML_KEYS = { 
+    bio: true, 
+    filterAll: true, 
+    filterClimate: true, 
+    filterData: true, 
+    filterAwards: true, 
+    filterCommunity: true 
+  };
 
-  /* ---------- Theme Switcher ---------- */
+  /* ---------- Theme Switcher (Discreet Footer Toggle) ---------- */
   var themeToggle = document.getElementById('themeToggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', function(){
@@ -63,7 +70,7 @@
   /* ---------- Identity 3D Flip Card ---------- */
   var identity = document.getElementById('identity');
   if (identity) {
-    function toggleIdentity(){
+    function toggleIdentity(e){
       var flipped = identity.classList.toggle('is-flipped');
       identity.setAttribute('aria-pressed', flipped ? 'true' : 'false');
     }

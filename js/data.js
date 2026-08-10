@@ -200,10 +200,10 @@ var CARD_DATA = {
   },
   amigo: {
     es: { tag:'2022 — presente · Intercambio', title:'Embajador y podcast',
-      body:'Hizo su propio intercambio de pregrado en el Tecnológico de Monterrey (ago–dic 2022) — experiencia que lo llevó después a ser embajador local de AmiGo Abroad a cargo del nodo de la costa de Viña del Mar/Valparaíso, y copresentador del podcast "AmiGo en el extranjero", entrevistando a autoridades públicas sobre vínculos comunitarios e inclusión social.',
+      body:'Hizo su propio intercambio de pregrado en el Tecnológico de Monterrey (ago–dic 2022) — experiencia que lo llevó después a ser embajador local de AmiGo Abroad a cargo del nodo de la costa de Viña del Mar/Valparaíso, e invitado al podcast "AmiGo en el extranjero", conversando sobre vínculos comunitarios e inclusión social.',
       links:[] },
     en: { tag:'2022 — present · Exchange', title:'Ambassador & podcast',
-      body:'Did his own undergraduate exchange at Tecnológico de Monterrey (Aug–Dec 2022) — an experience that later led him to become a local ambassador for AmiGo Abroad, leading the Viña del Mar/Valparaíso coastal node, and co-host of the "AmiGo en el extranjero" podcast, interviewing public officials about community ties and social inclusion.',
+      body:'Did his own undergraduate exchange at Tecnológico de Monterrey (Aug–Dec 2022) — an experience that later led him to become a local ambassador for AmiGo Abroad, leading the Viña del Mar/Valparaíso coastal node, and a guest speaker on the "AmiGo en el extranjero" podcast, speaking about community ties and social inclusion.',
       links:[] },
     photos:['assets/images/amigo-photo.webp']
   },

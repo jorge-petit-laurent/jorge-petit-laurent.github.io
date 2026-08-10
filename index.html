@@ -21,7 +21,8 @@
         document.documentElement.classList.add('lang-en-pref'); 
       }
       var savedTheme = localStorage.getItem('jpl-theme');
-      if (savedTheme === 'dark') {
+      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
         document.documentElement.classList.add('theme-dark');
       }
     } catch(e){}
@@ -189,11 +190,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </a>
       </nav>
-
-      <!-- Theme Switcher Button -->
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema / Toggle theme" title="Cambiar tema">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      </button>
 
       <!-- Language Toggle Button -->
       <button class="lang-toggle" id="langToggle" aria-pressed="false" title="Cambiar idioma / Toggle language">
@@ -406,11 +402,13 @@
   </div>
 
   <footer class="site-footer">
-    <span>© 2026 Jorge Petit-Laurent — Built with Anti-Slop Principles</span>
-    <div style="display:flex; gap:16px;">
+    <span>© 2026 Jorge Petit-Laurent</span>
+    <div style="display:flex; align-items:center; gap:16px;">
       <a href="https://www.linkedin.com/in/jorge-petit-laurent" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="https://github.com/pinkypetit" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://orcid.org/0009-0006-2945-610X" target="_blank" rel="noopener noreferrer">ORCID</a>
+      <!-- Discreet theme toggle in footer -->
+      <button class="footer-theme-btn" id="themeToggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐ Tema</button>
     </div>
   </footer>
 
