@@ -1,228 +1,352 @@
-/* English strings for every data-i18n key in index.html. Spanish lives directly in the HTML
-   (default language), so the page is fully readable even if this script fails to load. */
-var I18N_EN = {
-  'hint': 'tap to learn more →',
-  'bio': 'Chilean energy engineer and data scientist. Studies how <strong>climate change</strong> stresses the electrical grid — and believes the <strong>ambition</strong> to solve it starts in the rural southern Chile where he grew up.',
-  'wallpaper': 'natural affinity for data natural affinity for data climate change climate change energy resilience natural affinity for data',
-  'langLabel': 'English',
-  'filterAll': 'All',
-  'filterClimate': 'Climate & Energy',
-  'filterData': 'Data & AI',
-  'filterAwards': 'Awards & Papers',
-  'filterCommunity': 'Community & Nature',
+/* Content for the modal drawer + the "Archivo" index, in both languages (first person).
+   Static sections live in index.html (Spanish) and their English strings in I18N_EN below. */
 
-  'eeeic.tag': 'Conference paper · EEEIC 2026', 'eeeic.title': 'IEEE EEEIC 2026, Lisbon',
-  'calabria.tag': 'Jan–Mar 2026 · Italy', 'calabria.title': 'Research stay, University of Calabria',
-  'sherpas.tag': '2025 — present', 'sherpas.title': 'Data Analytics Engineer, Sherpas',
-  'thesis.tag': '2025 — present · UAI', 'thesis.title': 'Thesis: heatwaves and electricity demand',
-  'conference.tag': 'SICyR · CEES · 2024–2025', 'conference.title': 'Conference circuit',
-  'ssrn.tag': '2025 · SSRN', 'ssrn.title': 'Preprint: solar panel diagnostics',
-  'tid.tag': '2022 / 2024 · TID Award', 'tid.title': 'TID Award + Las Campanas',
-  'pvcv.tag': '2023–2025 · TRL Level Up', 'pvcv.title': 'Computer vision for solar panels',
-  'upenn.tag': '2024 · Pennsylvania', 'upenn.title': 'Santander Scholarship, UPenn',
-  'naturecomms.tag': '2025 · Nature Communications', 'naturecomms.title': 'Peer reviewer',
-  'graduation.tag': '2021 → 2025/26 · UAI', 'graduation.title': 'From admission to graduation',
-  'teaching.tag': '2021–2025 · UAI', 'teaching.title': 'Teaching & mentorship',
-  'acciona.tag': '2024 · ACCIONA', 'acciona.title': 'ACCIONA Academy Program',
-  'docongress.tag': '2023 · Data Observatory', 'docongress.title': 'Poster, 1st DO Congress',
-  'uaifeature.tag': '2025 · Instagram, UAI Engineering', 'uaifeature.title': 'Specialty feature',
-  'nature.tag': '2023 —', 'nature.title': 'Nursery & reforestation',
-  'amigo.tag': '2022 — present · Exchange', 'amigo.title': 'Ambassador & podcast',
-  'hackathon.tag': 'Google Cloud · Kaggle', 'hackathon.title': '3rd place, Data Challenge',
-  'atamostec.tag': 'ATAMOSTEC · Nov 2024', 'atamostec.title': '"La Ruta del Sol" mobility program'
-};
+function li(urn){
+  return '<iframe src="https://www.linkedin.com/embed/feed/update/' + urn +
+         '?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" loading="lazy" title="LinkedIn"></iframe>';
+}
+var LI_ACTIVITY = 'https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/';
 
-/* Full modal content per card — bilingual body + real outbound links. */
 var CARD_DATA = {
-  eeeic: {
-    es: { tag:'Conference paper · EEEIC 2026', title:'IEEE EEEIC 2026, Lisboa',
-      body:'"Substation-Level Heat-Wave Vulnerability of the Chilean Grid Under Global Warming", aceptado en el 26° IEEE EEEIC & I&CPS Europe, Portugal — coautoría con Cristián Martínez (UAI) y la climatóloga Katerina Goubanova (CEAZA), sesión SS13 sobre gemelos digitales para sistemas eléctricos resilientes. Lo presentó oralmente, en persona, el lunes 29 de junio de 2026.',
-      links:[{label:'Programa oficial EEEIC 2026 (PDF)', url:'https://www.eeeic.net/EEEIC%20Downloads/EEEIC2026_Program_R1.pdf'}] },
-    en: { tag:'Conference paper · EEEIC 2026', title:'IEEE EEEIC 2026, Lisbon',
-      body:'"Substation-Level Heat-Wave Vulnerability of the Chilean Grid Under Global Warming", accepted at the 26th IEEE EEEIC & I&CPS Europe, Portugal — co-authored with Cristian Martinez (UAI) and climate scientist Katerina Goubanova (CEAZA), session SS13 on digital twins for resilient power systems. He presented it orally, in person, on Monday 29 June 2026.',
-      links:[{label:'Official EEEIC 2026 program (PDF)', url:'https://www.eeeic.net/EEEIC%20Downloads/EEEIC2026_Program_R1.pdf'}] },
-    photos:['assets/images/eeeic-photo.webp']
-  },
-  calabria: {
-    es: { tag:'Ene–Mar 2026 · Italia', title:'Estadía de investigación, U. de Calabria',
-      body:'Beca competitiva de movilidad Next Generation EU (proyecto herIT4Future) financió una estadía de investigación de enero a marzo de 2026 en la Universidad de Calabria, Italia — avanzando su tesis, destacado en un artículo de prensa de Data Observatory con sus propias citas.',
-      links:[{label:'Artículo de Data Observatory', url:'https://dataobservatory.net/news/alumni-data-observatory-realizo-pasantia-en-la-universidad-de-calabria'}] },
-    en: { tag:'Jan–Mar 2026 · Italy', title:'Research stay, University of Calabria',
-      body:'A competitive Next Generation EU mobility grant (herIT4Future project) funded a Jan–Mar 2026 visiting-research stay at the University of Calabria, Italy — advancing his thesis, featured in a Data Observatory press article with his own quotes.',
-      links:[{label:'Data Observatory article', url:'https://dataobservatory.net/news/alumni-data-observatory-realizo-pasantia-en-la-universidad-de-calabria'}] },
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454601520353906688?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
-  },
+
+  /* ---------- Featured (opened from the main sections) ---------- */
   sherpas: {
-    es: { tag:'2025 — presente', title:'Data Analytics Engineer, Sherpas',
-      body:'Como Data Analytics Engineer en Sherpas — For a Zero Carbon Society, construyó desde cero el área de datos: infraestructura en la nube (BigQuery, Neo4j) que centraliza datos del mercado eléctrico latinoamericano, y un modelo automatizado de despacho de BESS para el SEN que permite certificar reducciones de más de 250.000 toneladas de CO2 al año. Sherpas estructuró la primera autorización mundial de un BESS bajo el Artículo 6.2 del Acuerdo de París: 228 MW de baterías de litio en la Región de Atacama, junto a Colbún, financiado por la Fundación KliK de Suiza.',
+    es: { tag:'Jun 2025 – presente · remoto', title:'Energy Data Scientist en Sherpas',
+      body:'Sherpas es una consultora de mercados de carbono bajo el Artículo 6 del Acuerdo de París. Fundé su área de datos y construí desde cero la infraestructura en la nube (BigQuery, Cloud Run, Neo4j) con la que el equipo trabaja los datos del Coordinador Eléctrico Nacional. Sobre ella corre la metodología de reducción de emisiones para baterías (BESS), que simula el despacho hora a hora del SEN. En 2026 Sherpas estructuró la primera autorización mundial de un BESS bajo el Artículo 6.2: 228 MW de baterías de litio en Atacama, junto a Colbún y financiados por la Fundación KliK de Suiza.',
       links:[
         {label:'sherpas.net', url:'https://www.sherpas.net/'},
-        {label:'Hito: primera autorización mundial BESS Art. 6.2', url:'https://www.linkedin.com/posts/sherpas-net_authorisation-switzerland-chile-activity-7447641698295406592-yilI'},
-        {label:'Sherpas, cultura de equipo (2025)', url:'https://www.linkedin.com/posts/sherpas-net_celebrating-2025-by-living-up-to-our-name-activity-7414372535972036609-Sfsd'}
+        {label:'Hito: primera autorización mundial de un BESS bajo el Art. 6.2', url:'https://www.linkedin.com/posts/sherpas-net_authorisation-switzerland-chile-activity-7447641698295406592-yilI'},
+        {label:'Sherpas en 2025: cultura de equipo', url:'https://www.linkedin.com/posts/sherpas-net_celebrating-2025-by-living-up-to-our-name-activity-7414372535972036609-Sfsd'}
       ] },
-    en: { tag:'2025 — present', title:'Data Analytics Engineer, Sherpas',
-      body:'As Data Analytics Engineer at Sherpas — For a Zero Carbon Society, he built the company\'s entire data department from scratch: cloud infrastructure (BigQuery, Neo4j) centralizing Latin American electricity-market data, and an automated BESS dispatch-simulation model for Chile\'s grid enabling 250,000+ tonnes CO2/year in certified reductions. Sherpas structured the world\'s first BESS authorization under Article 6.2 of the Paris Agreement: 228 MW of lithium-ion batteries in the Atacama Region, with Colbún, financed by Switzerland\'s KliK Foundation.',
+    en: { tag:'Jun 2025 – present · remote', title:'Energy Data Scientist at Sherpas',
+      body:'Sherpas is a carbon-markets consultancy working under Article 6 of the Paris Agreement. I founded its data area and built the cloud infrastructure (BigQuery, Cloud Run, Neo4j) the team uses to work with data from Chile\'s National Electric Coordinator. On top of it runs the emission-reduction methodology for battery storage (BESS), which simulates dispatch of the national grid hour by hour. In 2026 Sherpas structured the world\'s first BESS authorization under Article 6.2: 228 MW of lithium-ion batteries in Atacama, with Colbún and financed by Switzerland\'s KliK Foundation.',
       links:[
         {label:'sherpas.net', url:'https://www.sherpas.net/'},
-        {label:"Milestone: world's first BESS Art. 6.2 authorization", url:'https://www.linkedin.com/posts/sherpas-net_authorisation-switzerland-chile-activity-7447641698295406592-yilI'},
-        {label:'Sherpas team culture (2025)', url:'https://www.linkedin.com/posts/sherpas-net_celebrating-2025-by-living-up-to-our-name-activity-7414372535972036609-Sfsd'}
+        {label:"Milestone: world's first BESS authorization under Art. 6.2", url:'https://www.linkedin.com/posts/sherpas-net_authorisation-switzerland-chile-activity-7447641698295406592-yilI'},
+        {label:'Sherpas in 2025: team culture', url:'https://www.linkedin.com/posts/sherpas-net_celebrating-2025-by-living-up-to-our-name-activity-7414372535972036609-Sfsd'}
       ] },
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7447641698295406592?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7414372535972036609?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
+    embed_html: li('urn:li:activity:7447641698295406592') + li('urn:li:activity:7414372535972036609')
   },
+
+  paper: {
+    es: { tag:'Int. Journal of Climatology · 2026', title:'El futuro de las olas de calor en Chile',
+      body:'"The future of atmospheric heatwaves in Chile projected by a regional climate model", publicado en el International Journal of Climatology. Corregí el sesgo del modelo regional CNRM-ALADIN64 con mapeo cuantílico y construí la climatología horaria de olas de calor y de frío entre 1979 y 2100 bajo SSP3-7.0: la frecuencia de olas de calor crecería cerca de 2,5 veces hacia fines de siglo. La figura muestra cuándo del año ocurren las olas de calor (rojo) y de frío (azul) según el modelo.',
+      links:[{label:'Artículo (DOI 10.1002/joc.70567)', url:'https://doi.org/10.1002/joc.70567'},{label:'ORCID', url:'https://orcid.org/0009-0006-2945-610X'}] },
+    en: { tag:'Int. Journal of Climatology · 2026', title:'The future of heatwaves in Chile',
+      body:'"The future of atmospheric heatwaves in Chile projected by a regional climate model", published in the International Journal of Climatology. I bias-corrected the CNRM-ALADIN64 regional model with quantile mapping and built the hourly heat-wave and cold-wave climatology from 1979 to 2100 under SSP3-7.0: heat-wave frequency would grow by about 2.5 times by the end of the century. The figure shows when in the year heat waves (red) and cold waves (blue) occur in the model.',
+      links:[{label:'Paper (DOI 10.1002/joc.70567)', url:'https://doi.org/10.1002/joc.70567'},{label:'ORCID', url:'https://orcid.org/0009-0006-2945-610X'}] },
+    photos:['assets/images/paper-figure.webp']
+  },
+
+  eeeic: {
+    es: { tag:'Lisboa · 29 de junio de 2026', title:'IEEE EEEIC 2026, Lisboa',
+      body:'Presenté oralmente y en persona "Substation-Level Heat-Wave Vulnerability of the Chilean Grid Under Global Warming" en el 26° IEEE EEEIC & I&CPS Europe. Es coautoría con Cristian Martínez-Villalobos (UAI) y Katerina Goubanova (CEAZA), en la sesión SS13 sobre gemelos digitales para sistemas eléctricos resilientes. Es el resultado directo de mi tesis de magíster.',
+      links:[{label:'Programa oficial EEEIC 2026 (PDF)', url:'https://www.eeeic.net/EEEIC%20Downloads/EEEIC2026_Program_R1.pdf'}] },
+    en: { tag:'Lisbon · 29 June 2026', title:'IEEE EEEIC 2026, Lisbon',
+      body:'I gave an oral, in-person presentation of "Substation-Level Heat-Wave Vulnerability of the Chilean Grid Under Global Warming" at the 26th IEEE EEEIC & I&CPS Europe. It is co-authored with Cristian Martínez-Villalobos (UAI) and Katerina Goubanova (CEAZA), in session SS13 on digital twins for resilient power systems. It is the direct result of my MSc thesis.',
+      links:[{label:'Official EEEIC 2026 program (PDF)', url:'https://www.eeeic.net/EEEIC%20Downloads/EEEIC2026_Program_R1.pdf'}] },
+    photos:['assets/images/eeeic-photo.webp','assets/images/lisbon-talk.webp','assets/images/lisbon-banner.webp','assets/images/lisbon-group.webp']
+  },
+
   thesis: {
-    es: { tag:'2025 — presente · UAI', title:'Tesis: olas de calor y demanda eléctrica',
-      body:'Tesis de Magíster en Ciencia de Datos en la UAI, "Efectos de las olas de calor en la demanda eléctrica en Chile bajo Cambio Climático". Financiada por el Fondo FEI (marzo 2025) y la Beca Tesis Data Observatory (octubre 2025). En noviembre de 2025 presentó avances en la "Sesión DO Science" del Data Observatory. Manuscrito como autor principal, "The future of atmospheric heatwaves in Chile projected by a regional climate model", en revisión en el International Journal of Climatology.',
+    es: { tag:'Magíster en Ciencia de Datos · UAI', title:'Tesis: olas de calor y demanda eléctrica',
+      body:'"Efectos de las olas de calor en la demanda eléctrica en Chile bajo cambio climático". Estimé la sensibilidad de la demanda a las olas de calor en 397 subestaciones del SEN, cruzando proyecciones climáticas horarias (12,5 km) con retiros de energía por barra y cliente entre 2017 y 2025. Ajusté 2.529 modelos aditivos generalizados (R, mgcv) en el clúster HPC de la facultad: la respuesta térmica difiere entre macrozonas y entre clientes regulados y libres, y el impacto se concentra en eventos extremos y en el Norte Grande, algo que un análisis agregado nacional no revela. La defendí en 2026 con nota 7,0. Fue financiada por el Fondo FEI de la UAI (2025) y la Beca Tesis de Data Observatory (2025–2026), donde presenté avances en la Sesión DO Science de noviembre de 2025.',
       links:[] },
-    en: { tag:'2025 — present · UAI', title:'Thesis: heatwaves and electricity demand',
-      body:'MSc Data Science thesis at UAI, "Effects of heat waves on electricity demand in Chile under Climate Change." Funded by an FEI Research Grant (March 2025) and the Data Observatory Thesis Scholarship (October 2025). In November 2025 he presented progress at Data Observatory\'s "DO Science Session." First-authored manuscript "The future of atmospheric heatwaves in Chile projected by a regional climate model," currently under review at the International Journal of Climatology.',
+    en: { tag:'MSc in Data Science · UAI', title:'Thesis: heatwaves and electricity demand',
+      body:'"Effects of heat waves on electricity demand in Chile under climate change". I estimated the sensitivity of demand to heat waves at 397 substations of the national grid, combining hourly climate projections (12.5 km) with energy withdrawals by busbar and customer from 2017 to 2025. I fitted 2,529 generalized additive models (R, mgcv) on the faculty\'s HPC cluster: the thermal response differs across macro-zones and between regulated and free customers, and the impact concentrates in extreme events and in the Norte Grande region, which a national aggregate analysis does not reveal. I defended it in 2026 with a 7.0. It was funded by UAI\'s FEI Research Grant (2025) and the Data Observatory Thesis Grant (2025–2026), where I presented progress at the DO Science Session in November 2025.',
       links:[] },
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7398827399653560320?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
+    embed_html: li('urn:li:ugcPost:7398827399653560320')
   },
-  conference: {
-    es: { tag:'SICyR · CEES · 2024–2025', title:'Circuito de congresos',
-      body:'Presentaciones orales en SICyR 2025 ("El Futuro de las Olas de Calor en Chile") y CEES 2025 ("Efectos de las olas de calor en la demanda eléctrica en Chile"), y póster en el 7° Congreso de Oceanografía Física, Meteorología y Clima (2024).',
-      links:[] },
-    en: { tag:'SICyR · CEES · 2024–2025', title:'Conference circuit',
-      body:'Oral presentations at SICyR 2025 ("The Future of Heatwaves in Chile") and CEES 2025 ("Effects of heatwaves on electricity demand in Chile"), and a poster at the 7th Congress of Physical Oceanography, Meteorology & Climate (2024).',
-      links:[] },
-    photos:['assets/images/conference-photo-1.webp', 'assets/images/conference-photo-2.webp'],
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7263367576288743424?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
+
+  defense: {
+    es: { tag:'2026 · Universidad Adolfo Ibáñez', title:'Titulación: tres títulos, una tesis',
+      body:'Defendí mi tesis para los títulos de Ingeniería Civil en Energía, Ingeniería Civil Industrial y Magíster en Ciencia de Datos, todos con la nota máxima, 7,0. Las notas finales de las carreras fueron 6,40 en Ingeniería en Energía y 6,51 en el magíster. Estudié con la Beca de Excelencia Académica (2021–2026) y la Beca de Honor Académico (2022–2025).',
+      links:[{label:'Mi publicación en LinkedIn', url:LI_ACTIVITY}] },
+    en: { tag:'2026 · Universidad Adolfo Ibáñez', title:'Graduation: three degrees, one thesis',
+      body:'I defended my thesis for the degrees of Civil Engineering in Energy, Civil Industrial Engineering and MSc in Data Science, all with the maximum grade, 7.0. Final grades were 6.40 in Energy Engineering and 6.51 in the MSc. I studied on the Academic Excellence Scholarship (2021–2026) and the Academic Honor Scholarship (2022–2025).',
+      links:[{label:'My LinkedIn post', url:LI_ACTIVITY}] },
+    photos:['assets/images/defense-family.webp','assets/images/defense-bottles.webp','assets/images/defense-toast.webp','assets/images/graduation-photo.webp']
   },
-  ssrn: {
-    es: { tag:'2025 · SSRN', title:'Preprint: diagnóstico de paneles solares',
-      body:'Coautor (Investigación, Metodología, Visualización, Curación de datos, Análisis formal) de "Daylight Photoluminescence Imaging of PV Modules Under Power Curtailment and Background Mismatch", preprint en SSRN del Centro de Transición Energética de la UAI sobre detección no invasiva de fallas en paneles solares.',
+
+  /* ---------- Archive (reverse-chronological) ---------- */
+  calabria: { year:'2026', cats:'research', icon:'calabria', c1:'#3DAA68', c2:'#E2574C',
+    es: { tag:'Ene–Mar 2026 · Italia', title:'Estadía de investigación en la Universidad de Calabria',
+      body:'Una beca de movilidad internacional Next Generation EU (proyecto herIT4Future) financió tres meses de investigación en la Universidad de Calabria, Italia, para avanzar mi tesis. Data Observatory publicó una nota sobre la estadía.',
+      links:[{label:'Nota de Data Observatory', url:'https://dataobservatory.net/news/alumni-data-observatory-realizo-pasantia-en-la-universidad-de-calabria'}] },
+    en: { tag:'Jan–Mar 2026 · Italy', title:'Research stay at the University of Calabria',
+      body:'A Next Generation EU international mobility fellowship (herIT4Future project) funded three months of research at the University of Calabria, Italy, to advance my thesis. Data Observatory published a story about the stay.',
+      links:[{label:'Data Observatory article', url:'https://dataobservatory.net/news/alumni-data-observatory-realizo-pasantia-en-la-universidad-de-calabria'}] },
+    embed_html: li('urn:li:activity:7454601520353906688')
+  },
+  conference: { year:'2024–25', cats:'research', icon:'conference', c1:'#E8A23D', c2:'#F2D14B',
+    es: { tag:'SICyR · CEES · Congreso de Oceanografía Física', title:'Circuito de congresos',
+      body:'Presentaciones orales en el 2º Simposio Internacional de Clima y Resiliencia, SICyR (nov 2025, "El futuro de las olas de calor en Chile"), y en la 5ª Conferencia de Energía, Eficiencia y Sostenibilidad Ambiental, CEES (nov 2025, "Efectos de las olas de calor en la demanda eléctrica en Chile bajo cambio climático"). Antes, un póster en el 7º Congreso de Oceanografía Física, Meteorología y Clima del Pacífico Sudeste (nov 2024).',
+      links:[] },
+    en: { tag:'SICyR · CEES · Physical Oceanography Congress', title:'Conference circuit',
+      body:'Oral presentations at the 2nd International Symposium on Climate and Resilience, SICyR (Nov 2025, "The future of heatwaves in Chile"), and at the 5th Conference on Energy, Efficiency and Environmental Sustainability, CEES (Nov 2025, "Effects of heatwaves on electricity demand in Chile under climate change"). Before that, a poster at the 7th Congress of Physical Oceanography, Meteorology and Climate of the Southeast Pacific (Nov 2024).',
+      links:[] },
+    photos:['assets/images/conference-photo-1.webp','assets/images/conference-photo-2.webp'],
+    embed_html: li('urn:li:activity:7263367576288743424')
+  },
+  ssrn: { year:'2025', cats:'research', icon:'ssrn', c1:'#6E8EA8', c2:'#C7CDD2',
+    es: { tag:'Preprint · SSRN 2025', title:'Fotoluminiscencia diurna en paneles solares',
+      body:'Coautoría (investigación, metodología, visualización, curación de datos y análisis formal) de "Daylight Photoluminescence Imaging of PV Modules Under Power Curtailment and Background Mismatch", preprint del Centro de Transición Energética de la UAI sobre detección no invasiva de fallas en módulos fotovoltaicos.',
       links:[{label:'Ver preprint en SSRN', url:'https://ssrn.com/abstract=6333508'}] },
-    en: { tag:'2025 · SSRN', title:'Preprint: solar panel diagnostics',
-      body:'Co-author (Investigation, Methodology, Visualization, Data curation, Formal analysis) of "Daylight Photoluminescence Imaging of PV Modules Under Power Curtailment and Background Mismatch," an SSRN preprint from UAI\'s Center for Energy Transition on a non-invasive fault-detection technique for solar panels.',
+    en: { tag:'Preprint · SSRN 2025', title:'Daylight photoluminescence on solar panels',
+      body:'Co-author (investigation, methodology, visualization, data curation and formal analysis) of "Daylight Photoluminescence Imaging of PV Modules Under Power Curtailment and Background Mismatch", a preprint from UAI\'s Energy Transition Center on non-invasive fault detection in photovoltaic modules.',
       links:[{label:'View preprint on SSRN', url:'https://ssrn.com/abstract=6333508'}] }
   },
-  tid: {
-    es: { tag:'2022 / 2024 · Premio TID', title:'Premio TID + Las Campanas',
-      body:'Su proyecto sobre los efectos del cambio climático en el cultivo de maíz en Chile, guiado por Cristián Martínez-Villalobos, fue uno de los 3 mejores proyectos de investigación de pregrado del Taller de Investigación Dirigida (TID, 2022) de la UAI — premio individual, no un trabajo en equipo. Publicado en la primera edición de la Revista TID; como premio, visitó el Observatorio Las Campanas (Carnegie Institution for Science) en enero de 2024.',
-      links:[
-        {label:'UAI premia los mejores proyectos del TID', url:'https://www.uai.cl/noticias/ingenieria-y-ciencias/ingenieria-uai-premia-a-los-mejores-proyectos-del-taller-de-investigacion-dirigida'},
-        {label:'Visita al Observatorio Las Campanas (artículo)', url:'https://www.lco.cl/es/estudiantes-de-la-uai-visitaron-lco/'},
-        {label:'Su post sobre la investigación TID', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedauai-ingenieraedauai-uai-activity-7123286618752331776-tZrV'},
-        {label:'Celebrando la primera edición de la Revista TID', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedaycienciasuai-revistatid-investigaciaejnuai-activity-7322712830175031297-0jEk'}
-      ] },
-    en: { tag:'2022 / 2024 · TID Award', title:'TID Award + Las Campanas',
-      body:'His research on climate change\'s effects on corn cultivation in Chile, advised by Cristián Martínez-Villalobos, was one of the 3 best undergraduate research projects in UAI\'s Directed Research Workshop (TID, 2022) — an individual award, not a team project. Published in the first edition of Revista TID; as a prize, he visited the Las Campanas Observatory (Carnegie Institution for Science) in January 2024.',
-      links:[
-        {label:'UAI awards the best TID projects', url:'https://www.uai.cl/noticias/ingenieria-y-ciencias/ingenieria-uai-premia-a-los-mejores-proyectos-del-taller-de-investigacion-dirigida'},
-        {label:'Las Campanas Observatory visit (article)', url:'https://www.lco.cl/es/estudiantes-de-la-uai-visitaron-lco/'},
-        {label:'His post on the TID research', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedauai-ingenieraedauai-uai-activity-7123286618752331776-tZrV'},
-        {label:'Celebrating the first edition of Revista TID', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedaycienciasuai-revistatid-investigaciaejnuai-activity-7322712830175031297-0jEk'}
-      ] },
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7156368030741008384?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
-  },
-  pvcv: {
-    es: { tag:'2023–2025 · TRL Level Up', title:'Visión computacional en paneles solares',
-      body:'Investigador (Ciencia de Datos) en el proyecto TRL Level Up de la UAI: pipeline de visión computacional en Python para imágenes de fotoluminiscencia diurna que detecta microfisuras y soldaduras defectuosas en paneles solares en operación, sin desconectar la generación.',
+  fellowships: { year:'2022–26', cats:'awards', icon:'hackathon', c1:'#B88E14', c2:'#B3203C',
+    es: { tag:'Becas, fondos y premios', title:'Becas y fondos',
+      body:'Beca de movilidad internacional, Universidad de Calabria, Next Generation EU (2026). Beca Tesis de Data Observatory (2025–2026). Fondo de Investigación FEI, UAI, para el proyecto "El futuro de las olas de calor en Chile bajo cambio climático" (2025). Programa de movilidad "La Ruta del Sol", AtaMoSTeC y SERC Chile (2024). Beca completa Santander Open Academy (2023). Premio a uno de los tres mejores proyectos de investigación de pregrado de la UAI y Beca TID (2022). Beca de Excelencia Académica (2021–2026) y Beca de Honor Académico (2022–2025).',
       links:[] },
-    en: { tag:'2023–2025 · TRL Level Up', title:'Computer vision for solar panels',
-      body:'Researcher (Data Science) on UAI\'s TRL Level Up project: a Python computer-vision pipeline for daylight photoluminescence imaging to detect microcracks and faulty solder joints in operating PV modules without disconnecting generation.',
+    en: { tag:'Fellowships, grants and awards', title:'Fellowships and grants',
+      body:'International mobility fellowship, University of Calabria, Next Generation EU (2026). Data Observatory Thesis Grant (2025–2026). FEI Research Grant, UAI, for the project "The future of heatwaves in Chile under climate change" (2025). "La Ruta del Sol" mobility programme, AtaMoSTeC and SERC Chile (2024). Full Santander Open Academy scholarship (2023). Award for one of the top three undergraduate research projects at UAI, and TID Scholarship (2022). Academic Excellence Scholarship (2021–2026) and Academic Honor Scholarship (2022–2025).',
+      links:[] }
+  },
+  naturecomms: { year:'2025', cats:'research', icon:'naturecomms', c1:'#A41E22', c2:'#6E8EA8',
+    es: { tag:'Nature Communications · 2025', title:'Revisor de artículos científicos',
+      body:'Hice una revisión por pares en 2025 para Nature Communications (Springer Nature), registrada en mi perfil ORCID.',
+      links:[{label:'Ver perfil ORCID', url:'https://orcid.org/0009-0006-2945-610X'}] },
+    en: { tag:'Nature Communications · 2025', title:'Peer reviewer',
+      body:'I completed a peer review in 2025 for Nature Communications (Springer Nature), recorded on my ORCID profile.',
+      links:[{label:'View ORCID profile', url:'https://orcid.org/0009-0006-2945-610X'}] }
+  },
+  uaifeature: { year:'2025', cats:'community', icon:'uaifeature', c1:'#2D5FA8', c2:'#E8A23D',
+    es: { tag:'Instagram · Ingeniería UAI', title:'Destacado por la Facultad de Ingeniería',
+      body:'El 2 de octubre de 2025, Ingeniería UAI me presentó como ejemplo de la especialidad de Ingeniería Civil en Energía: "Estudia cómo las olas de calor impactan el consumo eléctrico en Chile y, con experiencia internacional, busca garantizar un acceso justo y renovable para todos."',
+      links:[] },
+    en: { tag:'Instagram · UAI Engineering', title:'Featured by the Faculty of Engineering',
+      body:'On 2 October 2025, UAI Engineering featured me as an example of the Energy Engineering specialty: "Studies how heat waves impact electricity consumption in Chile and, with international experience, seeks to guarantee fair, renewable access for everyone."',
+      links:[] }
+  },
+  pvcv: { year:'2023–25', cats:'data research', icon:'pvcv', c1:'#6E8EA8', c2:'#5B8DEF',
+    es: { tag:'Centro de Transición Energética · TRL Level Up', title:'Visión computacional en módulos fotovoltaicos',
+      body:'Fui asistente de investigación en un proyecto de inspección no invasiva de módulos fotovoltaicos, financiado por AtaMoSTeC (CORFO) y SERC Chile. Participé en campañas de fotoluminiscencia diurna con módulos conectados a un inversor, y desarrollé en Python y OpenCV un pipeline para imágenes de una cámara SWIR de InGaAs: recorte, corrección de perspectiva, filtrado de valores atípicos y normalización para comparar estados de operación píxel a píxel. El análisis mostró que los defectos se detectan incluso con recorte de generación e irradiancia baja.',
+      links:[] },
+    en: { tag:'Energy Transition Center · TRL Level Up', title:'Computer vision for PV modules',
+      body:'I was a research assistant on a non-invasive inspection project for photovoltaic modules, funded by AtaMoSTeC (CORFO) and SERC Chile. I took part in outdoor daylight photoluminescence campaigns with modules connected to an inverter, and built a Python and OpenCV pipeline for images from an InGaAs SWIR camera: cropping, perspective correction, outlier removal and normalization to compare operating states pixel by pixel. The analysis showed that defects can be detected even under curtailment and low irradiance.',
       links:[] },
     photos:['assets/images/pvcv-photo.webp']
   },
-  upenn: {
-    es: { tag:'2024 · Pennsylvania', title:'Beca Santander, UPenn',
-      body:'Beca completa de Santander Open Academy para el programa de 3 semanas "USA Summer Experience" en la Universidad de Pennsylvania; citado en prensa de Banco Santander Chile.',
+  atamostec: { year:'2024', cats:'awards research', icon:'atamostec', c1:'#E8A23D', c2:'#F2D14B',
+    es: { tag:'AtaMoSTeC · SERC Chile · Nov 2024', title:'Movilidad "La Ruta del Sol"',
+      body:'Del 11 al 13 de noviembre de 2024 participé en la 3ª versión del Programa de Movilidad Estudiantil "La Ruta del Sol: Antofagasta 2024", de AtaMoSTeC y SERC Chile. Quedé entre los estudiantes seleccionados del programa.',
+      links:[] },
+    en: { tag:'AtaMoSTeC · SERC Chile · Nov 2024', title:'"La Ruta del Sol" mobility programme',
+      body:'From 11 to 13 November 2024 I took part in the 3rd edition of the "La Ruta del Sol: Antofagasta 2024" Student Mobility Programme by AtaMoSTeC and SERC Chile. I was selected among the programme\'s top students.',
+      links:[] }
+  },
+  upenn: { year:'2024', cats:'awards', icon:'upenn', c1:'#A41E22', c2:'#D9534F',
+    es: { tag:'Santander Open Academy · Pensilvania', title:'Beca Santander en la Universidad de Pensilvania',
+      body:'Beca completa de Santander Open Academy para el English Language Program de verano en la Universidad de Pensilvania, con 21 becados de Chile. Banco Santander Chile citó mi testimonio en su sala de prensa.',
       links:[
         {label:'Nota de prensa, Santander Chile', url:'https://saladecomunicacion.santander.cl/noticias/banca-responsable/detalles/postula-a-los-cursos-gratuitos-para-estudiar-ingles-en-estados-unidos-con-santander-open-academy'},
-        {label:'Su post de LinkedIn', url:'https://es.linkedin.com/posts/jorge-petit-laurent_santanderopenacademy-elp-upenn-activity-7224809785072758785-A3_B'}
+        {label:'Mi publicación en LinkedIn', url:'https://es.linkedin.com/posts/jorge-petit-laurent_santanderopenacademy-elp-upenn-activity-7224809785072758785-A3_B'}
       ] },
-    en: { tag:'2024 · Pennsylvania', title:'Santander Scholarship, UPenn',
-      body:'Fully-funded Santander Open Academy scholarship for the 3-week "USA Summer Experience" at the University of Pennsylvania; quoted in Banco Santander Chile press.',
+    en: { tag:'Santander Open Academy · Pennsylvania', title:'Santander scholarship at the University of Pennsylvania',
+      body:'A full Santander Open Academy scholarship for the summer English Language Program at the University of Pennsylvania, with 21 fellows from Chile. Banco Santander Chile quoted my testimonial in its press room.',
       links:[
         {label:'Santander Chile press release', url:'https://saladecomunicacion.santander.cl/noticias/banca-responsable/detalles/postula-a-los-cursos-gratuitos-para-estudiar-ingles-en-estados-unidos-con-santander-open-academy'},
-        {label:'His LinkedIn post', url:'https://es.linkedin.com/posts/jorge-petit-laurent_santanderopenacademy-elp-upenn-activity-7224809785072758785-A3_B'}
+        {label:'My LinkedIn post', url:'https://es.linkedin.com/posts/jorge-petit-laurent_santanderopenacademy-elp-upenn-activity-7224809785072758785-A3_B'}
       ] },
     photos:['assets/images/upenn-photo.webp'],
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7232464704755888128?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
+    embed_html: li('urn:li:activity:7232464704755888128')
   },
-  naturecomms: {
-    es: { tag:'2025 · Nature Communications', title:'Revisor par',
-      body:'Realizó una revisión por pares en 2025 para Nature Communications (Springer Nature), según su registro ORCID — señal notable de reconocimiento siendo aún estudiante de posgrado.',
-      links:[{label:'Ver perfil ORCID', url:'https://orcid.org/0009-0006-2945-610X'}] },
-    en: { tag:'2025 · Nature Communications', title:'Peer reviewer',
-      body:'Completed a peer review in 2025 for Nature Communications (Springer Nature), per his ORCID record — a notable mark of standing while still a graduate student.',
-      links:[{label:'View ORCID profile', url:'https://orcid.org/0009-0006-2945-610X'}] }
+  hackathon: { year:'2024', cats:'data awards', icon:'hackathon', c1:'#4285F4', c2:'#FBBC05',
+    es: { tag:'Google Cloud · Le Wagon · Kaggle', title:'3er lugar en Data Challenge in the Cloud',
+      body:'Tercer lugar en "Data Challenge in the Cloud", hackathon de Google Cloud, Le Wagon Latam y Kaggle, en equipo con Clemente Jara, Renzo Devoto Aspe, Benjamín Saldivia y Pablo Reinoso S.',
+      links:[{label:'Publicación de Clemente Jara en LinkedIn', url:'https://www.linkedin.com/posts/clemente-jara_el-jueves-pasado-tuve-la-incre%C3%ADble-oportunidad-ugcPost-7234557571620065280-qFen/'}] },
+    en: { tag:'Google Cloud · Le Wagon · Kaggle', title:'3rd place at Data Challenge in the Cloud',
+      body:'Third place at "Data Challenge in the Cloud", a hackathon by Google Cloud, Le Wagon Latam and Kaggle, with a team of Clemente Jara, Renzo Devoto Aspe, Benjamín Saldivia and Pablo Reinoso S.',
+      links:[{label:"Clemente Jara's LinkedIn post", url:'https://www.linkedin.com/posts/clemente-jara_el-jueves-pasado-tuve-la-incre%C3%ADble-oportunidad-ugcPost-7234557571620065280-qFen/'}] },
+    embed_html: li('urn:li:ugcPost:7234557571620065280')
   },
-  graduation: {
-    es: { tag:'2021 → 2025/26 · UAI', title:'De la admisión a la titulación',
-      body:'En marzo de 2021 entró a la UAI con 771,7 puntos PSU (Colegio San Mateo), elegida en primera preferencia — la campaña "Yo elegí la UAI" lo citó: "Elegí la UAI porque quiero crear innovaciones que vuelvan al planeta más verde, más inteligente, o simplemente más humano." Cursó una doble titulación en Ingeniería Civil en Energía (titulado, diciembre 2025) e Ingeniería Civil Industrial (en curso, estimada julio 2026), sostenida con dos becas de mérito académico consecutivas.',
+  acciona: { year:'2024', cats:'awards', icon:'acciona', c1:'#3E7C3F', c2:'#9FCB3E',
+    es: { tag:'ACCIONA · Enero 2024', title:'Programa Academy de ACCIONA',
+      body:'Participé en la 5ª versión del Programa Academy de ACCIONA en Chile, que reunió a 22 estudiantes durante dos semanas intensivas sobre desarrollo de activos de energía renovable y sostenibilidad.',
       links:[] },
-    en: { tag:'2021 → 2025/26 · UAI', title:'From admission to graduation',
-      body:'In March 2021 he entered UAI with a 771.7 PSU score (Colegio San Mateo), admitted as his first choice — the "I chose UAI" campaign quoted him: "I chose UAI because I want to create innovations that make the planet greener, smarter, or simply more human." He pursued a dual degree in Energy Engineering (graduated, December 2025) and Industrial Engineering (in progress, estimated completion July 2026), sustained on two consecutive merit scholarships.',
-      links:[] }
-  },
-  teaching: {
-    es: { tag:'2021–2025 · UAI', title:'Docencia y mentoría',
-      body:'Ayudante de cátedra y tutor de matemáticas en 7 cursos de la UAI, llegando a más de 300 estudiantes en tres años, además de educador STEM voluntario enseñando programación y liderazgo a niños en comunidades vulnerables, y como integrante de la organización estudiantil Visionarios.',
-      links:[] },
-    en: { tag:'2021–2025 · UAI', title:'Teaching & mentorship',
-      body:'Teaching assistant and math tutor across 7 UAI courses, reaching 300+ students over three years, plus volunteer STEM educator teaching programming and leadership to children in vulnerable communities, and as a member of the Visionarios student organization.',
-      links:[] }
-  },
-  acciona: {
-    es: { tag:'2024 · ACCIONA', title:'Programa Academy de ACCIONA',
-      body:'Participó en la 5ta versión del Programa Academy de ACCIONA en Chile, que reunió a 22 estudiantes — dos semanas intensivas de aprendizaje y colaboración en energías renovables.',
-      links:[] },
-    en: { tag:'2024 · ACCIONA', title:'ACCIONA Academy Program',
-      body:'Took part in the 5th edition of ACCIONA\'s Academy Program in Chile, which gathered 22 students — two intensive weeks of learning and collaboration in renewables.',
+    en: { tag:'ACCIONA · January 2024', title:'ACCIONA Academy Program',
+      body:'I took part in the 5th edition of ACCIONA\'s Academy Program in Chile, which brought together 22 students for two intensive weeks on renewable energy asset development and sustainability.',
       links:[] },
     photos:['assets/images/acciona-photo.webp']
   },
-  docongress: {
-    es: { tag:'2023 · Data Observatory', title:'Póster, 1er Congreso DO',
-      body:'Presentó el póster "Análisis de la evolución proyectada de olas de calor en Chile" en el 1er Congreso de Ciencia de Datos del Data Observatory — confirmado por su propio post de LinkedIn.',
+  tid: { year:'2022–24', cats:'awards research', icon:'tid', c1:'#1B2A52', c2:'#E8C76B',
+    es: { tag:'Taller de Investigación Dirigida · UAI', title:'Premio TID y visita a Las Campanas',
+      body:'Mi proyecto sobre los efectos del cambio climático en el cultivo de maíz en Chile, guiado por Cristian Martínez-Villalobos, fue uno de los tres mejores proyectos de investigación de pregrado del Taller de Investigación Dirigida de la UAI (2022). Se publicó en la primera edición de la Revista TID, y como premio visité el Observatorio Las Campanas en enero de 2024. Fue mi primer contacto con la ciencia del clima.',
+      links:[
+        {label:'UAI premia los mejores proyectos del TID', url:'https://www.uai.cl/noticias/ingenieria-y-ciencias/ingenieria-uai-premia-a-los-mejores-proyectos-del-taller-de-investigacion-dirigida'},
+        {label:'Visita al Observatorio Las Campanas', url:'https://www.lco.cl/es/estudiantes-de-la-uai-visitaron-lco/'},
+        {label:'Mi publicación sobre la investigación TID', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedauai-ingenieraedauai-uai-activity-7123286618752331776-tZrV'},
+        {label:'Primera edición de la Revista TID', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedaycienciasuai-revistatid-investigaciaejnuai-activity-7322712830175031297-0jEk'}
+      ] },
+    en: { tag:'Directed Research Workshop · UAI', title:'TID Award and the Las Campanas visit',
+      body:'My project on the effects of climate change on corn cultivation in Chile, advised by Cristian Martínez-Villalobos, was one of the three best undergraduate research projects in UAI\'s Directed Research Workshop (2022). It was published in the first edition of Revista TID, and as a prize I visited Las Campanas Observatory in January 2024. It was my first contact with climate science.',
+      links:[
+        {label:'UAI awards the best TID projects', url:'https://www.uai.cl/noticias/ingenieria-y-ciencias/ingenieria-uai-premia-a-los-mejores-proyectos-del-taller-de-investigacion-dirigida'},
+        {label:'Las Campanas Observatory visit', url:'https://www.lco.cl/es/estudiantes-de-la-uai-visitaron-lco/'},
+        {label:'My post on the TID research', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedauai-ingenieraedauai-uai-activity-7123286618752331776-tZrV'},
+        {label:'First edition of Revista TID', url:'https://www.linkedin.com/posts/jorge-petit-laurent_ingenieraedaycienciasuai-revistatid-investigaciaejnuai-activity-7322712830175031297-0jEk'}
+      ] },
+    embed_html: li('urn:li:activity:7156368030741008384')
+  },
+  docongress: { year:'2023', cats:'research data', icon:'docongress', c1:'#2FA88A', c2:'#1B2A52',
+    es: { tag:'Data Observatory · Nov 2023', title:'Póster en el 1er Congreso de Ciencia de Datos',
+      body:'Presenté el póster "Análisis de la evolución proyectada de olas de calor en Chile" en el primer Congreso de Ciencia de Datos del Data Observatory.',
       links:[] },
-    en: { tag:'2023 · Data Observatory', title:'Poster, 1st DO Congress',
-      body:'Presented the poster "Análisis de la evolución proyectada de olas de calor en Chile" at the 1st Data Observatory Data Science Congress — confirmed via his own LinkedIn post.',
+    en: { tag:'Data Observatory · Nov 2023', title:'Poster at the 1st Data Science Congress',
+      body:'I presented the poster "Análisis de la evolución proyectada de olas de calor en Chile" (analysis of the projected evolution of heat waves in Chile) at the first Data Observatory Data Science Congress.',
       links:[] },
     photos:['assets/images/do-congress-photo.webp']
   },
-  uaifeature: {
-    es: { tag:'2025 · Instagram, Ingeniería UAI', title:'Feature de especialidad',
-      body:'El 2 de octubre de 2025, Ingeniería UAI lo eligió como ejemplo de la especialidad de Ingeniería Civil en Energía en su Instagram: "Estudia cómo las olas de calor impactan el consumo eléctrico en Chile y, con experiencia internacional, busca garantizar un acceso justo y renovable para todos."',
+  nature: { year:'2023–', cats:'community', icon:'nature', c1:'#3E7C3F', c2:'#7FBF6A',
+    es: { tag:'Voluntariado · Vivero Pilmaiquén', title:'Reforestación con bosque nativo y vivero',
+      body:'Desde 2023 hago voluntariado independiente en jornadas de plantación y conservación de especies nativas. Antes, en el verano de 2023, dirigí las operaciones diarias del vivero Pilmaiquén, en La Unión, con un equipo de cuatro personas.',
       links:[] },
-    en: { tag:'2025 · Instagram, UAI Engineering', title:'Specialty feature',
-      body:'On October 2, 2025, UAI Engineering featured him as an example student for the Energy Engineering specialty on Instagram: "Studies how heat waves impact electricity consumption in Chile and, with international experience, seeks to guarantee fair, renewable access for everyone."',
+    en: { tag:'Volunteering · Pilmaiquén nursery', title:'Native forest reforestation and a plant nursery',
+      body:'Since 2023 I have volunteered independently on planting and conservation days for native species. Earlier, in the summer of 2023, I ran the daily operations of the Pilmaiquén plant nursery in La Unión, leading a team of four.',
       links:[] }
   },
-  nature: {
-    es: { tag:'2023 —', title:'Vivero y reforestación',
-      body:'Estuvo a cargo operativo del vivero Pillmaiquén (sur de Chile, liderando brevemente a un equipo de 4) y es voluntario independiente en reforestación con especies nativas desde 2023 — el hilo más directo y concreto de amor por la naturaleza.',
+  teaching: { year:'2022–26', cats:'community', icon:'teaching', c1:'#3E7C3F', c2:'#7FBF6A',
+    es: { tag:'Universidad Adolfo Ibáñez', title:'Docencia y mentoría',
+      body:'Fui ayudante en siete cursos durante tres años (Programación, Cálculo Integral e Introducción a la Ingeniería, entre otros), con más de 300 estudiantes: dirigí tutorías, revisé código y corregí evaluaciones. Desde 2023 doy tutorías académicas, hoy en Mercados de la Energía. También fui parte de Visionarios, una organización estudiantil que dio talleres de liderazgo a escolares del sur de Chile, y enseñé programación a niños de preescolar en Cubo Educativo (2022).',
       links:[] },
-    en: { tag:'2023 —', title:'Nursery & reforestation',
-      body:'Operationally ran the Vivero Pillmaiquén plant nursery (southern Chile, briefly leading a team of 4) and has independently volunteered in native-species reforestation since 2023 — his most direct, hands-on love-of-nature thread.',
+    en: { tag:'Universidad Adolfo Ibáñez', title:'Teaching and mentoring',
+      body:'I was a teaching assistant in seven courses over three years (Programming, Integral Calculus and Introduction to Engineering, among others), with more than 300 students: I led tutorials, reviewed code and graded. Since 2023 I have given academic tutoring, currently in Energy Markets. I was also part of Visionarios, a student organization that ran leadership workshops for school students in southern Chile, and taught programming to preschool children at Cubo Educativo (2022).',
       links:[] }
   },
-  amigo: {
-    es: { tag:'2022 — presente · Intercambio', title:'Embajador y podcast',
-      body:'Hizo su propio intercambio de pregrado en el Tecnológico de Monterrey (ago–dic 2022) — experiencia que lo llevó después a ser embajador local de AmiGo Abroad a cargo del nodo de la costa de Viña del Mar/Valparaíso, e invitado al podcast "AmiGo en el extranjero", conversando sobre vínculos comunitarios e inclusión social.',
+  amigo: { year:'2022–', cats:'community', icon:'amigo', c1:'#2FA88A', c2:'#6FA8DC',
+    es: { tag:'Tecnológico de Monterrey · AmiGo Abroad', title:'Intercambio en México y embajada de AmiGo',
+      body:'Hice un intercambio de pregrado en el Tecnológico de Monterrey (2022). Esa experiencia me llevó a asumir la embajada local de AmiGo Abroad, a cargo del nodo de Viña del Mar y Valparaíso, y a participar en su podcast sobre vínculos comunitarios e inclusión social.',
       links:[] },
-    en: { tag:'2022 — present · Exchange', title:'Ambassador & podcast',
-      body:'Did his own undergraduate exchange at Tecnológico de Monterrey (Aug–Dec 2022) — an experience that later led him to become a local ambassador for AmiGo Abroad, leading the Viña del Mar/Valparaíso coastal node, and a guest speaker on the "AmiGo en el extranjero" podcast, speaking about community ties and social inclusion.',
+    en: { tag:'Tecnológico de Monterrey · AmiGo Abroad', title:'Exchange in Mexico and AmiGo ambassador',
+      body:'I did an undergraduate exchange at Tecnológico de Monterrey (2022). That experience led me to become a local ambassador for AmiGo Abroad, running the Viña del Mar and Valparaíso node, and to appear as a guest on their podcast about community ties and social inclusion.',
       links:[] },
     photos:['assets/images/amigo-photo.webp']
   },
-  hackathon: {
-    es: { tag:'Google Cloud · Kaggle', title:'3er lugar, Data Challenge',
-      body:'3er lugar en "Data Challenge in the Cloud", hackathon organizado por Google Cloud, Le Wagon Latam y Kaggle, en equipo con Clemente Jara, Renzo Devoto Aspe, Benjamín Saldivia y Pablo Reinoso S.',
-      links:[{label:'Publicación de Clemente Jara en LinkedIn', url:'https://www.linkedin.com/posts/clemente-jara_el-jueves-pasado-tuve-la-incre%C3%ADble-oportunidad-ugcPost-7234557571620065280-qFen/'}] },
-    en: { tag:'Google Cloud · Kaggle', title:'3rd place, Data Challenge',
-      body:'3rd place in "Data Challenge in the Cloud," a hackathon organized by Google Cloud, Le Wagon Latam, and Kaggle, as part of a team with Clemente Jara, Renzo Devoto Aspe, Benjamín Saldivia, and Pablo Reinoso S.',
-      links:[{label:"Clemente Jara's LinkedIn post", url:'https://www.linkedin.com/posts/clemente-jara_el-jueves-pasado-tuve-la-incre%C3%ADble-oportunidad-ugcPost-7234557571620065280-qFen/'}] },
-    embed_html:'<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7234557571620065280?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
-  },
-  atamostec: {
-    es: { tag:'ATAMOSTEC · Nov 2024', title:'Movilidad "La Ruta del Sol"',
-      body:'Del 11 al 13 de noviembre de 2024, completó la 3era versión del Programa de Movilidad Estudiantil ATAMOSTEC "La Ruta del Sol: Antofagasta 2024" de SERC Chile — un programa de movilidad/intercambio, no un congreso donde presentara.',
+  admission: { year:'2021', cats:'community', icon:'graduation', c1:'#2D5FA8', c2:'#6FA8DC',
+    es: { tag:'Marzo de 2021 · Campus Viña del Mar', title:'Ingreso a la UAI',
+      body:'Entré a la UAI en 2021 con 771,7 puntos PSU, desde el Colegio San Mateo de Osorno. La campaña "Yo elegí la UAI" citó lo que dije entonces: "Elegí la UAI porque quiero crear innovaciones que vuelvan al planeta más verde, más inteligente, o simplemente más humano."',
       links:[] },
-    en: { tag:'ATAMOSTEC · Nov 2024', title:'"La Ruta del Sol" mobility program',
-      body:'From November 11–13, 2024, he completed the 3rd edition of SERC Chile\'s ATAMOSTEC Student Mobility Program, "La Ruta del Sol: Antofagasta 2024" — a mobility/exchange program, not a conference he presented at.',
-      links:[] }
+    en: { tag:'March 2021 · Viña del Mar campus', title:'Starting at UAI',
+      body:'I entered UAI in 2021 with a 771.7 PSU score, from Colegio San Mateo in Osorno. The "I chose UAI" campaign quoted what I said then: "I chose UAI because I want to create innovations that make the planet greener, smarter, or simply more human."',
+      links:[] },
+    photos:['assets/images/graduation-photo.webp']
   }
 };
-CARD_DATA.graduation.photos = ['assets/images/graduation-photo.webp'];
+
+var ARCHIVE_ORDER = ['calabria','conference','ssrn','fellowships','naturecomms','uaifeature','pvcv','atamostec','upenn','hackathon','acciona','tid','docongress','nature','teaching','amigo','admission'];
+
+/* English strings for static sections (Spanish lives in index.html so the page reads with no JS). */
+var I18N_EN = {
+  'skip':'Skip to content',
+  'nav.now':'Work','nav.research':'Research','nav.degrees':'Degrees','nav.pubs':'Publications','nav.route':'Route','nav.archive':'Archive','nav.contact':'Contact',
+  'lang':'English','theme':'Toggle theme',
+  'hero.role':'Energy Data Scientist',
+  'hero.lede':'I model how extreme heat and battery storage reshape Chile\'s power grid.',
+  'hero.l1':'At Sherpas, data for carbon markets and batteries',
+  'hero.l2':'MSc in Data Science, thesis graded 7.0',
+  'hero.l3':'Published in the International Journal of Climatology, 2026',
+  'hero.legend0':'cooler','hero.legend1':'warmer','hero.hint':'Move the cursor to warm the terrain. Illustrative field, not data.',
+  'about.h':'From rural southern Chile to the national grid',
+  'about.p1':'I grew up in the countryside near Osorno, and that is where my interest in the environment comes from. During my Energy Engineering degree, a directed-research workshop with Professor Cristian Martínez-Villalobos introduced me to climate science and to a natural affinity for data.',
+  'about.p2':'Instead of choosing between energy and data, I added an MSc in Data Science to my engineering degrees to work on one problem with better tools: how climate change stresses the Chilean grid, and what storage and good data can do about it.',
+
+  'now.h':'I founded the data area of a carbon-markets consultancy. Its models now support a battery portfolio of more than 1 GW in Chile.',
+  'now.meta':'Sherpas Group SpA · Energy Data Scientist · June 2025 to present · remote',
+  'now.sub':'Sherpas develops carbon-market projects under Article 6 of the Paris Agreement.',
+  'now.more':'See details and milestones',
+  'now.i1.h':'Emission-reduction methodology for BESS under Article 6.2',
+  'now.i1.p':'Designed and coded it in Python and SQL. The model simulates the economic dispatch of the national grid hour by hour, unit by unit, on the actual merit order, including the nodal marginal cost at each busbar and charging from renewable curtailment.',
+  'now.i2.h':'From a manual Excel process to an audited pipeline',
+  'now.i2.p':'Turned a slow, error-prone process into an automated, reproducible one with Git and automated tests. It now supports the ex-ante and ex-post evaluation of projects for clients such as Metlen, AES, Zelestra, Engie and Enel.',
+  'now.i3.h':'Validation before the regulators and verifiers',
+  'now.i3.p':'Defended the technical integrity of the model before EBP Schweiz, Verifit, the Swiss KliK/FOEN programme and the Chilean Ministry of Environment, through data-architecture reports, responses to findings and emission-factor annexes.',
+  'now.i4.h':'A FAIR data platform for the Chilean grid',
+  'now.i4.p':'Integrates the National Electric Coordinator (SIP, Infotécnica, PLABACOM), the National Energy Commission and the Water Directorate into a single physical topology of unit, plant, busbar and substation. Asset names are reconciled with fuzzy matching, embeddings and LLMs, and certified indicators for curtailment, BESS arbitrage, transmission congestion and ancillary services sit on top.',
+  'now.i5.h':'A natural-language analyst for the grid',
+  'now.i5.p':'A production agent served through a Model Context Protocol (MCP) server on Google Cloud Run. It answers with certified metrics and cites its source. The team uses it on client projects, for example to calculate the grid emission factor for the Cuel Wind Farm.',
+  'now.i6.h':'MRV and crediting-period renewal, Cuel Wind Farm',
+  'now.i6.p':'I lead the MRV and the renewal of the crediting period of the 33 MW Cuel Wind Farm (Innergex) under the Cercarbono standard, methodology ACM0002 and TOOL07. I validated the generation series, reconciled the plant\'s metering with the Coordinator\'s, and advise on the technical side before the verifier TÜV SÜD.',
+
+  'res.h':'Heat waves and the Chilean power grid',
+  'res.p':'The question behind my thesis, my papers and most of my talks: what happens to a power system built for one climate when the climate changes.',
+  'res.paper.k':'Published · 2026',
+  'res.paper.t':'The future of atmospheric heatwaves in Chile projected by a regional climate model',
+  'res.paper.a':'Petit-Laurent, J., Martínez-Villalobos, C., Goubanova, K., Chadwick, C. and Nabat, P.',
+  'res.paper.v':'International Journal of Climatology',
+  'res.paper.p':'Bias-corrected regional projections show heat-wave frequency growing by a factor of about 2.5 by the end of the century under SSP3-7.0. Each dot in the figure is one day of one year, and the red band widens with every decade.',
+  'res.paper.cta':'Read the paper',
+  'res.paper.cta2':'Details',
+  'res.lis.k':'Oral presentation · Lisbon, 29 June 2026',
+  'res.lis.t':'Substation-level heat-wave vulnerability of the Chilean grid under global warming',
+  'res.lis.p':'Presented at the 26th IEEE EEEIC & I&CPS Europe, with Cristian Martínez-Villalobos and Katerina Goubanova (CEAZA). It moves the question from country level to individual substations.',
+  'res.lis.cta':'See photos and program',
+  'res.th.k':'MSc thesis · defended 2026 · grade 7.0',
+  'res.th.t':'Effects of heat waves on electricity demand in Chile under climate change',
+  'res.th.p':'The result of the thesis is a map of where the grid is sensitive to heat, not a national average.',
+  'res.th.f1':'397 substations, hourly climate projections at 12.5 km and energy withdrawals by busbar and customer, 2017 to 2025.',
+  'res.th.f2':'2,529 generalized additive models fitted in R (mgcv) on the faculty HPC cluster.',
+  'res.th.f3':'The thermal response of demand differs across macro-zones and between regulated and free customers.',
+  'res.th.f4':'The climate-change impact concentrates in extreme events and in the Norte Grande, which a national aggregate does not reveal.',
+  'res.th.cta':'Funding and details',
+  'res.cal.k':'Jan to Mar 2026 · Italy',
+  'res.cal.t':'Research stay at the University of Calabria',
+  'res.cal.p':'Funded by a Next Generation EU mobility fellowship.',
+  'res.cal.cta':'Read more',
+
+  'deg.h':'Three degrees, one thesis, all graded 7.0',
+  'deg.p':'In 2026 I defended a single thesis for three degrees at Universidad Adolfo Ibáñez.',
+  'deg.1.h':'Civil Engineering in Energy',
+  'deg.1.m':'2021 to 2025 · final grade 6.40 / 7.0',
+  'deg.2.h':'Civil Industrial Engineering',
+  'deg.2.m':'Dual degree with Energy Engineering',
+  'deg.3.h':'MSc in Data Science',
+  'deg.3.m':'2025 to 2026 · final grade 6.51 / 7.0',
+  'deg.note':'Chilean scale: 4.0 is a pass and 7.0 is the maximum. Studied on the UAI Academic Excellence Scholarship and the Academic Honor Scholarship.',
+  'deg.cta':'Photos and details',
+  'deg.cap1':'With my thesis advisor and family after the defense.',
+  'deg.cap2':'Three bottles, one per degree.',
+
+  'pubs.h':'Publications and talks',
+  'pubs.papers':'Papers',
+  'pubs.talks':'Talks and posters',
+  'pubs.oral':'Oral','pubs.poster':'Poster','pubs.preprint':'Preprint','pubs.article':'Article','pubs.conf':'Conference paper',
+  'pubs.t1':'The future of atmospheric heatwaves in Chile projected by a regional climate model',
+  'pubs.t2':'Substation-level heat-wave vulnerability of the Chilean grid under global warming',
+  'pubs.t3':'Daylight photoluminescence imaging of PV modules under power curtailment and background mismatch',
+  'pubs.t3v':'SSRN preprint, co-author',
+  'pubs.c1':'26th IEEE EEEIC & I&CPS Europe · Lisbon, Portugal',
+  'pubs.c2':'2nd International Symposium on Climate and Resilience, SICyR · "The future of heatwaves in Chile"',
+  'pubs.c3':'5th Conference on Energy, Efficiency and Environmental Sustainability, CEES · "Effects of heatwaves on electricity demand in Chile under climate change"',
+  'pubs.c4':'7th Congress of Physical Oceanography, Meteorology and Climate of the Southeast Pacific · "A projection of the future of atmospheric heatwaves in Chile"',
+  'pubs.c5':'1st Data Observatory Data Science Congress',
+
+  'li.h':'Recent activity on LinkedIn',
+  'li.p':'Where I share milestones as they happen.',
+  'li.1.t':'I defended my thesis',
+  'li.1.p':'Three degrees, all with the maximum grade, 7.0.',
+  'li.2.t':'The paper is out',
+  'li.2.p':'Shared the publication in the International Journal of Climatology with my research group.',
+  'li.3.t':'Presenting in Lisbon',
+  'li.3.p':'The EEEIC conference, in photos.',
+  'li.4.t':'Also sharing',
+  'li.4.p':'The launch of the Climate Dynamics & Extremes Seminar Series at UAI, and a Data Observatory piece on how heat waves reach the power grid.',
+  'li.cta':'Open my LinkedIn activity',
+
+  'route.h':'The route',
+  'route.p':'Five years from first-year student to the summit of the thesis. Altitude is illustrative.',
+
+  'arch.h':'Archive',
+  'arch.p':'Everything else, most recent first. Open an item for photos, links and the original posts.',
+  'f.all':'All','f.research':'Research','f.data':'Data and AI','f.awards':'Grants and awards','f.community':'Community and nature',
+
+  'tools.h':'Tools',
+  'tools.p':'Python, SQL, R (mgcv), Git, Google BigQuery, Cloud Run, Neo4j, Model Context Protocol, OpenCV, Looker, Colab Enterprise, Firebase, embeddings and LLMs.',
+  'tools.l':'Spanish native · English B2 · IEEE member',
+
+  'c.h':'Let\'s talk',
+  'c.p':'Open to conversations about power-system resilience, climate risk, carbon markets and data infrastructure.',
+  'c.updated':'Updated September 2026',
+  'm.close':'Close','m.prev':'Previous photo','m.next':'Next photo'
+};

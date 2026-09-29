@@ -3,429 +3,480 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jorge Petit-Laurent — Portfolio & Academic Journal</title>
-<meta name="description" content="Ingeniero de la energía y científico de datos chileno. Cambio climático, resiliencia eléctrica y un camino que empezó en el sur rural de Chile.">
-<meta property="og:title" content="Jorge Petit-Laurent — Academic & Professional Journal">
-<meta property="og:description" content="Ingeniero de la energía y científico de datos chileno. Cambio climático, resiliencia eléctrica y un camino que empezó en el sur rural de Chile.">
-<meta property="og:image" content="https://pinkypetit.github.io/assets/images/eeeic-photo.webp">
+<title>Jorge Petit-Laurent · Energy Data Scientist</title>
+<meta name="description" content="Energy Data Scientist e ingeniero de la energía. Modelo cómo el calor extremo y las baterías cambian la red eléctrica de Chile. Investigación en olas de calor, mercados de carbono y datos del sistema eléctrico.">
+<meta property="og:title" content="Jorge Petit-Laurent · Energy Data Scientist">
+<meta property="og:description" content="Modelo cómo el calor extremo y las baterías cambian la red eléctrica de Chile.">
+<meta property="og:image" content="https://pinkypetit.github.io/assets/images/lisbon-talk.webp">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a140f">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 <script>
   (function(){
     try {
-      var savedLang = localStorage.getItem('jpl-lang');
-      if (savedLang === 'en') { 
-        document.documentElement.lang = 'en'; 
-        document.documentElement.classList.add('lang-en-pref'); 
-      }
-      var savedTheme = localStorage.getItem('jpl-theme');
-      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-        document.documentElement.classList.add('theme-dark');
-      }
+      var l = localStorage.getItem('jpl-lang');
+      if (l === 'en') document.documentElement.lang = 'en';
+      var t = localStorage.getItem('jpl-theme');
+      var dark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && dark)) document.documentElement.classList.add('theme-dark');
     } catch(e){}
   })();
 </script>
-<noscript><style>html.lang-en-pref body{ visibility:visible !important; }</style></noscript>
 </head>
 <body>
-
 <!-- SVG Icon Symbols Sprite -->
 <svg style="display:none" aria-hidden="true">
   <symbol id="icon-eeeic" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
   </symbol>
 
   <symbol id="icon-calabria" viewBox="0 0 24 24">
-    <path class="a" d="M14.639 10.258l4.83 -1.294a2 2 0 1 1 1.035 3.863l-14.489 3.883l-4.45 -5.02l2.897 -.776l2.45 1.414l2.897 -.776l-3.743 -6.244l2.898 -.777l5.675 5.727" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    <path class="b" d="M3 21h18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="a" d="M14.639 10.258l4.83 -1.294a2 2 0 1 1 1.035 3.863l-14.489 3.883l-4.45 -5.02l2.897 -.776l2.45 1.414l2.897 -.776l-3.743 -6.244l2.898 -.777l5.675 5.727" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="b" d="M3 21h18" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
 
   <symbol id="icon-sherpas" viewBox="0 0 24 24">
-    <path class="a" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 7h1a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-2" />
-    <path class="a" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 7h-2a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h1" />
-    <path class="b" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8l-2 4h3l-2 4" />
+    <path class="a" fill="none" style="stroke:var(--ic-a,currentColor)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 7h1a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-2" />
+    <path class="a" fill="none" style="stroke:var(--ic-a,currentColor)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 7h-2a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h1" />
+    <path class="b" fill="none" style="stroke:var(--ic-b,currentColor)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8l-2 4h3l-2 4" />
   </symbol>
 
   <symbol id="icon-thesis" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 9l4 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 9l4 0" />
   </symbol>
 
   <symbol id="icon-conference" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-.621 2.485a2 2 0 0 1 -1.94 1.515h-8.878a2 2 0 0 1 -1.94 -1.515l-.621 -2.485" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 8v-2a3 3 0 0 1 3 -3" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l1 9" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 12l-1 9" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 21h10" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-.621 2.485a2 2 0 0 1 -1.94 1.515h-8.878a2 2 0 0 1 -1.94 -1.515l-.621 -2.485" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 8v-2a3 3 0 0 1 3 -3" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l1 9" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 12l-1 9" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 21h10" />
   </symbol>
 
   <symbol id="icon-ssrn" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.28 14h15.44a1 1 0 0 0 .97 -1.243l-1.5 -6a1 1 0 0 0 -.97 -.757h-12.44a1 1 0 0 0 -.97 .757l-1.5 6a1 1 0 0 0 .97 1.243" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 10h16" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 6l-1 8" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 6l1 8" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 14v4" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 18h10" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.28 14h15.44a1 1 0 0 0 .97 -1.243l-1.5 -6a1 1 0 0 0 -.97 -.757h-12.44a1 1 0 0 0 -.97 .757l-1.5 6a1 1 0 0 0 .97 1.243" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 10h16" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 6l-1 8" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 6l1 8" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 14v4" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 18h10" />
   </symbol>
 
   <symbol id="icon-tid" viewBox="0 0 24 24">
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 21l6 -5l6 5" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 13v8" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.294 13.678l.166 .281c.52 .88 1.624 1.265 2.605 .91l14.242 -5.165a1.023 1.023 0 0 0 .565 -1.456l-2.62 -4.705a1.087 1.087 0 0 0 -1.447 -.42l-.056 .032l-12.694 7.618c-1.02 .613 -1.357 1.897 -.76 2.905l-.001 0" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 5l3 5.5" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 21l6 -5l6 5" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 13v8" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.294 13.678l.166 .281c.52 .88 1.624 1.265 2.605 .91l14.242 -5.165a1.023 1.023 0 0 0 .565 -1.456l-2.62 -4.705a1.087 1.087 0 0 0 -1.447 -.42l-.056 .032l-12.694 7.618c-1.02 .613 -1.357 1.897 -.76 2.905l-.001 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 5l3 5.5" />
   </symbol>
 
   <symbol id="icon-pvcv" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 20h-8a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v3.5" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 16l-2 3h4l-2 3" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 20h-8a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v3.5" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 16l-2 3h4l-2 3" />
   </symbol>
 
   <symbol id="icon-upenn" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.6 15h16.8" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.5 3a17 17 0 0 0 0 18" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.5 3a17 17 0 0 1 0 18" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.6 15h16.8" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.5 3a17 17 0 0 0 0 18" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.5 3a17 17 0 0 1 0 18" />
   </symbol>
 
   <symbol id="icon-naturecomms" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 16h-12a2 2 0 0 0 -2 2" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 8h6" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 16h-12a2 2 0 0 0 -2 2" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 8h6" />
   </symbol>
 
   <symbol id="icon-graduation" viewBox="0 0 24 24">
-    <path class="a" d="M22 9l-10 -4l-10 4l10 4l10 -4v6" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    <path class="b" d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="a" d="M22 9l-10 -4l-10 4l10 4l10 -4v6" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="b" d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
 
   <symbol id="icon-teaching" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 19h-3a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v11a1 1 0 0 1 -1 1" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 17a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -1" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 19h-3a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v11a1 1 0 0 1 -1 1" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 17a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -1" />
   </symbol>
 
   <symbol id="icon-acciona" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 11v-2.573c0 -.18 .013 -.358 .04 -.536l.716 -4.828c.064 -.597 .597 -1.063 1.244 -1.063s1.18 .466 1.244 1.063l.716 4.828c.027 .178 .04 .357 .04 .536v2.573" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.01 9.28l2.235 1.276c.156 .09 .305 .19 .446 .3l3.836 2.911c.487 .352 .624 1.04 .3 1.596c-.325 .556 -1 .782 -1.548 .541l-4.555 -1.68a3.624 3.624 0 0 1 -.486 -.231l-2.235 -1.277" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 12.716l-2.236 1.277a3.624 3.624 0 0 1 -.485 .23l-4.555 1.681c-.551 .241 -1.223 .015 -1.548 -.54c-.324 -.557 -.187 -1.245 .3 -1.597l3.836 -2.91a3.41 3.41 0 0 1 .446 -.3l2.235 -1.277" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 21h10" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 21l1 -7" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 14l1 7" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 11v-2.573c0 -.18 .013 -.358 .04 -.536l.716 -4.828c.064 -.597 .597 -1.063 1.244 -1.063s1.18 .466 1.244 1.063l.716 4.828c.027 .178 .04 .357 .04 .536v2.573" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.01 9.28l2.235 1.276c.156 .09 .305 .19 .446 .3l3.836 2.911c.487 .352 .624 1.04 .3 1.596c-.325 .556 -1 .782 -1.548 .541l-4.555 -1.68a3.624 3.624 0 0 1 -.486 -.231l-2.235 -1.277" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 12.716l-2.236 1.277a3.624 3.624 0 0 1 -.485 .23l-4.555 1.681c-.551 .241 -1.223 .015 -1.548 -.54c-.324 -.557 -.187 -1.245 .3 -1.597l3.836 -2.91a3.41 3.41 0 0 1 .446 -.3l2.235 -1.277" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 21h10" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 21l1 -7" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 14l1 7" />
   </symbol>
 
   <symbol id="icon-docongress" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4l18 0" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16l0 4" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 20l6 0" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 -3l2 2l3 -3" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4l18 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16l0 4" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 20l6 0" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 -3l2 2l3 -3" />
   </symbol>
 
   <symbol id="icon-uaifeature" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.468 10a4 4 0 1 0 -5.466 5.46" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 12h1" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 3v1" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 20v1" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.6 5.6l.7 .7" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.4 5.6l-.7 .7" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.3 17.7l-.7 .7" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 13h5a2 2 0 1 0 0 -4" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16h5.714l.253 0a2 2 0 0 1 2.033 2a2 2 0 0 1 -2 2h-.286" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.468 10a4 4 0 1 0 -5.466 5.46" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 12h1" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 3v1" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 20v1" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.6 5.6l.7 .7" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.4 5.6l-.7 .7" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.3 17.7l-.7 .7" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 13h5a2 2 0 1 0 0 -4" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16h5.714l.253 0a2 2 0 0 1 2.033 2a2 2 0 0 1 -2 2h-.286" />
   </symbol>
 
   <symbol id="icon-nature" viewBox="0 0 24 24">
-    <path class="b" d="M5 21c.5 -4.5 2.5 -8 7 -10" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    <path class="a" d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3l.014 0" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="b" d="M5 21c.5 -4.5 2.5 -8 7 -10" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="a" d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3l.014 0" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
 
   <symbol id="icon-amigo" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 12.9a5 5 0 1 0 -3.902 -3.9" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 12.9l-3.902 -3.899l-7.513 8.584a2 2 0 1 0 2.827 2.83l8.588 -7.515" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 12.9a5 5 0 1 0 -3.902 -3.9" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 12.9l-3.902 -3.899l-7.513 8.584a2 2 0 1 0 2.827 2.83l8.588 -7.515" />
   </symbol>
 
   <symbol id="icon-hackathon" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 21l8 0" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 17l0 4" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 4l10 0" />
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 4v8a5 5 0 0 1 -10 0v-8" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 21l8 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 17l0 4" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 4l10 0" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 4v8a5 5 0 0 1 -10 0v-8" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
   </symbol>
 
   <symbol id="icon-atamostec" viewBox="0 0 24 24">
-    <path class="a" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-    <path class="b" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+    <path class="a" style="stroke:var(--ic-a,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+    <path class="b" style="stroke:var(--ic-b,currentColor)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
   </symbol>
 </svg>
 
-<a class="skip-link" href="#main">Saltar al contenido / Skip to content</a>
 
-<main class="page" id="main">
+<a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
 
-  <!-- Top Action & Navigation Header -->
-  <header class="top-header">
-    <div class="brand-badge">
-      <span class="brand-dot"></span>
-      <span>Jorge Petit-Laurent — Portfolio</span>
-    </div>
-
-    <div class="header-controls">
-      <!-- Quick Social / Contact Links -->
-      <nav class="social-links" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/jorge-petit-laurent" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile" title="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a href="https://github.com/pinkypetit" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile" title="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-        </a>
-        <a href="https://orcid.org/0009-0006-2945-610X" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="ORCID Profile" title="ORCID">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-        </a>
-        <a href="mailto:jpetitlaurent@gmail.com" class="social-btn" aria-label="Email Contact" title="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        </a>
-      </nav>
-
-      <!-- Language Toggle Button -->
-      <button class="lang-toggle" id="langToggle" aria-pressed="false" title="Cambiar idioma / Toggle language">
-        <span class="lang-flip"><span class="lang-flip-inner">
-          <span class="lang-face lang-face--front" aria-hidden="true">
-            <svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice"><rect width="30" height="20" fill="#fff"/><rect y="10" width="30" height="10" fill="#D52B1E"/><rect width="12" height="10" fill="#0039A6"/><polygon fill="#fff" points="6,2.6 7.1,5.9 10.6,5.9 7.8,7.9 8.9,11.2 6,9.2 3.1,11.2 4.2,7.9 1.4,5.9 4.9,5.9"/></svg>
-          </span>
-          <span class="lang-face lang-face--back" aria-hidden="true">
-            <svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="1.6"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="4"/></svg>
-          </span>
-        </span></span>
-        <span data-i18n="langLabel">Español</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Hero Identity Row (3D Flip Bio Card) -->
-  <div class="identity-row">
-    <div class="identity" id="identity" tabindex="0" role="button" aria-pressed="false" aria-label="Cambiar entre nombre y biografía / Toggle name and bio">
-      <div class="identity-card" id="identityCard">
-        <div class="id-face id-face--front">
-          <div class="id-wallpaper" aria-hidden="true" data-i18n="wallpaper">afinidad natural por los datos afinidad natural por los datos cambio climático cambio climático resiliencia energética afinidad natural por los datos</div>
-          <div class="id-header-meta">
-            <span class="id-tag">MSc Data Science & Energy Eng.</span>
-          </div>
-          <h1 class="id-name">Jorge Petit‑Laurent</h1>
-          <p class="id-subheading">Data Analytics Engineer @ Sherpas | Climate Resilience Researcher</p>
-          <div class="id-hint" data-i18n="hint">toca para saber más →</div>
-        </div>
-        <div class="id-face id-face--back">
-          <div class="id-wallpaper" aria-hidden="true" style="font-size:56px;">Jorge Petit‑Laurent</div>
-          <p class="id-bio" data-i18n="bio">Ingeniero de la energía y científico de datos chileno. Estudia cómo el <strong>cambio climático</strong> tensiona la red eléctrica — y cree que la <strong>ambición</strong> por resolverlo empieza en el sur rural de Chile donde creció.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Category Filter Pills Bar -->
-  <nav class="filter-bar" aria-label="Filtrar por tema">
-    <button class="filter-btn is-active" data-filter="all" data-i18n="filterAll">Todos</button>
-    <button class="filter-btn" data-filter="climate" data-i18n="filterClimate">Clima & Energía</button>
-    <button class="filter-btn" data-filter="data" data-i18n="filterData">Data & AI</button>
-    <button class="filter-btn" data-filter="awards" data-i18n="filterAwards">Premios & Publicaciones</button>
-    <button class="filter-btn" data-filter="community" data-i18n="filterCommunity">Comunidad & Naturaleza</button>
+<header class="bar" id="bar">
+  <a class="bar-mark" href="#top" aria-label="Jorge Petit-Laurent">JPL</a>
+  <nav class="bar-nav" aria-label="Secciones">
+    <a href="#trabajo" data-i18n="nav.now">Trabajo</a>
+    <a href="#investigacion" data-i18n="nav.research">Investigación</a>
+    <a href="#titulacion" data-i18n="nav.degrees">Titulación</a>
+    <a href="#publicaciones" data-i18n="nav.pubs">Publicaciones</a>
+    <a href="#ruta" data-i18n="nav.route">Ruta</a>
+    <a href="#archivo" data-i18n="nav.archive">Archivo</a>
+    <a href="#contacto" data-i18n="nav.contact">Contacto</a>
   </nav>
-
-  <!-- 12-Column Dynamic Bento Grid -->
-  <div class="bento" id="bento">
-
-    <!-- Band 1 — XL (6 rows): Lisboa IEEE & Italia Calabria -->
-    <button class="card size-xl" data-id="eeeic" data-category="climate awards" style="--c1:#5B8DEF;--c2:#FF8A3D">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-eeeic"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="eeeic.tag">Conference paper · EEEIC 2026</p>
-        <h3 class="card-title" data-i18n="eeeic.title">IEEE EEEIC 2026, Lisboa</h3>
-      </div>
+  <div class="bar-tools">
+    <button class="lang-toggle" id="langToggle" type="button" aria-pressed="false" title="Español / English">
+      <span class="lang-flip"><span class="lang-flip-inner">
+        <span class="lang-face lang-face--front" aria-hidden="true"><svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice"><rect width="30" height="20" fill="#fff"/><rect y="10" width="30" height="10" fill="#D52B1E"/><rect width="12" height="10" fill="#0039A6"/><polygon fill="#fff" points="6,2.6 7.1,5.9 10.6,5.9 7.8,7.9 8.9,11.2 6,9.2 3.1,11.2 4.2,7.9 1.4,5.9 4.9,5.9"/></svg></span>
+        <span class="lang-face lang-face--back" aria-hidden="true"><svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="1.6"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="4"/></svg></span>
+      </span></span>
+      <span data-i18n="lang">Español</span>
     </button>
-
-    <button class="card size-xl" data-id="calabria" data-category="climate awards" style="--c1:#3DAA68;--c2:#E2574C">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-calabria"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="calabria.tag">Ene–Mar 2026 · Italia</p>
-        <h3 class="card-title" data-i18n="calabria.title">Estadía de investigación, U. de Calabria</h3>
-      </div>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema" data-i18n-aria="theme" title="Tema">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18" fill="currentColor"/></svg>
     </button>
-
-    <!-- Band 2 — L (5 rows): Sherpas & Tesis UAI -->
-    <button class="card size-l" data-id="sherpas" data-category="data climate" style="--c1:#2FA88A;--c2:#BFD96B">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-sherpas"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="sherpas.tag">2025 — presente</p>
-        <h3 class="card-title" data-i18n="sherpas.title">Data Analytics Engineer, Sherpas</h3>
-      </div>
-    </button>
-
-    <button class="card size-l" data-id="thesis" data-category="climate data" style="--c1:#4F8FE0;--c2:#E0524F">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-thesis"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="thesis.tag">2025 — presente · UAI</p>
-        <h3 class="card-title" data-i18n="thesis.title">Tesis: olas de calor y demanda eléctrica</h3>
-      </div>
-    </button>
-
-    <!-- Band 3 — M (4 rows): Congresos, SSRN Preprint, Premio TID -->
-    <button class="card size-m" data-id="conference" data-category="climate" style="--c1:#E8A23D;--c2:#F2D14B">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-conference"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="conference.tag">SICyR · CEES · 2024–2025</p>
-        <h3 class="card-title" data-i18n="conference.title">Circuito de congresos</h3>
-      </div>
-    </button>
-
-    <button class="card size-m" data-id="ssrn" data-category="climate awards" style="--c1:#6E8EA8;--c2:#C7CDD2">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-ssrn"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="ssrn.tag">2025 · SSRN</p>
-        <h3 class="card-title" data-i18n="ssrn.title">Preprint: diagnóstico de paneles solares</h3>
-      </div>
-    </button>
-
-    <button class="card size-m" data-id="tid" data-category="awards climate" style="--c1:#1B2A52;--c2:#E8C76B">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-tid"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="tid.tag">2022 / 2024 · Premio TID</p>
-        <h3 class="card-title" data-i18n="tid.title">Premio TID + Las Campanas</h3>
-      </div>
-    </button>
-
-    <!-- Band 4 — S (3 rows): Visión Computacional Solar & UPenn Beca -->
-    <button class="card size-s" data-id="pvcv" data-category="data climate" style="--c1:#6E8EA8;--c2:#5B8DEF">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-pvcv"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="pvcv.tag">2023–2025 · TRL Level Up</p>
-        <h3 class="card-title" data-i18n="pvcv.title">Visión computacional en paneles solares</h3>
-      </div>
-    </button>
-
-    <button class="card size-s" data-id="upenn" data-category="awards" style="--c1:#A41E22;--c2:#D9534F">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-upenn"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="upenn.tag">2024 · Pennsylvania</p>
-        <h3 class="card-title" data-i18n="upenn.title">Beca Santander, UPenn</h3>
-      </div>
-    </button>
-
-    <!-- Band 5 — S (3 rows): Titulación & Docencia -->
-    <button class="card size-s" data-id="graduation" data-category="community" style="--c1:#2D5FA8;--c2:#6FA8DC">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-graduation"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="graduation.tag">2021 → 2025/26 · UAI</p>
-        <h3 class="card-title" data-i18n="graduation.title">De la admisión a la titulación</h3>
-      </div>
-    </button>
-
-    <button class="card size-s" data-id="teaching" data-category="community" style="--c1:#3E7C3F;--c2:#7FBF6A">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-teaching"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="teaching.tag">2021–2025 · UAI</p>
-        <h3 class="card-title" data-i18n="teaching.title">Docencia y mentoría</h3>
-      </div>
-    </button>
-
-    <!-- Band 6 — S (3 rows): ACCIONA & Data Observatory Poster -->
-    <button class="card size-s" data-id="acciona" data-category="awards climate" style="--c1:#3E7C3F;--c2:#9FCB3E">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-acciona"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="acciona.tag">2024 · ACCIONA</p>
-        <h3 class="card-title" data-i18n="acciona.title">Programa Academy de ACCIONA</h3>
-      </div>
-    </button>
-
-    <button class="card size-s" data-id="docongress" data-category="data climate" style="--c1:#2FA88A;--c2:#1B2A52">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-docongress"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="docongress.tag">2023 · Data Observatory</p>
-        <h3 class="card-title" data-i18n="docongress.title">Póster, 1er Congreso DO</h3>
-      </div>
-    </button>
-
-    <!-- Band 7 — XS (2 rows): Nature Comms, Instagram Feature, ATAMOSTEC -->
-    <button class="card size-xs" data-id="naturecomms" data-category="awards climate" style="--c1:#A41E22;--c2:#6E8EA8">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-naturecomms"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="naturecomms.tag">2025 · Nature Communications</p>
-        <h3 class="card-title" data-i18n="naturecomms.title">Revisor par</h3>
-      </div>
-    </button>
-
-    <button class="card size-xs" data-id="uaifeature" data-category="community" style="--c1:#2D5FA8;--c2:#E8A23D">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-uaifeature"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="uaifeature.tag">2025 · Instagram, Ingeniería UAI</p>
-        <h3 class="card-title" data-i18n="uaifeature.title">Feature de especialidad</h3>
-      </div>
-    </button>
-
-    <button class="card size-xs" data-id="atamostec" data-category="climate" style="--c1:#E8A23D;--c2:#F2D14B">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-atamostec"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="atamostec.tag">ATAMOSTEC · Nov 2024</p>
-        <h3 class="card-title" data-i18n="atamostec.title">Movilidad "La Ruta del Sol"</h3>
-      </div>
-    </button>
-
-    <!-- Band 8 — XS (2 rows): Hackathon, Vivero, AmiGo Exchange -->
-    <button class="card size-xs" data-id="hackathon" data-category="data awards" style="--c1:#4285F4;--c2:#FBBC05">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-hackathon"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="hackathon.tag">Google Cloud · Kaggle</p>
-        <h3 class="card-title" data-i18n="hackathon.title">3er lugar, Data Challenge</h3>
-      </div>
-    </button>
-
-    <button class="card size-xs" data-id="nature" data-category="community" style="--c1:#3E7C3F;--c2:#7FBF6A">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-nature"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="nature.tag">2023 —</p>
-        <h3 class="card-title" data-i18n="nature.title">Vivero y reforestación</h3>
-      </div>
-    </button>
-
-    <button class="card size-xs" data-id="amigo" data-category="community" style="--c1:#2FA88A;--c2:#6FA8DC">
-      <svg class="card-icon" aria-hidden="true"><use href="#icon-amigo"></use></svg>
-      <div class="card-content">
-        <p class="card-tag" data-i18n="amigo.tag">2022 — presente · Intercambio</p>
-        <h3 class="card-title" data-i18n="amigo.title">Embajador y podcast</h3>
-      </div>
-    </button>
-
   </div>
+  <div class="bar-progress" id="barProgress" aria-hidden="true"></div>
+</header>
 
-  <footer class="site-footer">
-    <span>© 2026 Jorge Petit-Laurent</span>
-    <div style="display:flex; align-items:center; gap:16px;">
-      <a href="https://www.linkedin.com/in/jorge-petit-laurent" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/pinkypetit" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://orcid.org/0009-0006-2945-610X" target="_blank" rel="noopener noreferrer">ORCID</a>
-      <!-- Discreet theme toggle in footer -->
-      <button class="footer-theme-btn" id="themeToggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐ Tema</button>
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas class="hero-canvas" id="terrain" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="hero-role" data-i18n="hero.role">Energy Data Scientist</p>
+    <h1 class="hero-name"><span class="hn-line">Jorge</span> <span class="hn-line">Petit&#8209;Laurent</span></h1>
+    <p class="hero-lede" data-i18n="hero.lede">Modelo cómo el calor extremo y las baterías cambian la red eléctrica de Chile.</p>
+  </div>
+  <div class="wrap hero-foot">
+    <ul class="ledger">
+      <li><a href="#trabajo" data-i18n="hero.l1">En Sherpas, datos para mercados de carbono y baterías</a></li>
+      <li><a href="#titulacion" data-i18n="hero.l2">Magíster en Ciencia de Datos, tesis con nota 7,0</a></li>
+      <li><a href="#investigacion" data-i18n="hero.l3">Publicado en el International Journal of Climatology, 2026</a></li>
+    </ul>
+    <div class="legend" aria-hidden="true">
+      <span data-i18n="hero.legend0">más frío</span>
+      <i class="legend-bar"></i>
+      <span data-i18n="hero.legend1">más cálido</span>
     </div>
-  </footer>
+    <p class="hero-hint" data-i18n="hero.hint">Mueve el cursor para calentar el terreno. Campo ilustrativo, no son datos.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec about" aria-labelledby="aboutH">
+  <div class="wrap grid">
+    <h2 class="sec-h about-h" id="aboutH" data-i18n="about.h">Del sur rural de Chile a la red eléctrica nacional</h2>
+    <div class="about-body">
+      <p data-i18n="about.p1">Crecí en el campo, cerca de Osorno, y de ahí viene mi interés por el medioambiente. Durante Ingeniería en Energía, un taller de investigación dirigida con el profesor Cristian Martínez-Villalobos me acercó a la ciencia del clima y a una afinidad natural por los datos.</p>
+      <p data-i18n="about.p2">En vez de elegir entre energía y datos, sumé un magíster en Ciencia de Datos a mis títulos de ingeniería para trabajar un mismo problema con mejores herramientas: cómo el cambio climático tensiona la red eléctrica chilena, y qué pueden hacer el almacenamiento y los buenos datos al respecto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRABAJO / SHERPAS ============ -->
+<section class="sec now" id="trabajo" aria-labelledby="nowH">
+  <div class="wrap grid">
+    <header class="now-head">
+      <p class="meta" data-i18n="now.meta">Sherpas Group SpA · Energy Data Scientist · junio 2025 a hoy · remoto</p>
+      <h2 class="sec-h sec-h--xl" id="nowH" data-i18n="now.h">Fundé el área de datos de una consultora de mercados de carbono. Hoy sus modelos respaldan un portafolio de baterías de más de 1 GW en Chile.</h2>
+      <p class="lede" data-i18n="now.sub">Sherpas desarrolla proyectos de mercados de carbono bajo el Artículo 6 del Acuerdo de París.</p>
+      <button class="link-btn" type="button" data-open="sherpas"><span data-i18n="now.more">Ver detalle e hitos</span></button>
+    </header>
+    <ol class="work-list">
+      <li>
+        <h3 data-i18n="now.i1.h">Metodología de reducción de emisiones para BESS bajo el Artículo 6.2</h3>
+        <p data-i18n="now.i1.p">La diseñé y programé en Python y SQL. El modelo simula hora a hora y unidad por unidad el despacho económico del SEN sobre el orden de mérito real, con el costo marginal nodal en cada barra y la carga desde vertimiento renovable.</p>
+        <p class="tags"><span>Python</span><span>SQL</span><span>Artículo 6.2</span></p>
+      </li>
+      <li>
+        <h3 data-i18n="now.i2.h">De un proceso manual en Excel a un pipeline auditable</h3>
+        <p data-i18n="now.i2.p">Convertí un proceso lento y propenso a errores en uno automatizado y reproducible, con control de versiones en Git y pruebas automáticas. Hoy sostiene la evaluación ex-ante y ex-post de proyectos para clientes como Metlen, AES, Zelestra, Engie y Enel.</p>
+        <p class="tags"><span>Git</span><span>Tests</span></p>
+      </li>
+      <li>
+        <h3 data-i18n="now.i3.h">Validación ante reguladores y verificadores</h3>
+        <p data-i18n="now.i3.p">Defendí la integridad técnica del modelo ante EBP Schweiz, Verifit, el programa suizo KliK/FOEN y el Ministerio del Medio Ambiente, con informes de arquitectura de datos, respuestas a hallazgos y anexos técnicos de factor de emisión.</p>
+      </li>
+      <li>
+        <h3 data-i18n="now.i4.h">Una plataforma de datos FAIR del sistema eléctrico</h3>
+        <p data-i18n="now.i4.p">Integra al Coordinador Eléctrico Nacional (SIP, Infotécnica, PLABACOM), la Comisión Nacional de Energía y la Dirección General de Aguas en una sola topología física de unidad, central, barra y subestación. Los nombres de activos se concilian con fuzzy matching, embeddings y LLMs, y encima hay indicadores certificados de vertimiento, arbitraje BESS, congestión de transmisión y servicios complementarios.</p>
+        <p class="tags"><span>BigQuery</span><span>Cloud Run</span><span>Neo4j</span></p>
+      </li>
+      <li>
+        <h3 data-i18n="now.i5.h">Un analista en lenguaje natural para el sistema</h3>
+        <p data-i18n="now.i5.p">Un agente en producción, servido con un servidor Model Context Protocol (MCP) en Google Cloud Run. Responde con métricas certificadas y cita su fuente. El equipo lo usa en proyectos de clientes, por ejemplo para calcular el factor de emisión de la red del Parque Eólico Cuel.</p>
+        <p class="tags"><span>MCP</span><span>LLM</span></p>
+      </li>
+      <li>
+        <h3 data-i18n="now.i6.h">MRV y renovación del período de acreditación, Parque Eólico Cuel</h3>
+        <p data-i18n="now.i6.p">Lidero el MRV y la renovación del período de acreditación del Parque Eólico Cuel (33 MW, Innergex) bajo el estándar Cercarbono, con la metodología ACM0002 y TOOL07. Validé la serie de generación del Coordinador, concilié la medición de la central con la del Coordinador y asesoro en lo técnico ante el verificador TÜV SÜD.</p>
+        <p class="tags"><span>Cercarbono</span><span>ACM0002</span><span>Looker</span></p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ INVESTIGACIÓN ============ -->
+<section class="sec research" id="investigacion" aria-labelledby="resH">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 class="sec-h sec-h--xl" id="resH" data-i18n="res.h">Olas de calor y la red eléctrica de Chile</h2>
+      <p class="lede" data-i18n="res.p">La pregunta detrás de mi tesis, mis papers y la mayoría de mis charlas: qué le pasa a un sistema eléctrico diseñado para un clima cuando el clima cambia.</p>
+    </header>
+
+    <div class="res-grid">
+      <article class="res-paper">
+        <figure class="leaf">
+          <img src="assets/images/paper-figure.webp" width="1000" height="1032" loading="lazy" alt="Días de ola de calor (rojo) y de ola de frío (azul) por día del año, de 1980 a 2100, en tres simulaciones. La franja roja se ensancha con las décadas.">
+        </figure>
+        <div class="res-paper-txt">
+          <p class="meta" data-i18n="res.paper.k">Publicado · 2026</p>
+          <h3 class="res-title" data-i18n="res.paper.t">The future of atmospheric heatwaves in Chile projected by a regional climate model</h3>
+          <p class="cite"><span data-i18n="res.paper.a">Petit-Laurent, J., Martínez-Villalobos, C., Goubanova, K., Chadwick, C. y Nabat, P.</span> <em data-i18n="res.paper.v">International Journal of Climatology</em>.</p>
+          <p data-i18n="res.paper.p">Las proyecciones regionales con sesgo corregido muestran que la frecuencia de olas de calor crece cerca de 2,5 veces hacia fines de siglo bajo SSP3-7.0. Cada punto de la figura es un día de un año, y la franja roja se ensancha con cada década.</p>
+          <p class="actions">
+            <a class="btn" href="https://doi.org/10.1002/joc.70567" target="_blank" rel="noopener noreferrer"><span data-i18n="res.paper.cta">Leer el artículo</span></a>
+            <button class="link-btn" type="button" data-open="paper"><span data-i18n="res.paper.cta2">Detalle</span></button>
+          </p>
+          <p class="doi mono">doi.org/10.1002/joc.70567</p>
+        </div>
+      </article>
+
+      <article class="res-lisbon">
+        <figure class="leaf leaf--alt">
+          <img src="assets/images/lisbon-talk.webp" width="1000" height="748" loading="lazy" alt="Presentando en el IEEE EEEIC 2026 en Lisboa, frente a una diapositiva con curvas de respuesta térmica por macrozona.">
+        </figure>
+        <p class="meta" data-i18n="res.lis.k">Presentación oral · Lisboa, 29 de junio de 2026</p>
+        <h3 class="res-title res-title--s" data-i18n="res.lis.t">Vulnerabilidad de la red chilena a olas de calor a nivel de subestación</h3>
+        <p data-i18n="res.lis.p">Presentado en el 26° IEEE EEEIC & I&CPS Europe, junto a Cristian Martínez-Villalobos y Katerina Goubanova (CEAZA). Baja la pregunta desde el país entero a cada subestación.</p>
+        <button class="link-btn" type="button" data-open="eeeic"><span data-i18n="res.lis.cta">Ver fotos y programa</span></button>
+      </article>
+
+      <article class="res-thesis">
+        <p class="meta" data-i18n="res.th.k">Tesis de magíster · defendida en 2026 · nota 7,0</p>
+        <h3 class="res-title res-title--s" data-i18n="res.th.t">Efectos de las olas de calor en la demanda eléctrica en Chile bajo cambio climático</h3>
+        <p data-i18n="res.th.p">El resultado de la tesis es un mapa de dónde la red es sensible al calor, no un promedio nacional.</p>
+        <ul class="facts">
+          <li data-i18n="res.th.f1">397 subestaciones, proyecciones climáticas horarias a 12,5 km y retiros de energía por barra y cliente entre 2017 y 2025.</li>
+          <li data-i18n="res.th.f2">2.529 modelos aditivos generalizados ajustados en R (mgcv) en el clúster HPC de la facultad.</li>
+          <li data-i18n="res.th.f3">La respuesta térmica de la demanda difiere entre macrozonas y entre clientes regulados y libres.</li>
+          <li data-i18n="res.th.f4">El impacto del cambio climático se concentra en eventos extremos y en el Norte Grande, algo que un agregado nacional no muestra.</li>
+        </ul>
+        <button class="link-btn" type="button" data-open="thesis"><span data-i18n="res.th.cta">Financiamiento y detalle</span></button>
+      </article>
+
+      <article class="res-calabria">
+        <p class="meta mono" data-i18n="res.cal.k">Ene a mar de 2026 · Italia</p>
+        <h3 class="res-title res-title--xs" data-i18n="res.cal.t">Estadía de investigación en la Universidad de Calabria</h3>
+        <p data-i18n="res.cal.p">Financiada por una beca de movilidad Next Generation EU.</p>
+        <button class="link-btn" type="button" data-open="calabria"><span data-i18n="res.cal.cta">Leer más</span></button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TITULACIÓN ============ -->
+<section class="sec degrees" id="titulacion" aria-labelledby="degH">
+  <div class="wrap deg-grid">
+    <div class="deg-txt">
+      <h2 class="sec-h sec-h--xl" id="degH" data-i18n="deg.h">Tres títulos, una tesis, todos con nota 7,0</h2>
+      <p class="lede" data-i18n="deg.p">En 2026 defendí una sola tesis para tres títulos en la Universidad Adolfo Ibáñez.</p>
+      <ul class="diplomas">
+        <li><h3 data-i18n="deg.1.h">Ingeniería Civil en Energía</h3><p class="mono" data-i18n="deg.1.m">2021 a 2025 · nota final 6,40 / 7,0</p></li>
+        <li><h3 data-i18n="deg.2.h">Ingeniería Civil Industrial</h3><p class="mono" data-i18n="deg.2.m">Doble titulación con Ingeniería en Energía</p></li>
+        <li><h3 data-i18n="deg.3.h">Magíster en Ciencia de Datos</h3><p class="mono" data-i18n="deg.3.m">2025 a 2026 · nota final 6,51 / 7,0</p></li>
+      </ul>
+      <p class="small" data-i18n="deg.note">Escala chilena: 4,0 aprueba y 7,0 es el máximo. Estudié con la Beca de Excelencia Académica y la Beca de Honor Académico de la UAI.</p>
+      <button class="btn btn--light" type="button" data-open="defense"><span data-i18n="deg.cta">Fotos y detalle</span></button>
+    </div>
+    <div class="deg-photos">
+      <figure class="leaf deg-p1"><img src="assets/images/defense-family.webp" width="1000" height="1333" loading="lazy" alt="Con mi profesor guía y mi familia junto a un puente de madera, después de la defensa, con un ramo de flores."><figcaption data-i18n="deg.cap1">Con mi profesor guía y mi familia después de la defensa.</figcaption></figure>
+      <figure class="leaf leaf--alt deg-p2"><img src="assets/images/defense-bottles.webp" width="1000" height="1333" loading="lazy" alt="Tres botellas de espumante etiquetadas con Ingeniería en Energía, Ciencia de Datos e Ingeniería Industrial, sobre la mesa de la sala de defensa."><figcaption data-i18n="deg.cap2">Tres botellas, una por título.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICACIONES ============ -->
+<section class="sec pubs" id="publicaciones" aria-labelledby="pubH">
+  <div class="wrap">
+    <h2 class="sec-h" id="pubH" data-i18n="pubs.h">Publicaciones y charlas</h2>
+    <div class="pubs-cols">
+      <div>
+        <h3 class="col-h" data-i18n="pubs.papers">Artículos</h3>
+        <ul class="rows">
+          <li><span class="row-y mono">2026</span><div><a href="https://doi.org/10.1002/joc.70567" target="_blank" rel="noopener noreferrer" data-i18n="pubs.t1">The future of atmospheric heatwaves in Chile projected by a regional climate model</a><p class="small"><em>International Journal of Climatology</em> · <span class="mono">doi:10.1002/joc.70567</span></p></div><span class="row-k" data-i18n="pubs.article">Artículo</span></li>
+          <li><span class="row-y mono">2026</span><div><a href="https://www.eeeic.net/EEEIC%20Downloads/EEEIC2026_Program_R1.pdf" target="_blank" rel="noopener noreferrer" data-i18n="pubs.t2">Substation-level heat-wave vulnerability of the Chilean grid under global warming</a><p class="small">2026 IEEE EEEIC / I&amp;CPS Europe, Lisboa</p></div><span class="row-k" data-i18n="pubs.conf">Paper de congreso</span></li>
+          <li><span class="row-y mono">2025</span><div><a href="https://ssrn.com/abstract=6333508" target="_blank" rel="noopener noreferrer" data-i18n="pubs.t3">Daylight photoluminescence imaging of PV modules under power curtailment and background mismatch</a><p class="small" data-i18n="pubs.t3v">Preprint en SSRN, coautoría</p></div><span class="row-k" data-i18n="pubs.preprint">Preprint</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="col-h" data-i18n="pubs.talks">Charlas y pósters</h3>
+        <ul class="rows">
+          <li><span class="row-y mono">2026</span><div><span data-i18n="pubs.c1">26° IEEE EEEIC & I&CPS Europe · Lisboa, Portugal</span></div><span class="row-k" data-i18n="pubs.oral">Oral</span></li>
+          <li><span class="row-y mono">2025</span><div><span data-i18n="pubs.c2">2º Simposio Internacional de Clima y Resiliencia, SICyR · "El futuro de las olas de calor en Chile"</span></div><span class="row-k" data-i18n="pubs.oral">Oral</span></li>
+          <li><span class="row-y mono">2025</span><div><span data-i18n="pubs.c3">5ª Conferencia de Energía, Eficiencia y Sostenibilidad Ambiental, CEES · "Efectos de las olas de calor en la demanda eléctrica en Chile bajo cambio climático"</span></div><span class="row-k" data-i18n="pubs.oral">Oral</span></li>
+          <li><span class="row-y mono">2024</span><div><span data-i18n="pubs.c4">7º Congreso de Oceanografía Física, Meteorología y Clima del Pacífico Sudeste · "Una proyección del futuro de las olas de calor atmosféricas en Chile"</span></div><span class="row-k" data-i18n="pubs.poster">Póster</span></li>
+          <li><span class="row-y mono">2023</span><div><span data-i18n="pubs.c5">1er Congreso de Ciencia de Datos del Data Observatory</span></div><span class="row-k" data-i18n="pubs.poster">Póster</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LINKEDIN ============ -->
+<section class="sec li" aria-labelledby="liH">
+  <div class="wrap">
+    <header class="sec-head sec-head--row">
+      <div>
+        <h2 class="sec-h" id="liH" data-i18n="li.h">Actividad reciente en LinkedIn</h2>
+        <p class="lede" data-i18n="li.p">Donde comparto los hitos cuando ocurren.</p>
+      </div>
+      <a class="btn btn--ghost" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer"><span data-i18n="li.cta">Abrir mi actividad en LinkedIn</span></a>
+    </header>
+    <div class="li-grid">
+      <a class="li-card li-card--big" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer">
+        <img class="leaf" src="assets/images/defense-toast.webp" width="1000" height="1000" loading="lazy" alt="Brindando con espumante después de defender la tesis.">
+        <h3 data-i18n="li.1.t">Defendí mi tesis</h3>
+        <p data-i18n="li.1.p">Tres títulos, todos con la nota máxima, 7,0.</p>
+      </a>
+      <a class="li-card" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer">
+        <img class="leaf leaf--alt li-top" src="assets/images/paper-figure.webp" width="1000" height="1032" loading="lazy" alt="Figura del paper: temporada de olas de calor y de frío entre 1980 y 2100.">
+        <h3 data-i18n="li.2.t">Ya está publicado</h3>
+        <p data-i18n="li.2.p">Compartí el artículo del International Journal of Climatology con mi grupo de investigación.</p>
+      </a>
+      <a class="li-card" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer">
+        <img class="leaf" src="assets/images/lisbon-group.webp" width="1000" height="750" loading="lazy" alt="Foto grupal de los asistentes al congreso EEEIC en Lisboa.">
+        <h3 data-i18n="li.3.t">Presentando en Lisboa</h3>
+        <p data-i18n="li.3.p">El congreso EEEIC, en fotos.</p>
+      </a>
+      <div class="li-card li-card--text">
+        <h3 data-i18n="li.4.t">También comparto</h3>
+        <p data-i18n="li.4.p">El lanzamiento del ciclo Climate Dynamics & Extremes Seminar Series de la UAI y una nota de Data Observatory sobre cómo las olas de calor llegan a la red eléctrica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RUTA ============ -->
+<section class="sec route" id="ruta" aria-labelledby="routeH">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 class="sec-h" id="routeH" data-i18n="route.h">La ruta</h2>
+      <p class="lede" data-i18n="route.p">Cinco años desde mechón hasta la cumbre de la tesis. La altitud es ilustrativa.</p>
+    </header>
+    <div class="trail" id="trail"></div>
+  </div>
+</section>
+
+<!-- ============ ARCHIVO ============ -->
+<section class="sec archive" id="archivo" aria-labelledby="archH">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 class="sec-h" id="archH" data-i18n="arch.h">Archivo</h2>
+      <p class="lede" data-i18n="arch.p">Todo lo demás, lo más reciente primero. Abre un elemento para ver fotos, enlaces y las publicaciones originales.</p>
+    </header>
+    <nav class="filters" aria-label="Filtrar">
+      <button class="filter is-active" type="button" data-filter="all" data-i18n="f.all">Todo</button>
+      <button class="filter" type="button" data-filter="research" data-i18n="f.research">Investigación</button>
+      <button class="filter" type="button" data-filter="data" data-i18n="f.data">Datos e IA</button>
+      <button class="filter" type="button" data-filter="awards" data-i18n="f.awards">Becas y premios</button>
+      <button class="filter" type="button" data-filter="community" data-i18n="f.community">Comunidad y naturaleza</button>
+    </nav>
+    <ul class="index" id="archiveList"></ul>
+    <noscript><p class="small">Activa JavaScript para ver el archivo.</p></noscript>
+  </div>
+</section>
+
+<!-- ============ HERRAMIENTAS + CONTACTO ============ -->
+<section class="sec tools" aria-labelledby="toolsH">
+  <div class="wrap grid">
+    <h2 class="sec-h sec-h--s" id="toolsH" data-i18n="tools.h">Herramientas</h2>
+    <div>
+      <p class="tools-p" data-i18n="tools.p">Python, SQL, R (mgcv), Git, Google BigQuery, Cloud Run, Neo4j, Model Context Protocol, OpenCV, Looker, Colab Enterprise, Firebase, embeddings y LLMs.</p>
+      <p class="small" data-i18n="tools.l">Español nativo · inglés B2 · miembro IEEE</p>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<!-- Slide-over / Modal Overlay Drawer -->
+<footer class="foot" id="contacto">
+  <canvas class="foot-canvas" id="terrainFoot" aria-hidden="true"></canvas>
+  <div class="wrap foot-inner">
+    <h2 class="foot-h" data-i18n="c.h">Conversemos</h2>
+    <p class="foot-p" data-i18n="c.p">Me interesa conversar sobre resiliencia de sistemas eléctricos, riesgo climático, mercados de carbono e infraestructura de datos.</p>
+    <a class="foot-mail" href="mailto:jpetitlaurent@gmail.com">jpetitlaurent@gmail.com</a>
+    <ul class="foot-links">
+      <li><a href="https://www.linkedin.com/in/jorge-petit-laurent" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://github.com/pinkypetit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://orcid.org/0009-0006-2945-610X" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+    </ul>
+    <p class="foot-small mono">© 2026 Jorge Petit-Laurent · <span data-i18n="c.updated">Actualizado en septiembre de 2026</span></p>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
 <div class="modal-overlay" id="modalOverlay">
-  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="Cerrar / Close">×</button>
-    
+  <div class="modal-panel" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar" data-i18n-aria="m.close">×</button>
     <div class="modal-carousel" id="modalCarousel" hidden>
       <div class="modal-carousel-track" id="modalCarouselTrack"></div>
-      <button class="modal-carousel-arrow modal-carousel-arrow--prev" id="modalCarouselPrev" type="button" aria-label="Foto anterior / Previous photo">‹</button>
-      <button class="modal-carousel-arrow modal-carousel-arrow--next" id="modalCarouselNext" type="button" aria-label="Foto siguiente / Next photo">›</button>
+      <button class="modal-carousel-arrow modal-carousel-arrow--prev" id="modalCarouselPrev" type="button" aria-label="Foto anterior" data-i18n-aria="m.prev">‹</button>
+      <button class="modal-carousel-arrow modal-carousel-arrow--next" id="modalCarouselNext" type="button" aria-label="Foto siguiente" data-i18n-aria="m.next">›</button>
       <div class="modal-carousel-dots" id="modalCarouselDots"></div>
     </div>
-    
     <p class="modal-tag" id="modalTag"></p>
     <h2 id="modalTitle"></h2>
     <p id="modalBody"></p>
@@ -434,7 +485,11 @@
   </div>
 </div>
 
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
 <script src="js/data.js"></script>
+<script src="js/terrain.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
