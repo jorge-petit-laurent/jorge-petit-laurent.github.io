@@ -272,6 +272,17 @@
     }
   });
 
+  /* ---------- inline expanders (extended abstract, thesis details) ---------- */
+  document.querySelectorAll('[data-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = document.getElementById(btn.getAttribute('data-toggle'));
+      var open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (window.ScrollTrigger) setTimeout(function(){ ScrollTrigger.refresh(); }, 60);
+    });
+  });
+
   /* ---------- initial render ---------- */
   if (isEn) { langToggle.classList.add('is-en'); langToggle.setAttribute('aria-pressed', 'true'); }
   applyLang(isEn ? 'en' : 'es');
