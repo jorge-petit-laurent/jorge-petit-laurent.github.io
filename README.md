@@ -32,4 +32,8 @@ python3 -m http.server 8000
 
 ## Edición botánica
 
-`/botanico/` es una variante completa con el mismo contenido y las mismas claves de traducción, con telones de láminas de Claudio Gay que se abren al bajar y se cierran en el contacto. No está enlazada desde la página principal y lleva `noindex`. Reutiliza `assets/`, `css/styles.css` y `js/data.js`.
+`/botanico/` es una variante completa, con el mismo contenido y las mismas claves de traducción. No está enlazada desde la página principal y lleva `noindex`. Reutiliza `assets/`, `css/styles.css` y `js/data.js`.
+
+- **Telones.** Los telones son láminas con marco de doble filete. Las plantas de Claudio Gay nacen desde el marco y cierran la lámina. Al bajar se retraen y se abren hacia las esquinas (`flora.js`), y en el contacto vuelven a cerrarse.
+- **Detalles.** En escritorio hay vaivén, paralaje por capas y una leyenda con el número de lámina al pasar el puntero. Entre secciones, ornamentos que se dibujan una vez. En la ruta, flores que se abren.
+- **Recortes.** Están en `botanico/lam/` en dos tamaños (`-s` de 480 px y `-l` de 840 px), con la sombra ya horneada, así que la página no usa filtros CSS. El móvil usa menos plantas y no usa Lenis.

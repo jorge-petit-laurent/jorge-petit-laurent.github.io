@@ -7,7 +7,12 @@
   var isEn = doc.lang === 'en';
 
   I18N_EN['bot.hint'] = 'Scroll to open the foliage';
-  I18N_EN['bot.credit'] = 'Plates: Claudio Gay, Historia f\u00edsica y pol\u00edtica de Chile, Botany.';
+  I18N_EN['bot.atlas'] = 'Atlas of the physical and political history of Chile';
+  I18N_EN['bot.plate1'] = 'Pl. I';
+  I18N_EN['bot.plate2'] = 'Pl. II';
+  I18N_EN['bot.s1'] = 'Pl. 58';
+  I18N_EN['bot.s2'] = 'Pl. 68';
+  I18N_EN['bot.s3'] = 'Pl. 71';
 
   /* ---------- i18n: Spanish is the HTML, English comes from I18N_EN ---------- */
   var i18nNodes = document.querySelectorAll('[data-i18n]');
@@ -69,9 +74,12 @@
     btn.addEventListener('click', function(){
       activeFilter = btn.getAttribute('data-filter');
       document.querySelectorAll('.filter').forEach(function(b){ b.classList.toggle('is-active', b === btn); });
+      var n = 0;
       archiveList.querySelectorAll('.ix').forEach(function(li){
         li.hidden = !(activeFilter === 'all' || li.getAttribute('data-cats').indexOf(activeFilter) !== -1);
+        if (!li.hidden) li.style.setProperty('--i', Math.min(n++, 14));
       });
+      archiveList.classList.remove('is-refresh'); void archiveList.offsetWidth; archiveList.classList.add('is-refresh');
     });
   });
 
@@ -110,6 +118,11 @@
     return d;
   }
 
+  var STOPS = [[92,168,133],[237,176,72],[219,36,66]];
+  function bloom(t){
+    var k = t < 0.5 ? 0 : 1, f = t < 0.5 ? t * 2 : (t - 0.5) * 2, a = STOPS[k], b = STOPS[k + 1];
+    return 'rgb(' + a.map(function(v, j){ return Math.round(v + (b[j] - v) * f); }).join(',') + ')';
+  }
   function renderTrail(){
     var lang = isEn ? 'en' : 'es';
     var pts = trailPoints();
@@ -122,11 +135,11 @@
     }
     var dots = TRAIL.map(function(p, i){
       var pt = pts[i];
-      return '<button type="button" class="wp" data-open="' + p.open + '" style="left:' + (pt.x / W * 100).toFixed(2) + '%;top:' + (pt.y / H * 100).toFixed(2) + '%">' +
+      return '<button type="button" class="wp" data-open="' + p.open + '" style="--fc:' + bloom(i / (TRAIL.length - 1)) + ';left:' + (pt.x / W * 100).toFixed(2) + '%;top:' + (pt.y / H * 100).toFixed(2) + '%">' +
         '<span class="wp-dot"></span><span class="wp-label"><span class="wp-y mono">' + p.y + '</span>' + p[lang] + '</span></button>';
     }).join('');
-    var list = TRAIL.map(function(p){
-      return '<li><button type="button" data-open="' + p.open + '"><span class="mono">' + p.y + '</span> ' + p[lang] + '</button></li>';
+    var list = TRAIL.map(function(p, i){
+      return '<li style="--fc:' + bloom(i / (TRAIL.length - 1)) + '"><button type="button" data-open="' + p.open + '"><span class="mono">' + p.y + '</span> ' + p[lang] + '</button></li>';
     }).join('');
 
     trail.innerHTML =
@@ -300,7 +313,7 @@
   /* ---------- motion: smooth scroll + botanical curtains ---------- */
   if (hasGsap && !reduceMotion) {
     gsap.registerPlugin(ScrollTrigger);
-    if (typeof Lenis !== 'undefined') {
+    if (typeof Lenis !== 'undefined' && matchMedia('(hover: hover) and (pointer: fine)').matches) {
       var lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 0.9 });
       window.lenis = lenis;
       lenis.on('scroll', ScrollTrigger.update);
