@@ -9,7 +9,7 @@
   --flowermask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg%3E%3Cellipse cx='10' cy='5' rx='3.3' ry='4.7'/%3E%3Cellipse cx='10' cy='5' rx='3.3' ry='4.7' transform='rotate(72 10 10)'/%3E%3Cellipse cx='10' cy='5' rx='3.3' ry='4.7' transform='rotate(144 10 10)'/%3E%3Cellipse cx='10' cy='5' rx='3.3' ry='4.7' transform='rotate(216 10 10)'/%3E%3Cellipse cx='10' cy='5' rx='3.3' ry='4.7' transform='rotate(288 10 10)'/%3E%3C/g%3E%3C/svg%3E");
 }
 /* grano de papel: una trama pequeña que se desplaza con la página (sin capas fijas ni modos de fusión) */
-body{background:var(--paper) url(lam/grain.webp) 0 0/200px 200px;transition:none}
+body{background:var(--paper) url(../assets/lam/grain.webp) 0 0/200px 200px;transition:none}
 ::selection{background:color-mix(in srgb,var(--moss) 26%,transparent)}
 
 /* barra: papel casi opaco, sin desenfoque */

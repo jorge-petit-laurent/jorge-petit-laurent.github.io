@@ -10,14 +10,22 @@
 <meta property="og:image" content="https://pinkypetit.github.io/assets/images/lisbon-talk.webp">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#ebe3d0">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/botanico.css">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a140f">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preload" href="../assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/styles.css">
 <script>
-  (function(){ document.documentElement.classList.add("js"); try { if (localStorage.getItem("jpl-lang") === "en") document.documentElement.lang = "en"; } catch(e){} })();
+  (function(){
+    try {
+      var l = localStorage.getItem('jpl-lang');
+      if (l === 'en') document.documentElement.lang = 'en';
+      var t = localStorage.getItem('jpl-theme');
+      var dark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && dark)) document.documentElement.classList.add('theme-dark');
+    } catch(e){}
+  })();
 </script>
 </head>
 <body>
@@ -175,43 +183,36 @@
       </span></span>
       <span data-i18n="lang">Español</span>
     </button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema" data-i18n-aria="theme" title="Tema">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18" fill="currentColor"/></svg>
+    </button>
   </div>
   <div class="bar-progress" id="barProgress" aria-hidden="true"></div>
 </header>
 
 <main id="main">
 
-<!-- ============ TELÓN DE APERTURA ============ -->
-<section class="curtain" id="top" data-curtain="open" aria-label="Presentación">
-  <div class="plate" aria-hidden="true">
-    <div class="plants"></div>
-    <p class="plate-cap"><span class="pc-a">Claudio Gay<em>, <span data-i18n="bot.atlas">Atlas de la historia física y política de Chile</span></em></span><span class="pc-n" data-i18n="bot.plate1">Lám. I</span></p>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas class="hero-canvas" id="terrain" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="hero-role" data-i18n="hero.role">Energy Data Scientist</p>
+    <h1 class="hero-name"><span class="hn-line">Jorge</span> <span class="hn-line">Petit&#8209;Laurent</span></h1>
+    <p class="hero-lede" data-i18n="hero.lede">Modelo cómo el calor extremo y las baterías cambian la red eléctrica de Chile.</p>
   </div>
-  <div class="panels">
-    <div class="panel" id="c-name"><div class="cart cart--name">
-      <p class="hero-role" data-i18n="hero.role">Energy Data Scientist</p>
-      <h1 class="hero-name">Jorge Petit&#8209;Laurent</h1>
-      <div class="orn orn--s" aria-hidden="true"><svg viewBox="0 0 240 40" aria-hidden="true" focusable="false"><g><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g transform="translate(240 0) scale(-1 1)"><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g class="fl"><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(0 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(72 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(144 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(216 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(288 120 20)"/></g><circle class="fc" cx="120" cy="20" r="1.9"/></svg></div>
-      <p class="hero-lede" data-i18n="hero.lede">Modelo cómo el calor extremo y las baterías cambian la red eléctrica de Chile.</p>
-      <img class="sprig sprig--bl" src="assets/lam/f41-s.webp" alt="" aria-hidden="true" decoding="async">
-      <img class="sprig sprig--tr" src="assets/lam/f12-s.webp" alt="" aria-hidden="true" decoding="async">
-      <img class="sprig sprig--br" src="assets/lam/f44-s.webp" alt="" aria-hidden="true" decoding="async">
-      <p class="hint"><span data-i18n="bot.hint">Desplázate para abrir el follaje</span><span class="cue" aria-hidden="true"></span></p>
-    </div></div>
-    <div class="panel" id="c-key"><div class="cart">
-      <ul class="ledger">
-        <li><a href="#trabajo" data-i18n="hero.l1">En Sherpas, datos para mercados de carbono y baterías</a></li>
-        <li><a href="#titulacion" data-i18n="hero.l2">Magíster en Ciencia de Datos, tesis con nota 7,0</a></li>
-        <li><a href="#investigacion" data-i18n="hero.l3">Publicado en el International Journal of Climatology, 2026</a></li>
-      </ul>
-    </div></div>
+  <div class="wrap hero-foot">
+    <ul class="ledger">
+      <li><a href="#trabajo" data-i18n="hero.l1">En Sherpas, datos para mercados de carbono y baterías</a></li>
+      <li><a href="#titulacion" data-i18n="hero.l2">Magíster en Ciencia de Datos, tesis con nota 7,0</a></li>
+      <li><a href="#investigacion" data-i18n="hero.l3">Publicado en el International Journal of Climatology, 2026</a></li>
+    </ul>
   </div>
 </section>
 
 <!-- ============ TRABAJO / SHERPAS ============ -->
 <section class="sec now" id="trabajo" aria-labelledby="nowH">
   <div class="wrap grid">
-    <figure class="spec" aria-hidden="true"><div class="gr"><img src="assets/lam/f12-l.webp" width="731" height="1028" alt="" loading="lazy" decoding="async"></div><figcaption data-i18n="bot.s1">Lám. 58</figcaption></figure>
     <header class="now-head">
       <p class="meta" data-i18n="now.meta">Sherpas Group SpA · Energy Data Scientist · junio 2025 a hoy · remoto</p>
       <h2 class="sec-h sec-h--xl" id="nowH" data-i18n="now.h">Fundé el área de datos de una consultora de mercados de carbono. Hoy sus modelos respaldan un portafolio de baterías de más de 1 GW en Chile.</h2>
@@ -255,12 +256,9 @@
   </div>
 </section>
 
-<div class="orn" aria-hidden="true"><svg viewBox="0 0 240 40" aria-hidden="true" focusable="false"><g><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g transform="translate(240 0) scale(-1 1)"><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g class="fl"><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(0 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(72 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(144 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(216 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(288 120 20)"/></g><circle class="fc" cx="120" cy="20" r="1.9"/></svg></div>
-
 <!-- ============ INVESTIGACIÓN ============ -->
 <section class="sec research" id="investigacion" aria-labelledby="resH">
   <div class="wrap">
-    <figure class="spec" aria-hidden="true"><div class="gr"><img src="assets/lam/f00-l.webp" width="796" height="1028" alt="" loading="lazy" decoding="async"></div><figcaption data-i18n="bot.s2">Lám. 68</figcaption></figure>
     <header class="sec-head">
       <h2 class="sec-h sec-h--xl" id="resH" data-i18n="res.h">Olas de calor y la red eléctrica de Chile</h2>
       <p class="lede" data-i18n="res.p">La pregunta detrás de mi tesis, mis papers y la mayoría de mis charlas: qué le pasa a un sistema eléctrico diseñado para un clima cuando el clima cambia.</p>
@@ -269,7 +267,7 @@
     <div class="res-grid">
       <article class="res-paper">
         <figure class="leaf">
-          <img src="assets/images/paper-fig10.webp" width="1400" height="1297" loading="lazy" alt="Tres mapas de Chile continental, de 18° S a 45° S, con el riesgo relativo de olas de calor en intensidad, duración y magnitud. El riesgo es mayor, en rojo oscuro, en el norte y en el valle central.">
+          <img src="../assets/images/paper-fig10.webp" width="1400" height="1297" loading="lazy" alt="Tres mapas de Chile continental, de 18° S a 45° S, con el riesgo relativo de olas de calor en intensidad, duración y magnitud. El riesgo es mayor, en rojo oscuro, en el norte y en el valle central.">
           <figcaption data-i18n="res.paper.fig">Figura 10 del artículo: cuántas veces más frecuente se vuelve la ola de calor que antes ocurría una vez al año (2050–2080 frente a 1980–2010).</figcaption>
         </figure>
         <div class="res-paper-txt">
@@ -309,7 +307,7 @@
 
       <article class="res-lisbon">
         <figure class="leaf leaf--alt">
-          <img src="assets/images/lisbon-talk.webp" width="1000" height="748" loading="lazy" alt="Presentando en el IEEE EEEIC 2026 en Lisboa, frente a una diapositiva con curvas de respuesta térmica por macrozona.">
+          <img src="../assets/images/lisbon-talk.webp" width="1000" height="748" loading="lazy" alt="Presentando en el IEEE EEEIC 2026 en Lisboa, frente a una diapositiva con curvas de respuesta térmica por macrozona.">
         </figure>
         <p class="meta" data-i18n="res.lis.k">Presentación oral · Lisboa, 29 de junio de 2026</p>
         <h3 class="res-title res-title--s" data-i18n="res.lis.t">Vulnerabilidad de la red chilena a olas de calor a nivel de subestación</h3>
@@ -355,8 +353,8 @@
       <button class="btn btn--light" type="button" data-open="defense"><span data-i18n="deg.cta">Fotos y detalle</span></button>
     </div>
     <div class="deg-photos">
-      <figure class="leaf deg-p1"><img src="assets/images/defense-family.webp" width="1000" height="1333" loading="lazy" alt="Con mi profesor guía y mi familia junto a un puente de madera, después de la defensa, con un ramo de flores."><figcaption data-i18n="deg.cap1">Con mi profesor guía y mi familia después de la defensa.</figcaption></figure>
-      <figure class="leaf leaf--alt deg-p2"><img src="assets/images/defense-bottles.webp" width="1000" height="1333" loading="lazy" alt="Tres botellas de espumante etiquetadas con Ingeniería en Energía, Ciencia de Datos e Ingeniería Industrial, sobre la mesa de la sala de defensa."><figcaption data-i18n="deg.cap2">Tres botellas, una por título.</figcaption></figure>
+      <figure class="leaf deg-p1"><img src="../assets/images/defense-family.webp" width="1000" height="1333" loading="lazy" alt="Con mi profesor guía y mi familia junto a un puente de madera, después de la defensa, con un ramo de flores."><figcaption data-i18n="deg.cap1">Con mi profesor guía y mi familia después de la defensa.</figcaption></figure>
+      <figure class="leaf leaf--alt deg-p2"><img src="../assets/images/defense-bottles.webp" width="1000" height="1333" loading="lazy" alt="Tres botellas de espumante etiquetadas con Ingeniería en Energía, Ciencia de Datos e Ingeniería Industrial, sobre la mesa de la sala de defensa."><figcaption data-i18n="deg.cap2">Tres botellas, una por título.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -388,8 +386,6 @@
   </div>
 </section>
 
-<div class="orn" aria-hidden="true"><svg viewBox="0 0 240 40" aria-hidden="true" focusable="false"><g><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g transform="translate(240 0) scale(-1 1)"><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g class="fl"><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(0 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(72 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(144 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(216 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(288 120 20)"/></g><circle class="fc" cx="120" cy="20" r="1.9"/></svg></div>
-
 <!-- ============ LINKEDIN ============ -->
 <section class="sec li" aria-labelledby="liH">
   <div class="wrap">
@@ -402,25 +398,23 @@
     </header>
     <div class="li-grid">
       <a class="li-card li-card--big" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer">
-        <img class="leaf" src="assets/images/defense-toast.webp" width="1000" height="1000" loading="lazy" alt="Brindando con espumante después de defender la tesis.">
+        <img class="leaf" src="../assets/images/defense-toast.webp" width="1000" height="1000" loading="lazy" alt="Brindando con espumante después de defender la tesis.">
         <h3 data-i18n="li.1.t">Defendí mi tesis</h3>
         <p data-i18n="li.1.p">Tres títulos, todos con la nota máxima, 7,0.</p>
       </a>
       <a class="li-card" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer">
-        <img class="leaf leaf--alt li-top" src="assets/images/paper-figure.webp" width="1000" height="1032" loading="lazy" alt="Figura del paper: temporada de olas de calor y de frío entre 1980 y 2100.">
+        <img class="leaf leaf--alt li-top" src="../assets/images/paper-figure.webp" width="1000" height="1032" loading="lazy" alt="Figura del paper: temporada de olas de calor y de frío entre 1980 y 2100.">
         <h3 data-i18n="li.2.t">Ya está publicado</h3>
         <p data-i18n="li.2.p">Compartí el artículo del International Journal of Climatology con mi grupo de investigación.</p>
       </a>
       <a class="li-card" href="https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/" target="_blank" rel="noopener noreferrer">
-        <img class="leaf" src="assets/images/lisbon-group.webp" width="1000" height="750" loading="lazy" alt="Foto grupal de los asistentes al congreso EEEIC en Lisboa.">
+        <img class="leaf" src="../assets/images/lisbon-group.webp" width="1000" height="750" loading="lazy" alt="Foto grupal de los asistentes al congreso EEEIC en Lisboa.">
         <h3 data-i18n="li.3.t">Presentando en Lisboa</h3>
         <p data-i18n="li.3.p">El congreso EEEIC, en fotos.</p>
       </a>
     </div>
   </div>
 </section>
-
-<div class="orn" aria-hidden="true"><svg viewBox="0 0 240 40" aria-hidden="true" focusable="false"><g><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g transform="translate(240 0) scale(-1 1)"><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g class="fl"><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(0 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(72 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(144 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(216 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(288 120 20)"/></g><circle class="fc" cx="120" cy="20" r="1.9"/></svg></div>
 
 <!-- ============ RUTA ============ -->
 <section class="sec route" id="ruta" aria-labelledby="routeH">
@@ -433,12 +427,9 @@
   </div>
 </section>
 
-<div class="orn" aria-hidden="true"><svg viewBox="0 0 240 40" aria-hidden="true" focusable="false"><g><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g transform="translate(240 0) scale(-1 1)"><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g class="fl"><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(0 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(72 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(144 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(216 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(288 120 20)"/></g><circle class="fc" cx="120" cy="20" r="1.9"/></svg></div>
-
 <!-- ============ ARCHIVO ============ -->
 <section class="sec archive" id="archivo" aria-labelledby="archH">
   <div class="wrap">
-    <figure class="spec spec--s" aria-hidden="true"><div class="gr"><img src="assets/lam/f13-l.webp" width="721" height="1028" alt="" loading="lazy" decoding="async"></div><figcaption data-i18n="bot.s3">Lám. 71</figcaption></figure>
     <header class="sec-head">
       <h2 class="sec-h" id="archH" data-i18n="arch.h">Archivo</h2>
       <p class="lede" data-i18n="arch.p">Todo lo demás, lo más reciente primero. Abre un elemento para ver fotos, enlaces y las publicaciones originales.</p>
@@ -455,8 +446,6 @@
   </div>
 </section>
 
-<div class="orn" aria-hidden="true"><svg viewBox="0 0 240 40" aria-hidden="true" focusable="false"><g><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g transform="translate(240 0) scale(-1 1)"><path class="st" pathLength="1" d="M112 20C99 13 88 27 71 20S47 15 34 21"/><g transform="translate(100 18) rotate(-150)"><path class="lf" style="--d:.55s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(85 22) rotate(150)"><path class="lf" style="--d:.72s" d="M0 0C3-4.2 9-4.6 13 0C9 4.6 3 4.2 0 0Z"/></g><g transform="translate(56 16) rotate(-155)"><path class="lf" style="--d:.9s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><g transform="translate(44.5 17) rotate(160)"><path class="lf" style="--d:1.05s" d="M0 0C2.4-3.4 7.2-3.7 10.4 0C7.2 3.7 2.4 3.4 0 0Z"/></g><circle class="bd" style="--d:1.2s" cx="34" cy="21" r="1.8"/></g><g class="fl"><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(0 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(72 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(144 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(216 120 20)"/><ellipse cx="120" cy="14.4" rx="2.9" ry="4.5" transform="rotate(288 120 20)"/></g><circle class="fc" cx="120" cy="20" r="1.9"/></svg></div>
-
 <!-- ============ HERRAMIENTAS + CONTACTO ============ -->
 <section class="sec tools" aria-labelledby="toolsH">
   <div class="wrap grid">
@@ -470,32 +459,24 @@
 
 </main>
 
-<section class="curtain curtain--close" id="contacto" data-curtain="close" aria-labelledby="contH">
-  <div class="plate" aria-hidden="true">
-    <div class="plants"></div>
-    <p class="plate-cap"><span class="pc-a">Claudio Gay<em>, <span data-i18n="bot.atlas">Atlas de la historia física y política de Chile</span></em></span><span class="pc-n" data-i18n="bot.plate2">Lám. II</span></p>
+<footer class="foot" id="contacto">
+  <canvas class="foot-canvas" id="terrainFoot" aria-hidden="true"></canvas>
+  <div class="wrap foot-inner">
+    <h2 class="foot-h" data-i18n="c.h">Conversemos</h2>
+    <p class="foot-p" data-i18n="c.p">Me interesa conversar sobre resiliencia de sistemas eléctricos, riesgo climático, mercados de carbono e infraestructura de datos.</p>
+    <a class="foot-mail" href="mailto:petitlaurent.ja@gmail.com">petitlaurent.ja@gmail.com</a>
+    <ul class="foot-links">
+      <li><a href="https://www.linkedin.com/in/jorge-petit-laurent" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://github.com/pinkypetit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://orcid.org/0009-0006-2945-610X" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+      <li><button type="button" data-open="about" data-i18n="nav.about">Sobre mí</button></li>
+    </ul>
+    <p class="foot-small mono">© 2026 Jorge Petit-Laurent · <span data-i18n="c.updated">Actualizado en septiembre de 2026</span></p>
   </div>
-  <div class="panels">
-    <div class="panel" id="c-contact"><div class="cart cart--contact">
-      <h2 class="foot-h" id="contH" data-i18n="c.h">Conversemos</h2>
-      <p class="foot-p" data-i18n="c.p">Me interesa conversar sobre resiliencia de sistemas eléctricos, riesgo climático, mercados de carbono e infraestructura de datos.</p>
-      <a class="foot-mail" href="mailto:petitlaurent.ja@gmail.com">petitlaurent.ja@gmail.com</a>
-      <ul class="foot-links">
-        <li><a href="https://www.linkedin.com/in/jorge-petit-laurent" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/pinkypetit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://orcid.org/0009-0006-2945-610X" target="_blank" rel="noopener noreferrer">ORCID</a></li>
-        <li><button type="button" data-open="about" data-i18n="nav.about">Sobre mí</button></li>
-      </ul>
-      <p class="foot-small mono">© 2026 Jorge Petit-Laurent · <span data-i18n="c.updated">Actualizado en septiembre de 2026</span></p>
-    </div></div>
-  </div>
-</section>
+</footer>
 
 <!-- ============ MODAL ============ -->
 <div class="modal-overlay" id="modalOverlay">
-  <div class="modal-frame">
-  <img class="mflora mflora--l" alt="" aria-hidden="true" decoding="async">
-  <img class="mflora mflora--r" alt="" aria-hidden="true" decoding="async">
   <div class="modal-panel" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar" data-i18n-aria="m.close">×</button>
     <div class="modal-carousel" id="modalCarousel" hidden>
@@ -510,14 +491,13 @@
     <div class="modal-links" id="modalLinks"></div>
     <div class="modal-embed" id="modalEmbed" hidden></div>
   </div>
-  </div>
 </div>
 
-<script src="assets/vendor/gsap.min.js"></script>
-<script src="assets/vendor/ScrollTrigger.min.js"></script>
-<script src="assets/vendor/lenis.min.js"></script>
-<script src="js/data.js"></script>
-<script src="js/flora.js"></script>
-<script src="js/app.js"></script>
+<script src="../assets/vendor/gsap.min.js"></script>
+<script src="../assets/vendor/ScrollTrigger.min.js"></script>
+<script src="../assets/vendor/lenis.min.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/terrain.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>

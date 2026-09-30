@@ -39,7 +39,7 @@ var CARD_DATA = {
     en: { tag:'Int. Journal of Climatology · 2026', title:'The future of heatwaves in Chile',
       body:'"The future of atmospheric heatwaves in Chile projected by a regional climate model", published in the International Journal of Climatology. I used the CNRM-ALADIN regional climate model (12.5 km) with quantile-mapped temperatures to project heat-wave duration, intensity and magnitude in Chile under two high-emission scenarios. In Santiago, the warm season lengthens by 90 % by 2080; nationwide, the risk of extreme events grows more in duration and magnitude than in intensity, with a hot spot in the central valley. The image is Figure 10 of the paper; the full summary is in the research section.',
       links:[{label:'Paper (DOI 10.1002/joc.70567)', url:'https://doi.org/10.1002/joc.70567'},{label:'ORCID', url:'https://orcid.org/0009-0006-2945-610X'}] },
-    photos:['assets/images/paper-fig10.webp','assets/images/paper-figure.webp']
+    photos:['/assets/images/paper-fig10.webp','/assets/images/paper-figure.webp']
   },
 
   eeeic: {
@@ -49,7 +49,7 @@ var CARD_DATA = {
     en: { tag:'Lisbon · 29 June 2026', title:'IEEE EEEIC 2026, Lisbon',
       body:'I gave an oral, in-person presentation of "Substation-Level Heat-Wave Vulnerability of the Chilean Grid Under Global Warming" at the 26th IEEE EEEIC & I&CPS Europe. It is co-authored with Cristian Martínez-Villalobos (UAI) and Katerina Goubanova (CEAZA), in session SS13 on digital twins for resilient power systems. It is the direct result of my MSc thesis.',
       links:[{label:'Official EEEIC 2026 program (PDF)', url:'https://www.eeeic.net/EEEIC%20Downloads/EEEIC2026_Program_R1.pdf'}] },
-    photos:['assets/images/eeeic-photo.webp','assets/images/lisbon-talk.webp','assets/images/lisbon-banner.webp','assets/images/lisbon-group.webp']
+    photos:['/assets/images/eeeic-photo.webp','/assets/images/lisbon-talk.webp','/assets/images/lisbon-banner.webp','/assets/images/lisbon-group.webp']
   },
 
   thesis: {
@@ -69,7 +69,7 @@ var CARD_DATA = {
     en: { tag:'August 2026 · Universidad Adolfo Ibáñez', title:'Graduation: three degrees, one thesis',
       body:'In August 2026 I defended my thesis for the degrees of Civil Engineering in Energy, Civil Industrial Engineering and MSc in Data Science, all with the maximum grade, 7.0. Final grades were 6.40 in Energy Engineering and 6.51 in the MSc. I studied on the Academic Excellence Scholarship (2021–2026) and the Academic Honor Scholarship (2022–2025).',
       links:[{label:'My LinkedIn post', url:LI_ACTIVITY}] },
-    photos:['assets/images/defense-family.webp','assets/images/defense-bottles.webp','assets/images/defense-toast.webp','assets/images/graduation-photo.webp']
+    photos:['/assets/images/defense-family.webp','/assets/images/defense-bottles.webp','/assets/images/defense-toast.webp','/assets/images/graduation-photo.webp']
   },
 
   about: {
@@ -98,7 +98,7 @@ var CARD_DATA = {
     en: { tag:'SICyR · CEES · Physical Oceanography Congress', title:'Conference circuit',
       body:'Oral presentations at the 2nd International Symposium on Climate and Resilience, SICyR (Nov 2025, "The future of heatwaves in Chile"), and at the 5th Conference on Energy, Efficiency and Environmental Sustainability, CEES (Nov 2025, "Effects of heatwaves on electricity demand in Chile under climate change"). Before that, a poster at the 7th Congress of Physical Oceanography, Meteorology and Climate of the Southeast Pacific (Nov 2024).',
       links:[] },
-    photos:['assets/images/conference-photo-1.webp','assets/images/conference-photo-2.webp'],
+    photos:['/assets/images/conference-photo-1.webp','/assets/images/conference-photo-2.webp'],
     embed_html: li('urn:li:activity:7263367576288743424')
   },
   ssrn: { year:'2025', cats:'research', icon:'ssrn', c1:'#6E8EA8', c2:'#C7CDD2',
@@ -140,7 +140,7 @@ var CARD_DATA = {
     en: { tag:'Energy Transition Center · TRL Level Up', title:'Computer vision for PV modules',
       body:'I was a research assistant on a non-invasive inspection project for photovoltaic modules, funded by AtaMoSTeC (CORFO) and SERC Chile. I took part in outdoor daylight photoluminescence campaigns with modules connected to an inverter, and built a Python and OpenCV pipeline for images from an InGaAs SWIR camera: cropping, perspective correction, outlier removal and normalization to compare operating states pixel by pixel. The analysis showed that defects can be detected even under curtailment and low irradiance.',
       links:[] },
-    photos:['assets/images/pvcv-photo.webp']
+    photos:['/assets/images/pvcv-photo.webp']
   },
   atamostec: { year:'2024', cats:'awards research', icon:'atamostec', c1:'#E8A23D', c2:'#F2D14B',
     es: { tag:'AtaMoSTeC · SERC Chile · Nov 2024', title:'Movilidad "La Ruta del Sol"',
@@ -163,7 +163,7 @@ var CARD_DATA = {
         {label:'Santander Chile press release', url:'https://saladecomunicacion.santander.cl/noticias/banca-responsable/detalles/postula-a-los-cursos-gratuitos-para-estudiar-ingles-en-estados-unidos-con-santander-open-academy'},
         {label:'My LinkedIn post', url:'https://es.linkedin.com/posts/jorge-petit-laurent_santanderopenacademy-elp-upenn-activity-7224809785072758785-A3_B'}
       ] },
-    photos:['assets/images/upenn-photo.webp'],
+    photos:['/assets/images/upenn-photo.webp'],
     embed_html: li('urn:li:activity:7232464704755888128')
   },
   hackathon: { year:'2024', cats:'data awards', icon:'hackathon', c1:'#4285F4', c2:'#FBBC05',
@@ -182,7 +182,7 @@ var CARD_DATA = {
     en: { tag:'ACCIONA · January 2024', title:'ACCIONA Academy Program',
       body:'I took part in the 5th edition of ACCIONA\'s Academy Program in Chile, which brought together 22 students for two intensive weeks on renewable energy asset development and sustainability.',
       links:[] },
-    photos:['assets/images/acciona-photo.webp']
+    photos:['/assets/images/acciona-photo.webp']
   },
   tid: { year:'2022–24', cats:'awards research', icon:'tid', c1:'#1B2A52', c2:'#E8C76B',
     es: { tag:'Taller de Investigación Dirigida · UAI', title:'Premio TID y visita a Las Campanas',
@@ -210,7 +210,7 @@ var CARD_DATA = {
     en: { tag:'Data Observatory · Nov 2023', title:'Poster at the 1st Data Science Congress',
       body:'I presented the poster "Análisis de la evolución proyectada de olas de calor en Chile" (analysis of the projected evolution of heat waves in Chile) at the first Data Observatory Data Science Congress.',
       links:[] },
-    photos:['assets/images/do-congress-photo.webp']
+    photos:['/assets/images/do-congress-photo.webp']
   },
   nature: { year:'2023–', cats:'community', icon:'nature', c1:'#3E7C3F', c2:'#7FBF6A',
     es: { tag:'Voluntariado · Vivero Pilmaiquén', title:'Reforestación con bosque nativo y vivero',
@@ -235,7 +235,7 @@ var CARD_DATA = {
     en: { tag:'Tecnológico de Monterrey · AmiGo Abroad', title:'Exchange in Mexico and AmiGo ambassador',
       body:'I did an undergraduate exchange at Tecnológico de Monterrey (2022). That experience led me to become a local ambassador for AmiGo Abroad, running the Viña del Mar and Valparaíso node, and to appear as a guest on their podcast about community ties and social inclusion.',
       links:[] },
-    photos:['assets/images/amigo-photo.webp']
+    photos:['/assets/images/amigo-photo.webp']
   },
   admission: { year:'2021', cats:'community', icon:'graduation', c1:'#2D5FA8', c2:'#6FA8DC',
     es: { tag:'Marzo de 2021 · Campus Viña del Mar', title:'Ingreso a la UAI',
@@ -244,7 +244,7 @@ var CARD_DATA = {
     en: { tag:'March 2021 · Viña del Mar campus', title:'Starting at UAI',
       body:'I entered UAI in 2021 with a 771.7 PSU score, from Colegio San Mateo in Osorno. The "I chose UAI" campaign quoted what I said then: "I chose UAI because I want to create innovations that make the planet greener, smarter, or simply more human."',
       links:[] },
-    photos:['assets/images/graduation-photo.webp']
+    photos:['/assets/images/graduation-photo.webp']
   }
 };
 

@@ -66,7 +66,7 @@ function load(c){
     var big = it.h * dprCap > 520 ? '-l' : '-s';
     if (it.src === big) return;
     if (it.src === '-l') return;      // nunca bajar de resolución
-    it.src = big; it.im.src = 'lam/' + it.p[0] + big + '.webp';
+    it.src = big; it.im.src = 'assets/lam/' + it.p[0] + big + '.webp';
   });
 }
 
@@ -209,7 +209,7 @@ function nextPair(){
   var a = list[Math.floor(Math.random() * list.length)], b;
   do { b = list[Math.floor(Math.random() * list.length)]; } while (b === a);
   var suf = fine && dprCap > 1 ? '-l' : '-s';
-  dressPair = [a, b].map(function(p){ var src = 'lam/' + p[0] + suf + '.webp'; new Image().src = src; return src; });
+  dressPair = [a, b].map(function(p){ var src = 'assets/lam/' + p[0] + suf + '.webp'; new Image().src = src; return src; });
 }
 
 window.Botanico = {
