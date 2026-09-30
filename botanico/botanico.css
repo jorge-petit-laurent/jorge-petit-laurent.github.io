@@ -1,0 +1,59 @@
+/* Edición botánica: sobrescribe tokens y reemplaza el hero/footer oscuros por telones de láminas de Claudio Gay */
+:root{
+  --paper:#ECE4D0; --paper-2:#E3D9C0; --card:#F5F0E3;
+  --ink:#1D2A20; --ink-2:rgba(29,42,32,.82); --ink-3:rgba(29,42,32,.66); --line:rgba(29,42,32,.18);
+  --moss:#3F6440; --copihue:#B3261E; --deep:#1F3427; --on-deep:#EFE9D8;
+}
+body{background:var(--paper)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.32;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence baseFrequency='.8' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .5 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>")}
+
+/* header: siempre legible sobre el follaje */
+.bar{background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+
+/* ===== Telones ===== */
+.curtain{position:relative;background:radial-gradient(ellipse at 50% 45%,var(--card),var(--paper) 72%);overflow:hidden;isolation:isolate;
+  padding:calc(var(--bar-h) + 6vh) var(--gutter) 10vh}
+.curtain.is-live{height:100vh;height:100svh;padding:0}
+.plants{position:absolute;inset:0;z-index:1;pointer-events:none}
+.plants img{position:absolute;left:0;top:0;height:auto;max-width:none;will-change:transform;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 6px 10px rgba(29,42,32,.30))}
+.panels{position:relative;z-index:5;display:grid;place-items:center}
+.curtain.is-live .panels{position:absolute;inset:var(--bar-h) 0 0 0;padding:0 var(--gutter)}
+.panel{grid-area:1/1;width:100%;display:flex;justify-content:center}
+.curtain:not(.is-live) .panel{margin-bottom:6vh}
+.cart{position:relative;max-width:min(92vw,880px);padding:clamp(22px,4vw,52px) clamp(24px,5vw,72px);background:var(--card);text-align:center;
+  outline:1px solid var(--ink);outline-offset:-9px;box-shadow:0 0 0 1px var(--card),0 18px 50px rgba(29,42,32,.28)}
+.cart--name .hero-role{font-family:var(--serif);font-variant:small-caps;letter-spacing:.14em;color:var(--moss);opacity:1;font-size:clamp(.95rem,1.6vw,1.2rem);margin-bottom:.6rem}
+.cart--name .hero-name{font-size:clamp(2.6rem,8.6vw,6.6rem);line-height:.98;font-style:italic;font-weight:340;overflow:visible;letter-spacing:-.03em;padding:0;margin:0;text-wrap:balance}
+.cart--name .hero-lede{max-width:34ch;margin:clamp(14px,2vw,22px) auto 0;font-size:clamp(1.1rem,2vw,1.6rem);color:var(--ink-2)}
+.hint{margin-top:clamp(16px,2.4vw,28px);font-size:.85rem;color:var(--ink-3);font-style:italic}
+#c-key .cart{text-align:left;max-width:min(92vw,760px)}
+.ledger{grid-template-columns:1fr;gap:0}
+.ledger li{border-top:1px solid var(--line);padding:14px 0}
+.ledger li:first-child{border-top:0;padding-top:0}
+.ledger a{font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.85rem);line-height:1.25;letter-spacing:-.01em}
+.ledger a:hover{color:var(--copihue);transform:translateX(6px)}
+.hero-about{margin-top:18px;color:var(--ink);border-bottom:1.5px solid var(--copihue);padding-bottom:2px;font-weight:600}
+.hero-about:hover{color:var(--copihue)}
+.cart--contact{max-width:min(92vw,840px)}
+.foot-h{font-size:clamp(2.6rem,8vw,5.6rem);font-style:italic;font-weight:340;letter-spacing:-.03em}
+.foot-p{max-width:46ch;margin:14px auto 0;font-size:1.08rem;opacity:1;color:var(--ink-2)}
+.foot-mail{font-size:clamp(1.25rem,3vw,2.2rem);border-bottom-color:var(--copihue);margin-top:clamp(20px,3vw,34px)}
+.foot-mail:hover{color:var(--copihue)}
+.foot-links{justify-content:center;flex-wrap:wrap;gap:8px 26px;margin-top:24px}
+.foot-links a,.foot-links button{opacity:1}
+.foot-links a:hover,.foot-links button:hover{color:var(--copihue)}
+.foot-small{margin-top:26px;opacity:.7}
+.foot-small.credit{margin-top:6px;font-style:italic;font-family:var(--serif);font-size:.85rem}
+.curtain--close .cart{max-height:calc(100svh - var(--bar-h) - 24px);overflow:auto}
+
+/* ===== Flora decorativa en los márgenes de las secciones ===== */
+.sec{position:relative;overflow:clip}
+.sec>.wrap{position:relative;z-index:2}
+.flora{position:absolute;z-index:1;height:clamp(200px,30vw,420px);width:auto;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(29,42,32,.25));will-change:transform}
+.flora--r{right:clamp(-70px,-3vw,-20px);top:clamp(10px,3vw,50px);transform:rotate(-28deg)}
+.flora--r2{right:clamp(-70px,-3vw,-20px);top:clamp(10px,3vw,50px);transform:rotate(26deg) scaleX(-1)}
+.degrees{background:var(--deep)}
+.now,.li{background:var(--paper-2)}
+@media (max-width:700px){.flora{height:110px;opacity:.6}}
+@media (prefers-reduced-motion:reduce){.flora{will-change:auto}}

@@ -29,3 +29,7 @@ The hero is a live topographic field: iso-lines of a slow noise terrain, tinted 
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
+
+## Edición botánica
+
+`/botanico/` es una variante completa con el mismo contenido y las mismas claves de traducción, con telones de láminas de Claudio Gay que se abren al bajar y se cierran en el contacto. No está enlazada desde la página principal y lleva `noindex`. Reutiliza `assets/`, `css/styles.css` y `js/data.js`.
