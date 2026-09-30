@@ -250,6 +250,7 @@
     if (!CARD_DATA[id]) return;
     currentId = id; lastFocus = document.activeElement;
     renderModal(id);
+    if (window.Botanico && Botanico.dress) Botanico.dress();
     overlay.classList.add('is-open');
     doc.classList.add('modal-open');
     if (window.lenis) window.lenis.stop();

@@ -90,10 +90,11 @@ function showTip(p, e){
 function moveTip(e){ if (tip && tip.classList.contains('is-on')) tip.style.transform = 'translate3d(' + (e.clientX + 16) + 'px,' + (e.clientY + 18) + 'px,0)'; }
 function hideTip(){ if (tip) tip.classList.remove('is-on'); }
 
-function panelTargets(c){ return c.el.querySelectorAll('.panel, .panel .cart, .panel li, .hero-about, .foot-h, .foot-p, .foot-mail, .foot-small'); }
+function panelTargets(c){ return c.el.querySelectorAll('.panel, .panel .cart, .panel li, .foot-h, .foot-p, .foot-mail, .foot-small'); }
 
 function build(c){
   if (c.tl) { c.tl.scrollTrigger && c.tl.scrollTrigger.kill(true); c.tl.kill(); c.tl = null; }
+  if (c.pin) { c.pin.kill(true); c.pin = null; }
   gsap.set(panelTargets(c), { clearProps: 'all' });
   gsap.set(c.groups, { clearProps: 'scale' });
   if (!reduce) c.el.classList.add('is-live');
@@ -137,31 +138,42 @@ function build(c){
   if (c.visible || reduce) load(c);
   if (reduce) { c.items.forEach(function(it){ if (opening) gsap.set(it.pl, it.to); }); return; }
 
-  var tl = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
-    trigger: c.el, start: 'top top', end: '+=' + Math.round((opening ? (small ? 1.35 : 1.7) : (small ? 1.2 : 1.45)) * innerHeight),
-    pin: true, scrub: small ? 0.5 : 0.8, anticipatePin: 1, refreshPriority: opening ? 10 : -1 } });
+  /* apertura: la lámina se fija y el follaje se abre a lo largo de todo el tramo fijado.
+     cierre: el follaje empieza a cerrarse mientras la lámina entra en pantalla y termina en un tramo fijado corto. */
+  var vh = innerHeight, sc = small ? 0.35 : 0.7, tl;
+  if (opening) {
+    tl = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
+      trigger: c.el, start: 'top top', end: '+=' + Math.round((small ? 0.95 : 1.15) * vh),
+      pin: true, scrub: sc, anticipatePin: 1, refreshPriority: 10 } });
+  } else {
+    var pinPx = Math.round((small ? 0.5 : 0.65) * vh);
+    c.pin = ScrollTrigger.create({ trigger: c.el, start: 'top top', end: '+=' + pinPx, pin: true, anticipatePin: 1, refreshPriority: -1 });
+    tl = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
+      start: function(){ return c.pin.start - vh; }, end: function(){ return c.pin.end; },
+      scrub: sc, refreshPriority: -2 } });
+  }
 
   c.items.forEach(function(it){
-    var at = opening ? 0.04 + it.o * 0.16 + it.cls * 0.03 : 0.02 + (1 - it.o) * 0.16 + (2 - it.cls) * 0.03;
-    tl.to(it.pl, { x: it.to.x, y: it.to.y, rotation: it.to.rotation, duration: 0.46 }, at);
+    var at = opening ? 0.02 + it.o * 0.22 + it.cls * 0.04 : 0.04 + (1 - it.o) * 0.2 + (2 - it.cls) * 0.05;
+    tl.to(it.pl, { x: it.to.x, y: it.to.y, rotation: it.to.rotation, duration: 0.62 }, at);
   });
   // leve empuje de cámara: el follaje del frente se acerca más que el del fondo
   var zoom = [1.03, 1.06, 1.1];
   c.groups.forEach(function(g, k){
-    if (opening) tl.fromTo(g, { scale: 1 }, { scale: zoom[k], duration: 0.7, ease: 'power1.inOut' }, 0.04);
-    else tl.fromTo(g, { scale: zoom[k] }, { scale: 1, duration: 0.7, ease: 'power1.inOut' }, 0);
+    if (opening) tl.fromTo(g, { scale: 1 }, { scale: zoom[k], duration: 0.9, ease: 'power1.inOut' }, 0.02);
+    else tl.fromTo(g, { scale: zoom[k] }, { scale: 1, duration: 0.9, ease: 'power1.inOut' }, 0);
   });
 
   var q = function(s){ return c.el.querySelectorAll(s); };
   if (opening) {
-    tl.to('#c-name', { autoAlpha: 0, y: -26, scale: 0.985, duration: 0.1, ease: 'power1.in' }, 0.02);
-    tl.fromTo('#c-key', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.08, ease: 'none' }, 0.34);
-    tl.fromTo('#c-key .cart', { y: 26, scale: 0.97 }, { y: 0, scale: 1, duration: 0.18, ease: 'power2.out' }, 0.34);
-    tl.fromTo(q('#c-key li, #c-key .hero-about'), { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.035, ease: 'power2.out' }, 0.37);
+    tl.to('#c-name', { autoAlpha: 0, y: -26, scale: 0.985, duration: 0.12, ease: 'power1.in' }, 0);
+    tl.fromTo('#c-key', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.3);
+    tl.fromTo('#c-key .cart', { y: 26, scale: 0.97 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.3);
+    tl.fromTo(q('#c-key li'), { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.14, stagger: 0.04, ease: 'power2.out' }, 0.34);
   } else {
-    tl.fromTo('#c-contact', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.22);
-    tl.fromTo('#c-contact .cart', { y: 30, scale: 0.96 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.22);
-    tl.fromTo(q('.foot-h, .foot-p, .foot-mail, .foot-links li, .foot-small'), { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.03, ease: 'power2.out' }, 0.27);
+    tl.fromTo('#c-contact', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.5);
+    tl.fromTo('#c-contact .cart', { y: 30, scale: 0.96 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.5);
+    tl.fromTo(q('.foot-h, .foot-p, .foot-mail, .foot-links li, .foot-small'), { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.03, ease: 'power2.out' }, 0.55);
   }
   tl.set({}, {}, 1);
   c.tl = tl;
@@ -178,6 +190,7 @@ function intro(c){
   tl.from(words, { yPercent: 105, duration: 1.1, ease: 'expo.out', stagger: 0.09 }, 0.6);
   tl.from(cart.querySelectorAll('.hero-role, .hero-lede, .hint'), { autoAlpha: 0, y: 10, duration: 0.8, ease: 'power2.out', stagger: 0.08 }, 0.85);
   tl.add(function(){ var o = cart.querySelector('.orn'); if (o) o.classList.add('is-in'); }, 0.95);
+  tl.add(function(){ cart.classList.add('is-grown'); }, 1.05);
 }
 
 function splitName(){
@@ -190,7 +203,23 @@ function splitName(){
 var rt, lastW = 0, lastH = 0;
 function all(){ curtains.forEach(build); lastW = innerWidth; lastH = innerHeight; ScrollTrigger.refresh(); }
 
+var dressPair = null;
+function nextPair(){
+  var list = PLANTS.filter(function(p){ return p[4] === 1; });
+  var a = list[Math.floor(Math.random() * list.length)], b;
+  do { b = list[Math.floor(Math.random() * list.length)]; } while (b === a);
+  var suf = fine && dprCap > 1 ? '-l' : '-s';
+  dressPair = [a, b].map(function(p){ var src = 'lam/' + p[0] + suf + '.webp'; new Image().src = src; return src; });
+}
+
 window.Botanico = {
+  dress: function(){
+    var l = document.querySelector('.mflora--l'), r = document.querySelector('.mflora--r');
+    if (!l || !r) return;
+    if (!dressPair) nextPair();
+    l.src = dressPair[0]; r.src = dressPair[1];
+    setTimeout(nextPair, 1500);
+  },
   init: function(){
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ ignoreMobileResize: true });
@@ -199,7 +228,8 @@ window.Botanico = {
     curtains = Array.prototype.map.call(document.querySelectorAll('[data-curtain]'), setup);
     all();
     var cart = document.querySelector('#c-name .cart');
-    if (!reduce && scrollY < 40) intro(curtains[0]); else if (cart && cart.querySelector('.orn')) cart.querySelector('.orn').classList.add('is-in');
+    if (!reduce && scrollY < 40) intro(curtains[0]);
+    else if (cart) { cart.classList.add('is-grown'); if (cart.querySelector('.orn')) cart.querySelector('.orn').classList.add('is-in'); }
 
     // solo se pintan (y se descargan) los telones cercanos a la pantalla
     if ('IntersectionObserver' in window) {
@@ -223,10 +253,20 @@ window.Botanico = {
       if (innerWidth !== lastW || Math.abs(innerHeight - lastH) > 140) all();
     }, 240); });
     addEventListener('load', function(){ ScrollTrigger.refresh(); });
+    if ('ResizeObserver' in window) {
+      var hs = new Map(), rq;
+      var ro = new ResizeObserver(function(es){
+        var changed = false;
+        es.forEach(function(e){ var h = Math.round(e.contentRect.height); if (hs.get(e.target) !== h) { if (hs.has(e.target)) changed = true; hs.set(e.target, h); } });
+        if (changed) { clearTimeout(rq); rq = setTimeout(function(){ ScrollTrigger.refresh(); }, 180); }
+      });
+      document.querySelectorAll('main > .sec, main > .orn').forEach(function(s){ ro.observe(s); });
+    }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
 
     specimens();
     ornaments();
+    setTimeout(nextPair, 4000);
   }
 };
 function c0qx(){ return curtains.length && curtains[0].qx; }

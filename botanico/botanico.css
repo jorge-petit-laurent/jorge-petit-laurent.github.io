@@ -57,6 +57,20 @@ body{background:var(--paper) url(lam/grain.webp) 0 0/200px 200px;transition:none
 .cue{width:1px;height:24px;background:linear-gradient(var(--ink-3),transparent);transform-origin:top;animation:cue 2.6s var(--ease) infinite}
 @keyframes cue{0%{transform:scaleY(0);opacity:1}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
 
+/* ramitas que cruzan el borde de la cartela del nombre, solo sobre el margen */
+.sprig{position:absolute;z-index:3;height:auto;max-width:none;pointer-events:none;transform-origin:50% 96%;
+  transition:scale 1.5s var(--ease),opacity .7s ease}
+.js .cart:not(.is-grown) .sprig{opacity:0;scale:.35}
+.cart.is-grown .sprig{opacity:1;scale:1}
+.cart.is-grown .sprig--tr{transition-delay:.12s}
+.cart.is-grown .sprig--br{transition-delay:.24s}
+.sprig--bl{width:clamp(76px,9vw,132px);left:clamp(-40px,-2.2vw,-18px);bottom:clamp(-46px,-3vw,-24px);rotate:-8deg}
+.sprig--tr{width:clamp(72px,8.4vw,122px);right:clamp(-34px,-2vw,-14px);top:clamp(-60px,-3.6vw,-30px);rotate:198deg;transform-origin:50% 50%}
+.sprig--br{width:clamp(48px,5.4vw,80px);right:clamp(-22px,-1.3vw,-10px);bottom:clamp(-40px,-2.6vw,-22px);rotate:12deg}
+.sway .sprig{animation:sway 6.5s ease-in-out infinite alternate}
+.sway .sprig--tr{animation-duration:8s;animation-delay:-3s}
+.sway .sprig--br{animation-duration:5.5s;animation-delay:-1.5s}
+
 #c-key .cart{text-align:left;max-width:min(92vw,700px)}
 .ledger{display:block}
 .ledger li{border-top:1px solid var(--line);padding:15px 0}
@@ -137,6 +151,16 @@ body{background:var(--paper) url(lam/grain.webp) 0 0/200px 200px;transition:none
 /* modal: sin desenfoque de fondo */
 .modal-overlay{background:rgba(24,34,26,.62);backdrop-filter:none;-webkit-backdrop-filter:none}
 .modal-panel{background:var(--card);box-shadow:0 30px 80px -20px rgba(0,0,0,.5),inset 0 0 0 1px rgba(30,42,33,.3)}
+/* flores que asoman por los costados del recuadro al abrirlo */
+.modal-frame{position:relative;width:min(720px,100%);display:grid}
+.modal-frame .modal-panel{position:relative;z-index:1;width:100%}
+.mflora{position:absolute;z-index:0;height:min(64vh,430px);width:auto;max-width:none;pointer-events:none;opacity:0;transform-origin:50% 96%;
+  transition:transform 1.3s var(--ease),opacity .5s ease}
+.mflora--l{right:calc(100% - 70px);bottom:4%;transform:translateX(34%) rotate(6deg) scale(.82)}
+.mflora--r{left:calc(100% - 70px);top:6%;transform:translateX(-34%) rotate(-6deg) scale(.82) scaleX(-1)}
+.modal-overlay.is-open .mflora{opacity:1;transition-delay:.12s}
+.modal-overlay.is-open .mflora--l{transform:rotate(-13deg)}
+.modal-overlay.is-open .mflora--r{transform:rotate(12deg) scaleX(-1);transition-delay:.22s}
 
 @media (max-width:1000px){.spec{display:none}}
 @media (max-width:700px){
@@ -145,6 +169,12 @@ body{background:var(--paper) url(lam/grain.webp) 0 0/200px 200px;transition:none
   .plate-cap em{display:none}
   .ledger li{padding:12px 0}
   .orn svg{width:160px}
+  .sprig--bl{width:58px;left:-14px;bottom:-30px}
+  .sprig--tr{width:58px;right:-12px;top:-40px}
+  .sprig--br{width:38px;right:-8px;bottom:-24px}
+  .mflora{height:150px}
+  .mflora--l{right:auto;left:-8px;bottom:auto;top:-96px}
+  .mflora--r{left:auto;right:-8px;top:-86px}
 }
 @media (prefers-reduced-motion:reduce){
   .pl{will-change:auto}
