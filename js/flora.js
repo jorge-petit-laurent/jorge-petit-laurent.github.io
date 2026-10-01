@@ -94,7 +94,6 @@ function panelTargets(c){ return c.el.querySelectorAll('.panel, .panel .cart, .p
 
 function build(c){
   if (c.tl) { c.tl.scrollTrigger && c.tl.scrollTrigger.kill(true); c.tl.kill(); c.tl = null; }
-  if (c.pin) { c.pin.kill(true); c.pin = null; }
   gsap.set(panelTargets(c), { clearProps: 'all' });
   gsap.set(c.groups, { clearProps: 'scale' });
   if (!reduce) c.el.classList.add('is-live');
@@ -130,39 +129,26 @@ function build(c){
     var back = Lp * (1 - vis[r] * (0.88 + R() * 0.24));
     var B = { x: e.x - u[0] * back + e.tx * e.o * Lp * 0.12, y: e.y - u[1] * back + e.ty * e.o * Lp * 0.12, rotation: ang(uo[0], uo[1]) + (R() - 0.5) * 12 };
     B.rotation = A.rotation + wrap180(B.rotation - A.rotation);
-    var from = opening ? A : B, to = opening ? B : A;
+    var from = A, to = B;   // las dos láminas llegan cerradas y se abren al bajar
     gsap.set(it.pl, { xPercent: -50, yPercent: -(1 - py) * 100, transformOrigin: origin(p), x: from.x, y: from.y, rotation: from.rotation, scaleX: flip });
     it.to = to; it.o = Math.abs(e.o);
   });
 
   if (c.visible || reduce) load(c);
-  if (reduce) { c.items.forEach(function(it){ if (opening) gsap.set(it.pl, it.to); }); return; }
+  if (reduce) { c.items.forEach(function(it){ gsap.set(it.pl, it.to); }); return; }
 
-  /* apertura: la lámina se fija y el follaje se abre a lo largo de todo el tramo fijado.
-     cierre: el follaje empieza a cerrarse mientras la lámina entra en pantalla y termina en un tramo fijado corto. */
-  var vh = innerHeight, sc = small ? 0.35 : 0.7, tl;
-  if (opening) {
-    tl = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
-      trigger: c.el, start: 'top top', end: '+=' + Math.round((small ? 0.95 : 1.15) * vh),
-      pin: true, scrub: sc, anticipatePin: 1, refreshPriority: 10 } });
-  } else {
-    var pinPx = Math.round((small ? 0.5 : 0.65) * vh);
-    c.pin = ScrollTrigger.create({ trigger: c.el, start: 'top top', end: '+=' + pinPx, pin: true, anticipatePin: 1, refreshPriority: -1 });
-    tl = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
-      start: function(){ return c.pin.start - vh; }, end: function(){ return c.pin.end; },
-      scrub: sc, refreshPriority: -2 } });
-  }
+  /* cada lámina se fija y el follaje se abre a lo largo de todo el tramo fijado, dejando ver la cartela */
+  var vh = innerHeight, sc = small ? 0.35 : 0.7;
+  var tl = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
+    trigger: c.el, start: 'top top', end: '+=' + Math.round((small ? 0.95 : 1.15) * vh),
+    pin: true, scrub: sc, anticipatePin: 1, refreshPriority: opening ? 10 : -1 } });
 
   c.items.forEach(function(it){
-    var at = opening ? 0.02 + it.o * 0.22 + it.cls * 0.04 : 0.04 + (1 - it.o) * 0.2 + (2 - it.cls) * 0.05;
-    tl.to(it.pl, { x: it.to.x, y: it.to.y, rotation: it.to.rotation, duration: 0.62 }, at);
+    tl.to(it.pl, { x: it.to.x, y: it.to.y, rotation: it.to.rotation, duration: 0.62 }, 0.02 + it.o * 0.22 + it.cls * 0.04);
   });
   // leve empuje de cámara: el follaje del frente se acerca más que el del fondo
   var zoom = [1.03, 1.06, 1.1];
-  c.groups.forEach(function(g, k){
-    if (opening) tl.fromTo(g, { scale: 1 }, { scale: zoom[k], duration: 0.9, ease: 'power1.inOut' }, 0.02);
-    else tl.fromTo(g, { scale: zoom[k] }, { scale: 1, duration: 0.9, ease: 'power1.inOut' }, 0);
-  });
+  c.groups.forEach(function(g, k){ tl.fromTo(g, { scale: 1 }, { scale: zoom[k], duration: 0.9, ease: 'power1.inOut' }, 0.02); });
 
   var q = function(s){ return c.el.querySelectorAll(s); };
   if (opening) {
@@ -171,9 +157,9 @@ function build(c){
     tl.fromTo('#c-key .cart', { y: 26, scale: 0.97 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.3);
     tl.fromTo(q('#c-key li'), { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.14, stagger: 0.04, ease: 'power2.out' }, 0.34);
   } else {
-    tl.fromTo('#c-contact', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.5);
-    tl.fromTo('#c-contact .cart', { y: 30, scale: 0.96 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.5);
-    tl.fromTo(q('.foot-h, .foot-p, .foot-mail, .foot-links li, .foot-small'), { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.03, ease: 'power2.out' }, 0.55);
+    tl.fromTo('#c-contact', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.26);
+    tl.fromTo('#c-contact .cart', { y: 30, scale: 0.96 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.26);
+    tl.fromTo(q('.foot-h, .foot-p, .foot-mail, .foot-links li, .foot-small'), { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.03, ease: 'power2.out' }, 0.31);
   }
   tl.set({}, {}, 1);
   c.tl = tl;
