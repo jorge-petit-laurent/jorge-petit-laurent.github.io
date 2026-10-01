@@ -6,7 +6,8 @@
   var hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
   var isEn = doc.lang === 'en';
 
-  I18N_EN['bot.hint'] = 'Scroll to open the foliage';
+  I18N_EN['bot.hint'] = 'Scroll to continue';
+  I18N_EN['bot.cv'] = 'Download CV (PDF)';
   I18N_EN['bot.atlas'] = 'Atlas of the physical and political history of Chile';
   I18N_EN['bot.plate1'] = 'Pl. I';
   I18N_EN['bot.plate2'] = 'Pl. II';
@@ -30,6 +31,7 @@
       var k = el.getAttribute('data-i18n-aria');
       el.setAttribute('aria-label', (lang === 'en' && I18N_EN[k] !== undefined) ? I18N_EN[k] : el.getAttribute('data-es-aria'));
     });
+    document.querySelectorAll('[data-cv]').forEach(function(l){ l.href = 'assets/cv/Jorge_Petit-Laurent_CV_' + (lang === 'en' ? 'EN' : 'ES') + '.pdf'; });
     renderArchive();
     renderTrail();
     if (overlay.classList.contains('is-open') && currentId) renderModal(currentId);

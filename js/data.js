@@ -69,7 +69,7 @@ var CARD_DATA = {
     en: { tag:'August 2026 · Universidad Adolfo Ibáñez', title:'Graduation: three degrees, one thesis',
       body:'In August 2026 I defended my thesis for the degrees of Civil Engineering in Energy, Civil Industrial Engineering and MSc in Data Science, all with the maximum grade, 7.0. Final grades were 6.40 in Energy Engineering and 6.51 in the MSc. I studied on the Academic Excellence Scholarship (2021–2026) and the Academic Honor Scholarship (2022–2025).',
       links:[{label:'My LinkedIn post', url:LI_ACTIVITY}] },
-    photos:['/assets/images/defense-family.webp','/assets/images/defense-bottles.webp','/assets/images/defense-toast.webp','/assets/images/graduation-photo.webp']
+    photos:['/assets/images/defense-family.webp','/assets/images/graduation-photo.webp']
   },
 
   about: {
@@ -316,7 +316,6 @@ var I18N_EN = {
   "deg.3.m":"2025 to 2026 · final grade 6.51 / 7.0",
   "deg.cta":"Photos and details",
   "deg.cap1":"With my thesis advisor and family after the defense.",
-  "deg.cap2":"Three bottles, one per degree.",
   "pubs.h":"Publications and talks",
   "pubs.papers":"Papers",
   "pubs.talks":"Talks and posters",
@@ -344,7 +343,7 @@ var I18N_EN = {
   "li.3.p":"The EEEIC conference, in photos.",
   "li.cta":"Open my LinkedIn activity",
   "route.h":"The route",
-  "route.p":"Five years from first-year student to the summit of the thesis. Altitude is illustrative.",
+  "route.p":"Five years, from starting at UAI to the thesis. Altitude is illustrative.",
   "arch.h":"Archive",
   "arch.p":"Everything else, most recent first. Open an item for photos, links and the original posts.",
   "f.all":"All",
