@@ -90,7 +90,7 @@ function showTip(p, e){
 function moveTip(e){ if (tip && tip.classList.contains('is-on')) tip.style.transform = 'translate3d(' + (e.clientX + 16) + 'px,' + (e.clientY + 18) + 'px,0)'; }
 function hideTip(){ if (tip) tip.classList.remove('is-on'); }
 
-function panelTargets(c){ return c.el.querySelectorAll('.panel, .panel .cart, .panel li, .foot-h, .foot-p, .foot-mail, .foot-cv, .foot-small'); }
+function panelTargets(c){ return c.el.querySelectorAll('.panel, .panel .cart, .panel li, .foot-h, .foot-p, .foot-mail, .foot-small'); }
 
 function build(c){
   if (c.tl) { c.tl.scrollTrigger && c.tl.scrollTrigger.kill(true); c.tl.kill(); c.tl = null; }
@@ -155,11 +155,11 @@ function build(c){
     tl.to('#c-name', { autoAlpha: 0, y: -26, scale: 0.985, duration: 0.12, ease: 'power1.in' }, 0);
     tl.fromTo('#c-key', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.3);
     tl.fromTo('#c-key .cart', { y: 26, scale: 0.97 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.3);
-    tl.fromTo(q('#c-key li, #c-key .cv-btn'), { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.14, stagger: 0.04, ease: 'power2.out' }, 0.34);
+    tl.fromTo(q('#c-key li'), { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.14, stagger: 0.04, ease: 'power2.out' }, 0.34);
   } else {
     tl.fromTo('#c-contact', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: 'none' }, 0.26);
     tl.fromTo('#c-contact .cart', { y: 30, scale: 0.96 }, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' }, 0.26);
-    tl.fromTo(q('.foot-h, .foot-p, .foot-mail, .foot-cv, .foot-links li, .foot-small'), { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.03, ease: 'power2.out' }, 0.31);
+    tl.fromTo(q('.foot-h, .foot-p, .foot-mail, .foot-links li, .foot-small'), { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.12, stagger: 0.03, ease: 'power2.out' }, 0.31);
   }
   tl.set({}, {}, 1);
   c.tl = tl;
