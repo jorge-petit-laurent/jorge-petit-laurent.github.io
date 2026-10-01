@@ -1,6 +1,6 @@
 # Jorge Petit-Laurent — personal site
 
-Static site, no build step: this repository *is* the deployed site ([pinkypetit.github.io](https://pinkypetit.github.io)). Spanish by default, English toggle.
+Static site, no build step: this repository *is* the deployed site ([jorge-petit-laurent.github.io](https://jorge-petit-laurent.github.io)). Spanish by default, English toggle.
 
 ## Two editions
 
