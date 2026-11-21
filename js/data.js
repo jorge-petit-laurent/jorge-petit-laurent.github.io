@@ -11,7 +11,7 @@ var CARD_DATA = {
 
   /* ---------- Featured (opened from the main sections) ---------- */
   sherpas: {
-    es: { tag:'Jun 2025 – presente · remoto', title:'Climate Mitigation & Data Engineer en Sherpas',
+    es: { tag:'Jul 2025 – presente · remoto', title:'Climate Mitigation & Data Engineer en Sherpas',
       body:'Sherpas es una consultora de mercados de carbono bajo el Artículo 6 del Acuerdo de París. Fundé su área de datos y construí desde cero la infraestructura en la nube (BigQuery, Cloud Run, Neo4j) con la que el equipo trabaja los datos del Coordinador Eléctrico Nacional. Sobre ella corre la metodología de reducción de emisiones para baterías (BESS), que simula el despacho hora a hora del SEN y hoy respalda doce proyectos, cerca de 1,3 GW. En paralelo a mis demás funciones construí SEN Energy Data (sen.sherpas.net), una herramienta interna que conecta los datos del sistema eléctrico con el asistente de IA de cada usuario. En 2026 Sherpas estructuró la primera autorización mundial de un BESS bajo el Artículo 6.2: 228 MW de baterías de litio en Atacama, junto a Colbún y financiados por la Fundación KliK de Suiza.',
       links:[
         {label:'sherpas.net', url:'https://www.sherpas.net/'},
@@ -21,7 +21,7 @@ var CARD_DATA = {
         {label:'Hito: primera autorización mundial de un BESS bajo el Art. 6.2', url:'https://www.linkedin.com/posts/sherpas-net_authorisation-switzerland-chile-activity-7447641698295406592-yilI'},
         {label:'Sherpas en 2025: cultura de equipo', url:'https://www.linkedin.com/posts/sherpas-net_celebrating-2025-by-living-up-to-our-name-activity-7414372535972036609-Sfsd'}
       ] },
-    en: { tag:'Jun 2025 – present · remote', title:'Climate Mitigation & Data Engineer at Sherpas',
+    en: { tag:'Jul 2025 – present · remote', title:'Climate Mitigation & Data Engineer at Sherpas',
       body:'Sherpas is a carbon-markets consultancy working under Article 6 of the Paris Agreement. I founded its data area and built the cloud infrastructure (BigQuery, Cloud Run, Neo4j) the team uses to work with data from Chile\'s National Electric Coordinator. On top of it runs the emission-reduction methodology for battery storage (BESS), which simulates dispatch of the national grid hour by hour and now supports twelve projects, about 1.3 GW. Alongside my other duties I built SEN Energy Data (sen.sherpas.net), an internal tool that connects Chilean grid data to each user\'s own AI assistant. In 2026 Sherpas structured the world\'s first BESS authorization under Article 6.2: 228 MW of lithium-ion batteries in Atacama, with Colbún and financed by Switzerland\'s KliK Foundation.',
       links:[
         {label:'sherpas.net', url:'https://www.sherpas.net/'},
@@ -270,7 +270,7 @@ var I18N_EN = {
   "hero.l2":"MSc in Data Science, thesis graded 7.0",
   "hero.l3":"Published in the International Journal of Climatology, 2026",
   "now.h":"I founded the data area of a carbon-markets consultancy. Its models now support twelve battery projects in Chile, about 1.3 GW.",
-  "now.meta":"Sherpas Group SpA · Climate Mitigation &amp; Data Engineer · June 2025 to present · remote",
+  "now.meta":"Sherpas Group SpA · Climate Mitigation &amp; Data Engineer · July 2025 to present · remote",
   "now.more":"See details and milestones",
   "now.i1.h":"Emission-reduction methodology for batteries (Article 6.2)",
   "now.i1.p":"Designed and coded it in Python and SQL, in ex-ante and ex-post versions. The model quantifies how much fossil generation each battery displaces: it simulates the economic dispatch of the national grid hour by hour, unit by unit, on the actual merit order, including the nodal marginal cost at each busbar and charging from renewable curtailment.",
