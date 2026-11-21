@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jorge-petit-laurent.github.io/sitemap.xml
