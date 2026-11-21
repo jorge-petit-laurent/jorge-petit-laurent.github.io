@@ -83,6 +83,48 @@ var CARD_DATA = {
       links:[{label:'LinkedIn', url:'https://www.linkedin.com/in/jorge-petit-laurent'},{label:'ORCID', url:'https://orcid.org/0009-0006-2945-610X'}] }
   },
 
+  /* ---------- Press ---------- */
+  press_sur: { year:'2026', cats:'press research', icon:'press', c1:'#2D5FA8', c2:'#E2574C',
+    es: { tag:'Nov 2026 · Diarios locales del sur', title:'El estudio de olas de calor en la red de diarios locales del sur',
+      body:'Una red de diarios locales del sur de Chile publicó el 12 de noviembre de 2026 la nota "Estudio predice que las olas de calor en Chile podrían extenderse por más de seis meses al año hacia el 2080", sobre nuestro artículo en el International Journal of Climatology. Apareció en los diarios de Puerto Montt, Valdivia, Panguipulli, Lanco, Paillaco, Río Bueno y San José, con declaraciones mías como autor principal y de Cristian Martínez-Villalobos.',
+      links:[
+        {label:'Diario de Puerto Montt', url:'https://www.diariodepuertomontt.cl/noticia/actualidad/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Valdivia', url:'https://www.diariodevaldivia.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Panguipulli', url:'https://www.diariodepanguipulli.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Lanco', url:'https://www.diariolanco.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Paillaco', url:'https://www.diariopaillaco.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Río Bueno', url:'https://www.diarioriobueno.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de San José', url:'https://www.diariosanjose.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Leer el artículo', url:'https://doi.org/10.1002/joc.70567'}
+      ] },
+    en: { tag:'Nov 2026 · Local newspapers, southern Chile', title:'The heat-wave study in a network of southern local newspapers',
+      body:'A network of local newspapers in southern Chile published on 12 November 2026 the story "Study predicts heat waves in Chile could last more than six months a year by 2080", about our paper in the International Journal of Climatology. It ran in the papers of Puerto Montt, Valdivia, Panguipulli, Lanco, Paillaco, Río Bueno and San José, with quotes from me as lead author and from Cristian Martínez-Villalobos.',
+      links:[
+        {label:'Diario de Puerto Montt', url:'https://www.diariodepuertomontt.cl/noticia/actualidad/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Valdivia', url:'https://www.diariodevaldivia.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Panguipulli', url:'https://www.diariodepanguipulli.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Lanco', url:'https://www.diariolanco.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Paillaco', url:'https://www.diariopaillaco.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de Río Bueno', url:'https://www.diarioriobueno.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Diario de San José', url:'https://www.diariosanjose.cl/noticia/yopublicocl/2026/11/estudio-predice-que-las-olas-de-calor-en-chile-podran-extenderse-por-ms-de-seis-meses-al-ao-hacia-el-2080'},
+        {label:'Read the paper', url:'https://doi.org/10.1002/joc.70567'}
+      ] }
+  },
+  press_eldia: { year:'2026', cats:'press research', icon:'press', c1:'#2D5FA8', c2:'#E8A23D',
+    es: { tag:'Nov 2026 · La Serena y Coquimbo', title:'El estudio de olas de calor en Diario El Día',
+      body:'Diario El Día, de La Serena y Coquimbo, publicó en su edición impresa del 12 de noviembre de 2026 una nota sobre nuestro artículo en el International Journal of Climatology, que proyecta cómo cambiarán las olas de calor en Chile durante este siglo, con foco en La Serena, Santiago y Concepción.',
+      links:[
+        {label:'Edición digital del 12 de noviembre', url:'https://papeldigital.eldia.la/visor/3399'},
+        {label:'Leer el artículo', url:'https://doi.org/10.1002/joc.70567'}
+      ] },
+    en: { tag:'Nov 2026 · La Serena and Coquimbo', title:'The heat-wave study in Diario El Día',
+      body:'Diario El Día, the newspaper of La Serena and Coquimbo, ran a story in its 12 November 2026 print edition about our paper in the International Journal of Climatology, which projects how heat waves in Chile will change this century, focusing on La Serena, Santiago and Concepción.',
+      links:[
+        {label:'Digital edition, 12 November', url:'https://papeldigital.eldia.la/visor/3399'},
+        {label:'Read the paper', url:'https://doi.org/10.1002/joc.70567'}
+      ] }
+  },
+
   /* ---------- Archive (reverse-chronological) ---------- */
   calabria: { year:'2026', cats:'research', icon:'calabria', c1:'#3DAA68', c2:'#E2574C',
     es: { tag:'Ene–Mar 2026 · Italia', title:'Estadía de investigación en la Universidad de Calabria',
@@ -250,7 +292,7 @@ var CARD_DATA = {
   }
 };
 
-var ARCHIVE_ORDER = ['calabria','conference','ssrn','fellowships','naturecomms','uaifeature','pvcv','atamostec','upenn','hackathon','acciona','tid','docongress','nature','teaching','amigo','admission'];
+var ARCHIVE_ORDER = ['press_sur','press_eldia','calabria','conference','ssrn','fellowships','naturecomms','uaifeature','pvcv','atamostec','upenn','hackathon','acciona','tid','docongress','nature','teaching','amigo','admission'];
 
 /* English strings for static sections (Spanish lives in index.html so the page reads with no JS). */
 var I18N_EN = {
@@ -352,6 +394,7 @@ var I18N_EN = {
   "f.research":"Research",
   "f.data":"Data and AI",
   "f.awards":"Grants and awards",
+  "f.press":"Press",
   "f.community":"Community and nature",
   "tools.h":"Tools",
   "tools.p":"Python, SQL, R (mgcv), Git, Google BigQuery, Cloud Run, Neo4j, Model Context Protocol, OpenCV, Looker, Colab Enterprise, Firebase, embeddings and LLMs.",
