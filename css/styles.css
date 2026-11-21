@@ -168,6 +168,8 @@ figcaption { font-size:.85rem; color:var(--ink-3); margin-top:10px; }
 .work-list h3 { font-family:var(--serif); font-weight:500; font-size:1.35rem; line-height:1.22; letter-spacing:-.008em; text-wrap:balance; transition:color .2s; }
 .d-body { padding:0 0 26px; max-width:66ch; display:grid; gap:12px; }
 .d-body p { color:var(--ink-2); text-wrap:pretty; }
+.d-body p:not(.tags) a { color:var(--ink); border-bottom:1.5px solid var(--line); transition:color .2s, border-color .2s; }
+.d-body p:not(.tags) a:hover { color:var(--copihue); border-color:var(--copihue); }
 .tags { display:flex; flex-wrap:wrap; gap:6px; }
 .tags span { font-family:var(--mono); font-size:.74rem; padding:3px 9px; border-radius:2px 9px 2px 9px; background:color-mix(in srgb, var(--moss) 14%, transparent); color:var(--moss); }
 
