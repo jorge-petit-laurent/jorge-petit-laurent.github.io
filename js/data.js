@@ -5,6 +5,14 @@ function li(urn){
   return '<iframe src="https://www.linkedin.com/embed/feed/update/' + urn +
          '?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" loading="lazy" title="LinkedIn"></iframe>';
 }
+function yt(id){
+  return '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+         '" style="aspect-ratio:16/9;height:auto" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen="" loading="lazy" title="YouTube"></iframe>';
+}
+function ig(path){
+  return '<iframe src="https://www.instagram.com/' + path +
+         '/embed/" height="620" frameborder="0" scrolling="no" loading="lazy" title="Instagram"></iframe>';
+}
 var LI_ACTIVITY = 'https://www.linkedin.com/in/jorge-petit-laurent/recent-activity/all/';
 
 var CARD_DATA = {
@@ -84,6 +92,30 @@ var CARD_DATA = {
   },
 
   /* ---------- Press ---------- */
+  press_metro: { year:'2026', cats:'press research', icon:'press', c1:'#E2574C', c2:'#E8A23D',
+    es: { tag:'Nov 2026 · La Metro TV', title:'Olas de calor en "El Poder de Ecoactuar"',
+      body:'El 21 de noviembre de 2026 conversé sobre nuestro estudio de olas de calor en "El Poder de Ecoactuar", el programa de La Metro TV conducido por Gianfranco Marcone y Daniela Seguel sobre los desafíos ambientales de Chile. El capítulo se tituló "¿Más calor en Chile?".',
+      links:[
+        {label:'Ver en YouTube', url:'https://www.youtube.com/watch?v=ROP3i4QKop4'},
+        {label:'Leer el artículo', url:'https://doi.org/10.1002/joc.70567'}
+      ] },
+    en: { tag:'Nov 2026 · La Metro TV', title:'Heat waves on "El Poder de Ecoactuar"',
+      body:'On 21 November 2026 I talked about our heat-wave study on "El Poder de Ecoactuar", a La Metro TV programme hosted by Gianfranco Marcone and Daniela Seguel about Chile\'s environmental challenges. The episode was titled "More heat in Chile?" (in Spanish).',
+      links:[
+        {label:'Watch on YouTube', url:'https://www.youtube.com/watch?v=ROP3i4QKop4'},
+        {label:'Read the paper', url:'https://doi.org/10.1002/joc.70567'}
+      ] },
+    embed_html: yt('ROP3i4QKop4')
+  },
+  press_uai: { year:'2026', cats:'press research', icon:'press', c1:'#3DAA68', c2:'#E2574C',
+    es: { tag:'Nov 2026 · Instagram, Ingeniería UAI', title:'Mi pasantía en Calabria en "Ingeniería y Ciencias por el Mundo"',
+      body:'El 18 de noviembre de 2026, la Facultad de Ingeniería y Ciencias de la UAI publicó un reel sobre mi pasantía de investigación en la Università della Calabria, Italia, como ejemplo de las pasantías internacionales de la facultad: una oportunidad para avanzar mi tesis sobre cómo el cambio climático afecta el uso de energía en Chile.',
+      links:[{label:'Ver en Instagram', url:'https://www.instagram.com/reel/Df4mr6txDNq/'}] },
+    en: { tag:'Nov 2026 · Instagram, UAI Engineering', title:'My Calabria research stay in "Engineering and Science around the World"',
+      body:'On 18 November 2026, UAI\'s Faculty of Engineering and Science posted a reel about my research stay at the University of Calabria, Italy, as an example of the faculty\'s international internships: a chance to advance my thesis on how climate change affects energy use in Chile.',
+      links:[{label:'View on Instagram', url:'https://www.instagram.com/reel/Df4mr6txDNq/'}] },
+    embed_html: ig('reel/Df4mr6txDNq')
+  },
   press_sur: { year:'2026', cats:'press research', icon:'press', c1:'#2D5FA8', c2:'#E2574C',
     es: { tag:'Nov 2026 · Diarios locales del sur', title:'El estudio de olas de calor en la red de diarios locales del sur',
       body:'Una red de diarios locales del sur de Chile publicó el 12 de noviembre de 2026 la nota "Estudio predice que las olas de calor en Chile podrían extenderse por más de seis meses al año hacia el 2080", sobre nuestro artículo en el International Journal of Climatology. Apareció en los diarios de Puerto Montt, Valdivia, Panguipulli, Lanco, Paillaco, Río Bueno y San José, con declaraciones mías como autor principal y de Cristian Martínez-Villalobos.',
@@ -123,6 +155,22 @@ var CARD_DATA = {
         {label:'Digital edition, 12 November', url:'https://papeldigital.eldia.la/visor/3399'},
         {label:'Read the paper', url:'https://doi.org/10.1002/joc.70567'}
       ] }
+  },
+
+  press_do: { year:'2026', cats:'press research', icon:'press', c1:'#5B8DEF', c2:'#E8A23D',
+    es: { tag:'Nov 2026 · Instagram, Data Observatory', title:'Data Observatory difunde el estudio de olas de calor',
+      body:'El 9 de noviembre de 2026, Data Observatory publicó un post sobre nuestro artículo en el International Journal of Climatology: las olas de calor en Chile podrían durar más hacia fines de siglo y, en Santiago, las que hoy ocurren cerca de una vez por década podrían ser hasta 20 veces más frecuentes. Destacó que la investigación nació de mi tesis de magíster, hecha en colaboración con Data Observatory.',
+      links:[
+        {label:'Ver en Instagram', url:'https://www.instagram.com/p/DfhmtB7oKfi/'},
+        {label:'Leer el artículo', url:'https://doi.org/10.1002/joc.70567'}
+      ] },
+    en: { tag:'Nov 2026 · Instagram, Data Observatory', title:'Data Observatory shares the heat-wave study',
+      body:'On 9 November 2026, Data Observatory posted about our paper in the International Journal of Climatology: heat waves in Chile could last longer by the end of the century and, in Santiago, those that now happen about once a decade could become up to 20 times more frequent. It highlighted that the research grew out of my MSc thesis, done in collaboration with Data Observatory.',
+      links:[
+        {label:'View on Instagram', url:'https://www.instagram.com/p/DfhmtB7oKfi/'},
+        {label:'Read the paper', url:'https://doi.org/10.1002/joc.70567'}
+      ] },
+    embed_html: ig('p/DfhmtB7oKfi')
   },
 
   /* ---------- Archive (reverse-chronological) ---------- */
@@ -292,7 +340,7 @@ var CARD_DATA = {
   }
 };
 
-var ARCHIVE_ORDER = ['press_sur','press_eldia','calabria','conference','ssrn','fellowships','naturecomms','uaifeature','pvcv','atamostec','upenn','hackathon','acciona','tid','docongress','nature','teaching','amigo','admission'];
+var ARCHIVE_ORDER = ['press_metro','press_uai','press_sur','press_eldia','press_do','calabria','conference','ssrn','fellowships','naturecomms','uaifeature','pvcv','atamostec','upenn','hackathon','acciona','tid','docongress','nature','teaching','amigo','admission'];
 
 /* English strings for static sections (Spanish lives in index.html so the page reads with no JS). */
 var I18N_EN = {
@@ -394,7 +442,7 @@ var I18N_EN = {
   "f.research":"Research",
   "f.data":"Data and AI",
   "f.awards":"Grants and awards",
-  "f.press":"Press",
+  "f.press":"Press and social media",
   "f.community":"Community and nature",
   "tools.h":"Tools",
   "tools.p":"Python, SQL, R (mgcv), Git, Google BigQuery, Cloud Run, Neo4j, Model Context Protocol, OpenCV, Looker, Colab Enterprise, Firebase, embeddings and LLMs.",
