@@ -60,7 +60,6 @@
       li.setAttribute('data-cats', d.cats);
       li.style.setProperty('--c1', d.c1);
       li.style.setProperty('--c2', d.c2);
-      li.hidden = !(activeFilter === 'all' || d.cats.indexOf(activeFilter) !== -1);
       li.innerHTML =
         '<button type="button" class="ix-btn" data-open="' + id + '">' +
           '<span class="ix-y mono">' + d.year + '</span>' +
@@ -70,17 +69,47 @@
         '</button>';
       archiveList.appendChild(li);
     });
+    applyArchive();
   }
+
+  /* Show the first ARCH_LIMIT entries of the active filter; the button reveals the rest. */
+  var ARCH_LIMIT = 5;
+  var archExpanded = false;
+  var archiveMore = document.getElementById('archiveMore');
+
+  function applyArchive(){
+    var n = 0;
+    archiveList.querySelectorAll('.ix').forEach(function(li){
+      var match = activeFilter === 'all' || li.getAttribute('data-cats').indexOf(activeFilter) !== -1;
+      li.hidden = !match || (!archExpanded && n >= ARCH_LIMIT);
+      if (match) { if (!li.hidden) li.style.setProperty('--i', Math.min(n, 14)); n++; }
+    });
+    if (!archiveMore) return;
+    archiveMore.hidden = n <= ARCH_LIMIT;
+    archiveMore.setAttribute('aria-expanded', archExpanded ? 'true' : 'false');
+    archiveMore.textContent = archExpanded
+      ? (isEn ? 'Show less' : 'Ver menos')
+      : (isEn ? 'Show all ' + n + ' entries' : 'Ver las ' + n + ' entradas');
+    if (window.ScrollTrigger) setTimeout(function(){ ScrollTrigger.refresh(); }, 60);
+  }
+
+  if (archiveMore) archiveMore.addEventListener('click', function(){
+    archExpanded = !archExpanded;
+    applyArchive();
+    if (archExpanded) {
+      var next = archiveList.querySelectorAll('.ix:not([hidden]) .ix-btn')[ARCH_LIMIT];
+      if (next) next.focus({ preventScroll: true });
+    } else if (archiveList.getBoundingClientRect().top < 0) {
+      document.getElementById('archivo').scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   document.querySelectorAll('.filter').forEach(function(btn){
     btn.addEventListener('click', function(){
       activeFilter = btn.getAttribute('data-filter');
       document.querySelectorAll('.filter').forEach(function(b){ b.classList.toggle('is-active', b === btn); });
-      var n = 0;
-      archiveList.querySelectorAll('.ix').forEach(function(li){
-        li.hidden = !(activeFilter === 'all' || li.getAttribute('data-cats').indexOf(activeFilter) !== -1);
-        if (!li.hidden) li.style.setProperty('--i', Math.min(n++, 14));
-      });
+      archExpanded = false;
+      applyArchive();
       archiveList.classList.remove('is-refresh'); void archiveList.offsetWidth; archiveList.classList.add('is-refresh');
     });
   });

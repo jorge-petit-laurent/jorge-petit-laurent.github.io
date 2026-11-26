@@ -273,7 +273,9 @@ a.li-card:hover { transform:translateY(-4px); }
 .filter.is-active { background:var(--ink); color:var(--paper); box-shadow:none; }
 .index li[hidden] { display:none; }
 .ix { border-top:1px solid var(--line); }
-.ix:last-child { border-bottom:1px solid var(--line); }
+.index { border-bottom:1px solid var(--line); }
+.ix-more-wrap { margin-top:22px; }
+.ix-more-wrap .link-btn[hidden] { display:none; }
 .ix-btn { width:100%; display:grid; grid-template-columns:72px 30px minmax(0, 1fr) minmax(0, .8fr); gap:16px; align-items:center; padding:16px 10px; transition:background-color .25s, padding .35s var(--ease); }
 .ix-btn:hover { background:var(--paper-2); padding-left:18px; }
 .ix-y { color:var(--ink-3); white-space:nowrap; }
